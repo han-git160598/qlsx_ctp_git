@@ -1,0 +1,532 @@
+// ==========================================================
+// ============== EMPTY CLASS ===============================
+// ==========================================================
+.empty-box {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: block!important;
+    text-align: center
+}
+
+.empty-box .empty-box-icon {
+    display: inline-block;
+    width: 245px;
+    height: 200px;
+}
+
+.empty-box .empty-box-text {
+    display: block;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.empty-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 4px dashed #15A4DD;
+}
+
+.empty-item::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 68%;
+    border-bottom: 2px dashed #15A4DD;
+    background-image: url('images/none_img.png');
+    background-repeat: no-repeat;
+    background-size: 120px 105px;
+    background-position: center;
+}
+
+.empty-item::after {
+    position: absolute;
+    top: 70%;
+    left: 1rem;
+    content: "Nothing to show here right now";
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    color: #15A4DD;
+}
+
+// ==========================================================
+// =================== FORM CLASS ===========================
+// ==========================================================
+// -----------------   Form info user -----------------------
+.form-info {
+    width: 100%;
+    padding: 0.5rem;
+    input,
+    select,
+    textarea {
+        border: none;
+        outline: none;
+    }
+    .form-info-content {
+        display: flex;
+        .form-info-left {
+            position: relative;
+            flex: 30%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            border-right: 1px solid #C4C4C4;
+            .form-info-input-file,
+            .form-info-input-img {
+                position: absolute!important;
+                top: 5.2rem;
+                left: 25%;
+                display: block;
+                @include widthIcon(7.5rem);
+                border-radius: 50%;
+            }
+            .form-info-input-file {
+                opacity: 0;
+            }
+            .form-info-lable {
+                position: relative;
+                top: 3.2rem;
+                left: 0;
+                display: inline-block;
+                text-align: center;
+                font-weight: 400;
+                font-size: 1rem;
+                color: #818181;
+            }
+        }
+        .form-info-right {
+            flex: 70%;
+            .form-info-row {
+                display: flex;
+                align-items: center;
+                margin: 0.75rem 0;
+                .form-info-lable {
+                    flex: 20%;
+                    text-align: right;
+                    margin-right: 1.75rem;
+                    font-weight: 400;
+                    font-size: 1rem;
+                }
+                .form-info-input-content {
+                    flex: 80%;
+                    input {
+                        width: 100%;
+                        border: 1px solid #C4C4C4;
+                        padding: 1rem;
+                        text-align: left;
+                        font-weight: 400;
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .form-info-row-radio {
+                .form-info-input-radio {
+                    display: flex;
+                    align-items: center;
+                    border: none!important;
+                    padding: none!important;
+                    input[type=radio] {
+                        @include widthIcon(1.5rem);
+                        padding-left: 0!important;
+                    }
+                    label {
+                        font-size: 1rem;
+                        font-weight: 400;
+                        margin-left: 0.5rem;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+            .form-info-select {
+                width: 32.5%;
+                height: 2.5rem;
+                border: 1px solid #C4C4C4;
+                padding: 0.5rem 1.25rem;
+                font-size: 1rem;
+            }
+        }
+    }
+    .form-info-submit {
+        text-align: right;
+        input[type=submit] {
+            display: inline-block;
+            font-size: 1rem;
+            color: #FFFFFF;
+            background-color: #6CBE1B;
+            padding: 0.75rem;
+        }
+    }
+}
+
+// -----------------   Form edit ----------------------------
+.form-edit {
+    width: 100%;
+    height: auto;
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 1.5rem 2.5rem;
+    .form-edit-row {
+        margin: .5rem 0;
+    }
+    .form-edit-row-flex {
+        display: flex;
+        justify-content: space-between;
+        .form-box-flex {
+            width: 48%;
+        }
+    }
+    .form-lable {
+        display: block;
+        text-align: left;
+        margin-bottom: .5rem;
+    }
+    .form-input,
+    .form-select {
+        width: 100%;
+        padding: .75rem 1rem;
+        border: 1px solid #C4C4C4;
+        background: #FFFFFF;
+    }
+    .form-edits-row-check {
+        text-align: left;
+        .form-input-check {
+            display: inline-block;
+            @include widthIcon(1rem);
+            margin-right: .5rem;
+        }
+        .form-lable-check {
+            display: inline-block;
+        }
+    }
+}
+
+// -----------------   Form login ---------------------------
+.form-login {
+    width: 100%;
+    padding: 1rem;
+    .form-box {
+        position: relative;
+        margin: .75rem 0;
+    }
+    .form-input {
+        position: relative;
+        width: 100%;
+        padding: .75rem 1rem;
+        border: 1px solid #C4C4C4;
+        background: #FFFFFF;
+    }
+    .form-icon {
+        position: absolute;
+        top: .75rem;
+        right: 1rem;
+        display: block;
+        @include widthIcon(1.5rem);
+    }
+}
+
+// -----------------   Form add file ------------------------
+.form-file {
+    position: relative;
+    width: 100%;
+    padding: 0.5rem;
+    .form-label {
+        position: relative;
+        display: block;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+    .form-file-box {
+        position: relative;
+        width: 100%;
+        // height: 250px;
+        height: auto;
+        text-align: center;
+    }
+    .form-file-input,
+    .form-file-img {
+        position: relative;
+        top: 0;
+        left: 20%;
+        display: block;
+        width: 60%;
+        height: 200px;
+        border: 2px dashed #6CBE1B;
+        border-radius: 15px;
+    }
+    .form-file-input {
+        z-index: 10;
+        opacity: 0;
+    }
+    .form-file-img {
+        position: absolute;
+    }
+    .form-file-view-img {
+        position: relative;
+        top: -0.2rem;
+        left: 20%;
+        display: none;
+        width: 60%;
+        height: 240px;
+        border-radius: 15px;
+        z-index: 9;
+        img {
+            position: relative;
+            height: 100%;
+        }
+        // opacity: 1;
+    }
+    .form-file-view-img-close {
+        position: absolute;
+        top: -7px;
+        right: 17%;
+        display: none;
+        @include widthIcon(1rem);
+        cursor: pointer;
+        z-index: 20;
+    }
+    .form-file-img::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url("images/none_img.png");
+        background-position: 50% 20%;
+        background-repeat: no-repeat;
+        background-size: 5.5rem 5rem;
+    }
+    .form-file-img::after {
+        bottom: 2rem;
+        content: "JPG, JPG2000, PNG";
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        color: #818181;
+        font-weight: 400;
+        font-style: italic;
+        font-size: .95rem;
+    }
+    .form-file-img-title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        top: -4.5rem;
+        // left: 53%;
+    }
+    .form-input {
+        border: 1px solid #C4C4C4;
+        padding: .5rem;
+        width: 100%;
+    }
+}
+
+// -----------------   waring ---------------------------
+.warning {
+    display: inline-block;
+    // justify-content: center;
+    // align-items: center;
+    width: 80%;
+    text-align: center;
+    background-color: #FDF5F5;
+    padding: 1.25rem;
+    .warning-retangle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .warning-icon {
+        @include widthIcon(1.1rem);
+        margin-right: .5rem;
+        display: inline-block;
+    }
+    .warning-text {
+        display: inline-block;
+        font-weight: 400;
+    }
+}
+
+// -----------------   Input amount ---------------------------
+.amount {
+    position: relative;
+    width: 12rem;
+    input {
+        position: relative;
+        width: 100%;
+        height: 2.2rem;
+        border: 1px solid #C4C4C4;
+        text-align: center;
+    }
+    .minus {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2.1rem;
+        z-index: 10;
+    }
+    .plus {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2.1rem;
+        z-index: 10;
+    }
+}
+
+// -----------------   Input error ---------------------------
+.error-input {
+    border: 1px solid #DE2D2D;
+    box-shadow: 0px 0px 4px #DE2D2D;
+}
+
+.error-text {
+    display: none;
+    color: #F04338;
+}
+
+.success-text {
+    display: none;
+    color: #6CBE1B;
+}
+
+// ==========================================================
+// ======================== A BTN ===========================
+// ==========================================================
+.btn {
+    display: inline-block;
+    color: #FFFFFF;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0;
+}
+
+.btn-green {
+    background-color: #6CBE1B;
+}
+
+.btn-outline.btn-green {
+    background-color: transparent;
+    border: 1px solid #6CBE1B;
+    color: #6CBE1B;
+}
+
+// ==========================================================
+// ======================== MODAL ===========================
+// ==========================================================
+.modal {
+    // position: fixed;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    text-align: center;
+    .modal-box {
+        margin-top: 50px;
+        display: inline-block;
+        width: 70%;
+        height: auto;
+    }
+}
+
+.modal-open {
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+// ==========================================================
+// ======================== PROGRESS BAR ====================
+// ==========================================================
+.progressbar,
+.progressbar-point {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressbar li,
+.progressbar-point li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    position: relative;
+    text-align: center;
+    width: calc(100% / 5);
+}
+
+.progressbar li .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    padding: 12px;
+    border: 2px solid #818181;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: #E5E5E5;
+    cursor: pointer;
+}
+
+.progressbar-point li .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    cursor: pointer;
+}
+
+.progressbar li:after,
+.progressbar-point li:after {
+    position: absolute;
+    top: 1.6rem;
+    left: -45%;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #818181;
+    z-index: 0;
+}
+
+.progressbar-point li:after {
+    top: .5rem;
+    left: -25%;
+    width: 50%;
+    background-color: #C4C4C4;
+}
+
+.progressbar li:first-child:after,
+.progressbar-point li:first-child:after {
+    content: none;
+}
+
+.progressbar li.active .icon {
+    border: 2px solid #15A4DD;
+    transition: border .25s;
+}
+
+.progressbar li.active .icon+span,
+.progressbar-point li.active .icon+span {
+    color: #15A4DD;
+    transition: color .25s;
+}
+
+.progressbar li.active::after,
+.progressbar-point li.active::after {
+    background-color: #15A4DD;
+    transition: all .25s;
+}

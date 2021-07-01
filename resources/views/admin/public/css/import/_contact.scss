@@ -1,0 +1,80 @@
+.contact,
+.register {
+    .bot-content {
+        .wp-content {
+            .box-title {
+                padding: 2.5rem;
+            }
+            .box-content {
+                .box-left {
+                    width: 41.53%;
+                    .box-item {
+                        height: 100%;
+                        .item-title {
+                            border-bottom: none;
+                            color: $txBlack;
+                        }
+                    }
+                    .item-content {
+                        margin-top: 3.5rem;
+                        p {
+                            span.icon {
+                                display: block;
+                                @include widthIcon(24px);
+                            }
+                            margin-bottom:1.625rem;
+                        }
+                    }
+                }
+                .box-right {
+                    width: 55.75%;
+                    .box-item {
+                        .item-title {
+                            border-bottom: none;
+                            color: $txBlack;
+                        }
+                        form.box-request {
+                            text-align: center;
+                            select,
+                            input {
+                                width: 100%;
+                                display: block;
+                                padding: 1rem;
+                                margin-bottom: 1.5rem;
+                                border: 1px solid #C4C4C4;
+                                // padding-right: 0.75rem;
+                                &[name=messager] {
+                                    min-height: 214px;
+                                }
+                                &[type=radio] {
+                                    width: 10%;
+                                }
+                                &[type=submit] {
+                                    display: inline-block;
+                                    width: 18.36%;
+                                    background-color: #6CBE1B;
+                                    color: #F6F6F6;
+                                    font-weight: 600;
+                                    font-size: 1.25rem;
+                                    padding-top: 0.75rem;
+                                    padding-bottom: 0.75rem;
+                                }
+                            }
+                            textarea {
+                                width: 100%;
+                                display: block;
+                                padding: 1rem;
+                                margin-bottom: 1.5rem;
+                                border: 1px solid #C4C4C4;
+                                &[name=messager] {
+                                    min-height: 214px;
+                                }
+                            }
+                        }
+                        padding:2.5rem 3.375rem 0.5rem 3.375rem;
+                    }
+                }
+            }
+        }
+    }
+}

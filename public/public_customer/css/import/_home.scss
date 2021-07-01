@@ -1,0 +1,124 @@
+#wrapper {
+    .wp-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 90;
+        #slide-home {
+            position: relative;
+            .carousel-control-prev {
+                position: absolute;
+                top: 29.13%;
+                left: 0;
+                @include wh(32px, 120px);
+                background-color: $topHeader;
+                .carousel-control-prev-icon {
+                    @include widthIcon(24px);
+                    background-image: url('images/arrow-left.png');
+                }
+            }
+            .carousel-control-next {
+                position: absolute;
+                top: 29.13%;
+                right: 0;
+                @include wh(32px,
+                120px);
+                background-color: $topHeader;
+                .carousel-control-next-icon {
+                    @include widthIcon(24px);
+                    background-image: url('images/arrow-right.png');
+                }
+            }
+        }
+        span.box-contact-shadow {
+            position: fixed;
+            right: 52.26px;
+            bottom: 19.89px;
+            width: 120px;
+            height: 120px;
+            background-color: $bgIconContact;
+            z-index: 100;
+            opacity: 0.15;
+            border-radius: 50%;
+        }
+        .box-contact {
+            position: fixed;
+            width: 110px;
+            height: 110px;
+            background-color: $bgIconContact;
+            text-align: center;
+            align-items: center;
+            right: 56.26px;
+            bottom: 24.89px;
+            padding-top: 28.56px;
+            border-radius: 50%;
+            z-index: 110;
+            cursor: pointer;
+            // box-shadow: 0px 0px 10px $bgIconContact;
+            // opacity: 0.15;
+            div {
+                display: inline-block;
+            }
+            .icon-contact {
+                width: 53px;
+                height: auto;
+                color: $topHeader;
+                &>div {
+                    @include widthIcon(26.67px);
+                    margin-bottom: 8.67px;
+                }
+            }
+            .menu-contact {
+                display: none;
+                position: fixed;
+                right: 48px;
+                bottom: 149px;
+                @include wh(216px,
+                auto);
+                background-color: $topHeader;
+                box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
+                .content-contact {
+                    padding: 16px 0;
+                    .item {
+                        display: flex;
+                        justify-content: start;
+                        padding: 8px 24px;
+                        a {
+                            display: inline-block;
+                            &.item-icon {
+                                @include widthIcon(32px);
+                            }
+                            &.item-title {
+                                margin: 8px 0 8px 15px;
+                            }
+                            &:hover {
+                                color: $txBlack;
+                            }
+                        }
+                        &:hover {
+                            background-color: $tx;
+                        }
+                    }
+                }
+                span.triangle {
+                    position: absolute;
+                    bottom: -8px;
+                    right: 57px;
+                    @include widthIcon(12px);
+                    background-color: $topHeader;
+                    transform: rotate(180deg);
+                }
+            }
+            transition: all 0.5s;
+        }
+        .box-contact-close {
+            display: none;
+            position: fixed;
+            background-image: url('images/x.png');
+            right: 98.26px;
+            bottom: 66.89px;
+            z-index: 111;
+            @include widthIcon(24px);
+        }
+    }
+}

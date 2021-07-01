@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="public/reset.css" rel="stylesheet" type="text/css" />
+    <link href="public/global.css" rel="stylesheet" type="text/css" />
+    <link href="public/css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="public/style.css" rel="stylesheet" type="text/css" />
+    <link href="public/responsive.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="public/carousel/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="public/carousel/owl-carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+
+    <link rel="icon" href="public/images/logolink.png" type="image/x-icon">
+
+    <title>QLSX - Cường Thịnh Phúc</title>
+</head>
+
+<body>
+    <header>
+        <div id="wp-header" class="header-customer">
+            <nav class="bot-header">
+                <div class="dir-user">
+                    <div class="dir-tx">
+                        <div class="fz-075rem t-right">Tài khoản</div>
+                        <p>Jemis Kevin</p>
+                    </div>
+                    <div class="icon">
+                        <span><img src="public/images/avatar.png" alt=""></span>
+                    </div>
+                    <div class="arrow-down">
+                        <span><img src="public/images/arrow_down.png" alt=""></span>
+                    </div>
+                </div>
+
+                <div class="ring-bell">
+                    <!-- header-cart -->
+                    <span class="d-block icon"><img src="public/images/bell.png" alt=""></span>
+                    <span class="amount">4</span>
+                </div>
+
+                <div class="dir-box" id="dir_box">
+                    <span class="triangle"></span>
+                    <div class="box-text">
+                        <a href="my-info.html">Tài khoản của tôi</a>
+                        <a href="my-reset-password.html">Thay đổi mật khẩu</a>
+                        <a href="index.html">Đăng xuất</a>
+                    </div>
+                </div>
+
+                <div class="logo">
+                    <a href="#"><img src="public/images/logo.png" alt=""></a>
+                </div>
+            </nav>
+        </div>
+        <div id="header-hidden"></div>
+    </header>
+
+    <!-- END HEADER -->
+    <div id="wp-admin">
+        <!-- sidebar left fixed -->
+        <div id="sidebar-left">
+            <ul id="main-menu">
+                <li class="item"><a href="customer_index.html">Dasboard</a></li>
+                <li class="item"><a href="customer_list_customer.html">Khách hàng</a></li>
+                <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
+                <li class="item active"><a href="customer_list_product_inventory.html">Kho hàng</a></li>
+                <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
+
+                <li class="item"><a href="customer_list_production.html">Sản xuất</a></li>
+                <li class="item"><a href="customer_list_vendor.html">Nhà cung ứng</a></li>
+                <li class="item"><a href="customer_list_product.html">Sản phẩm</a></li>
+                <li class="item"><a href="customer_list_ship.html">Vận chuyển</a></li>
+                <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
+                <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
+            </ul>
+        </div>
+        <div id="sidebar-left-hidden"></div>
+        <!-- wp content -->
+        <div id="wp-content">
+            <!-- content -->
+            <div id="content" class="w-100" style="float: none;">
+                <h1 class="heading mb-4">
+                    Kho hàng
+                </h1>
+                <div class="tabs-container">
+                    <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
+                        <!-- filter date -->
+                        <ul class="filter-select-date nav nav-tabs w-30">
+                            <li class="item active">
+                                <a data-toggle="tab" href="#head-tab-1" aria-expanded="true">Thành phẩm</a>
+                            </li>
+                            <li class="item">
+                                <a data-toggle="tab" href="#head-tab-2" aria-expanded="false">Nguyên vật liệu</a>
+                            </li>
+                        </ul>
+
+                        <div class="form-edit-row m-0 w-35">
+                            <div class="search" style="position: relative;">
+                                <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
+                                <button class="input d-flex">
+                                <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="public/images/search_black.png" alt=""></span>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="head-tab-1">
+                            <div class="box p-0 panel-body">
+                                <!-- tabs container -->
+                                <div class="tabs-container">
+                                    <ul class="sub-menu nav nav-tabs" style="position: relative;">
+                                        <li class="sub-item active">
+                                            <a data-toggle="tab" href="#tab-one-1" aria-expanded="true">Xuất nhập tồn</a>
+                                        </li>
+                                        <li class="sub-item">
+                                            <a data-toggle="tab" href="#tab-one-2" aria-expanded="false">Nhập kho</a>
+                                        </li>
+                                        <li class="sub-item">
+                                            <a data-toggle="tab" href="#tab-one-3" aria-expanded="false">Xuất kho</a>
+                                        </li>
+
+                                        <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
+                                            <p>Chế độ xem</p>
+                                            <div>
+                                                <select name="filter_by_page" id="filter_by_page" class="py-1 px-3">
+                                            <option value="1">Theo trang</option>
+                                        </select>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="tab-one-1" class="tab-pane active">
+                                            <div class="panel-body" style="height: 554px; overflow-y: scroll;">
+                                                <!-- panel content -->
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: #FFF6E5;">
+                                                        <tr>
+                                                            <th>Mã hàng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Tồn đầu kỳ
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Nhập
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Tồn cuối kỳ
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>ĐVT
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-id-customer="1" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>W-R365</td>
+                                                            <td>92</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>Thùng</td>
+
+                                                        </tr>
+                                                        <tr data-id-customer="2" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>W-R365</td>
+                                                            <td>92</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>Thùng</td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="tab-one-2" class="tab-pane">
+                                            <div class="panel-body" style="height: 554px; overflow-y: scroll;">
+                                                <!-- panel content -->
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: #FFF6E5;">
+                                                        <tr>
+                                                            <th>Ngày nhập
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Phiếu nhập
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã hàng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>ĐVT
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Số lượng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Bộ phận
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-id-customer="1" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>W-R365</td>
+                                                            <td>300</td>
+                                                            <td>3000</td>
+                                                            <td>Máy ly</td>
+                                                        </tr>
+                                                        <tr data-id-customer="2" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>W-R365</td>
+                                                            <td>300</td>
+                                                            <td>3000</td>
+                                                            <td>Máy ly</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="tab-one-3" class="tab-pane">
+                                            <div class="panel-body" style="height: 554px; overflow-y: scroll;">
+                                                <!-- panel content -->
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: #FFF6E5;">
+                                                        <tr>
+                                                            <th>Ngày xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Phiếu xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã KH
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã sản phẩm
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>ĐVT
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+
+                                                            <th>Số lượng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-id-customer="1" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>W-R365</td>
+                                                            <td>W-R365</td>
+                                                            <td>300</td>
+                                                            <td>3000</td>
+                                                        </tr>
+                                                        <tr data-id-customer="2" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>W-R365</td>
+                                                            <td>W-R365</td>
+                                                            <td>300</td>
+                                                            <td>3000</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="head-tab-2">
+                            <div class="box p-0 panel-body">
+                                <!-- tabs container -->
+                                <div class="tabs-container">
+                                    <ul class="sub-menu nav nav-tabs" style="position: relative;">
+                                        <li class="sub-item active">
+                                            <a data-toggle="tab" href="#tab-two-1" aria-expanded="true">Xuất nhập tồn</a>
+                                        </li>
+                                        <li class="sub-item">
+                                            <a data-toggle="tab" href="#tab-two-2" aria-expanded="false">Nhập NVL</a>
+                                        </li>
+                                        <li class="sub-item">
+                                            <a data-toggle="tab" href="#tab-two-3" aria-expanded="false">Xuất NVL cho sản xuất</a>
+                                        </li>
+                                        <!-- filter to page -->
+                                        <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
+                                            <p>Chế độ xem</p>
+                                            <div>
+                                                <select name="filter_by_page" id="filter_by_page" class="py-1 px-3">
+                                            <option value="1">Theo trang</option>
+                                        </select>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="tab-two-1" class="tab-pane active">
+                                            <div class="panel-body" style="height: 554px; overflow-y: scroll;">
+                                                <!-- panel content -->
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: #FFF6E5;">
+                                                        <tr>
+                                                            <th>Mã NVL
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Tồn đầu kỳ
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Nhập
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Tồn cuối kỳ
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>ĐVT
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-id-customer="1" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>NVL365</td>
+                                                            <td>92</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>Thùng</td>
+                                                        </tr>
+                                                        <tr data-id-customer="2" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>NVL365</td>
+                                                            <td>92</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>176.892</td>
+                                                            <td>Thùng</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="tab-two-2" class="tab-pane">
+                                            <div class="panel-body" style="height: 554px; overflow-y: scroll;">
+                                                <!-- panel content -->
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: #FFF6E5;">
+                                                        <tr>
+                                                            <th>Ngày nhập
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Phiếu nhập
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã cung ứng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã NVL
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>ĐVT
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Số lượng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-id-customer="1" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>CU879879</td>
+                                                            <td>W-R365</td>
+                                                            <td>Kg</td>
+                                                            <td>3000</td>
+                                                        </tr>
+                                                        <tr data-id-customer="2" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>CU879879</td>
+                                                            <td>W-R365</td>
+                                                            <td>Kg</td>
+                                                            <td>3000</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div id="tab-two-3" class="tab-pane">
+                                            <div class="panel-body" style="height: 554px; overflow-y: scroll;">
+                                                <!-- panel content -->
+                                                <table class="table table-bordered">
+                                                    <thead style="background-color: #FFF6E5;">
+                                                        <tr>
+                                                            <th>Ngày xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Phiếu xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã sản xuất
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Mã NVL
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>ĐVT
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                            <th>Số lượng
+                                                                <span class="sort">
+                                            <i class="fas fa-chevron-up arrow"></i>
+                                            <i class="fas fa-chevron-down arrow"></i>
+                                        </span>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-id-customer="1" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>SX879879</td>
+                                                            <td>W-R365</td>
+                                                            <td>Kg</td>
+                                                            <td>3000</td>
+                                                        </tr>
+                                                        <tr data-id-customer="2" type="info_order_history" class="click_doubble get_modal">
+                                                            <td>2021-05-06</td>
+                                                            <td>W05-01</td>
+                                                            <td>SX879879</td>
+                                                            <td>W-R365</td>
+                                                            <td>Kg</td>
+                                                            <td>3000</td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <ul class="pagination">
+                    <li class="item prev"><i class="fas fa-chevron-left"></i></li>
+                    <li class="item">1</li>
+                    <li class="item">2</li>
+                    <li class="item">3</li>
+                    <li class="item">4</li>
+                    <li class="item">5</li>
+                    <li class="item next"><i class="fas fa-chevron-right"></i></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+    <!-- Modal info order history-->
+    <div class="modal" id="info_order_history">
+        <div class="modal-box w-65">
+            <div class="modal-title">
+                <h4>Thông tin chi tiết</h4>
+                <span class="icon" data-tag="a">
+                            <img src="public/images/x-black.png" alt="">
+                        </span>
+            </div>
+            <div class="modal-content">
+                <div class="form-info">
+                    <div class="form-info-content justify-content-center">
+                        <div class="form-info-right w-60">
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Thành phố</label>
+                                <div class="form-info-input-content t-left">
+                                    <select name="city" id="city">
+                                        <option value="0">Chọn thành phố</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Tên NVL</label>
+                                <div class="form-info-input-content t-left">
+                                    <input type="text" name="materials_name" id="materials_name" placeholder="Nhập tên sản phẩm">
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Mã NVL</label>
+                                <div class="form-info-input-content t-left">
+                                    <input type="text" name="materials_name" id="materials_name" placeholder="Nhập mã sản phẩm">
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Số lượng</label>
+                                <div class="form-info-input-content t-left">
+                                    <div class="amount ">
+                                        <button class="minus"><img src="public/images/minus.png" alt=""></button>
+                                        <input type="text" class="t-center" value="13.456">
+                                        <button class="plus"><img src="public/images/plus.png" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Đơn vị</label>
+                                <div class="form-info-input-content t-left">
+                                    <select name="unit" id="unit">
+                                        <option value="0">Chọn đơn vị</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-info-row align-item-start">
+                                <label for="title" class="form-info-lable">Quy cách NVL</label>
+                                <div class="form-info-input-content t-left">
+                                    <textarea name="materials_specifications" class="w-100" id="materials_specifications" cols="30" rows="10">Nhập quy cách NVL...</textarea>
+                                </div>
+                            </div>
+                            <!--  -->
+
+                        </div>
+                    </div>
+                </div>
+                <div class="item-content t-right mg-t-175rem ">
+                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Gửi yêu cầu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal delete file attach -->
+    <div class="modal" id="delete_module">
+        <div class="modal-box w-40">
+            <div class="modal-title">
+                <h4>Xóa thông tin</h4>
+                <span class="icon" data-tag="a">
+                    <img src="public/images/x-black.png" alt="">
+                </span>
+            </div>
+            <div class="modal-content">
+                <div class="mg-t-2rem t-center">
+                    <span class="d-inline-block tick-success "><img src="public/images/warning-del.png " alt=" "></span>
+                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
+                </div>
+                <div class="t-center mg-t-175rem">
+                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- END FOOTER -->
+    <script src="public/js/jquery.js " type="text/javascript "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
+    <script src="public/js/bootstrap/bootstrap.min.js " type="text/javascript "></script>
+    <script src="public/carousel/owl-carousel/owl.carousel.min.js "></script>
+    <script src="public/js/plugins/ckeditor/ckeditor.js " type="text/javascript "></script>
+
+    <script src="public/js/main.js " type="text/javascript "></script>
+    <script src="public/js/app.js " type="text/javascript "></script>
+
+    <script src="public/js/progress_bar.js " type="text/javascript "></script>
+    <script src="public/js/view_img.js " type="text/javascript "></script>
+
+    <script>
+    </script>
+</body>
+
+</html>

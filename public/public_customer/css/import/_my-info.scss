@@ -1,0 +1,179 @@
+.side-bar {
+    width: 38%;
+}
+
+.side-bar .box-item {
+    width: 38%;
+    height: auto!important;
+}
+
+.side-bar .box-item .item-title {
+    color: #333333!important;
+    border-bottom: 1px solid #C4C4C4!important;
+}
+
+.side-bar .box-item .item-content {
+    padding: 1rem;
+    margin-top: 0!important;
+    ul.menu-profile {
+        li.item {
+            padding: .5rem 0;
+            a {
+                span {
+                    display: flex;
+                    align-items: center;
+                    &.icon {
+                        @include widthIcon(2rem);
+                        border: 1px solid #333333;
+                        border-radius: 50%;
+                        justify-content: center;
+                        filter: drop-shadow(0px 2px 6px rgba(28, 73, 143, 0.08));
+                        img {
+                            display: inline-block;
+                            width: 50%;
+                            height: 50%;
+                        }
+                    }
+                }
+            }
+            &.active a span {
+                font-weight: 600;
+                &.icon {
+                    border: 2px solid #333333;
+                    filter: drop-shadow(0px 2px 6px rgba(28, 73, 143, 0.08));
+                }
+            }
+        }
+    }
+    ul.sub-menu-profile {
+        display: none;
+        padding: 0 2rem;
+        li.item.active {
+            background: #F6F6F6;
+            font-weight: 600;
+        }
+    }
+}
+
+.rcontent {
+    width: 61%;
+}
+
+#my_address_send,
+#my_address_receive,
+#my_announce,
+#my_invoice,
+#my_detail_invoice,
+#choose_date_give_order {
+    .box-item {
+        height: auto;
+        padding: 1.75rem!important;
+        .item-title {
+            position: relative;
+            border-bottom: none!important;
+            color: #333333!important;
+            .default {
+                display: inline-block;
+                border: 1px solid #15A4DD;
+                color: #15A4DD;
+                padding: .5rem 1rem;
+                margin-left: 2rem;
+            }
+            span[data-tag='a'] {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        .item-content {
+            position: relative;
+            p span {
+                &.icon {
+                    display: inline-block;
+                    @include widthIcon(1.5rem);
+                    margin-right: .5rem;
+                }
+            }
+            span[data-tag='a'] {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+}
+
+.modal {
+    .box-content {
+        margin-top: 0!important;
+    }
+    .item-title {
+        position: relative;
+        color: #333333!important;
+        border-bottom: 1px solid #333333!important;
+        span.icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            @include widthIcon(1rem!important);
+            cursor: pointer;
+        }
+    }
+}
+
+#modal_delete_address_send {
+    .modal-box {
+        width: 30%;
+    }
+}
+
+#my_invoice .box-item {
+    height: auto;
+}
+
+#my_invoice .box-right .box-item.menu {
+    padding: 0 1.75rem!important;
+    height: 3rem!important;
+    display: flex;
+    justify-content: space-between;
+    .item {
+        padding-top: 1rem;
+        &.active,
+        &:hover {
+            border-bottom: 1px solid #15A4DD;
+            span[data-tag='a'] {
+                color: #15A4DD;
+            }
+        }
+    }
+}
+
+#my_detail_invoice .box-product .product-item {
+    position: relative;
+    &>span:last-child {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &:last-child {
+        border-bottom: 1px solid #C4C4C4!important;
+    }
+}
+
+#total_money_final {
+    padding-top: 1.75rem;
+    border-top: 1px dashed #EBEBEB;
+}
+
+#add_attach_file {
+    .modal-box {
+        width: 50%;
+    }
+}
+
+#delete_attach_file {
+    .modal-box {
+        width: 30%;
+    }
+}

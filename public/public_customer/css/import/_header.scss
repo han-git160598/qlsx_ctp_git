@@ -1,0 +1,175 @@
+html {
+    // font-size: 16px;
+    user-select: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+header {
+    font-size: 1rem;
+    #wp-header {
+        position: relative;
+        width: 100%;
+        height: 128px;
+        .top-header {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: $topHeader;
+            .certification {
+                position: absolute;
+                width: 9.22%;
+                height: 70.59%;
+                // left: 794px;
+                left: 59.43%;
+                top: 8px;
+            }
+            .iso {
+                position: absolute;
+                width: 5.71%;
+                height: 70.59%;
+                // left: 936px;
+                left: 70.05%;
+                top: 8px;
+            }
+            .phone-contact {
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+                padding: 0px;
+                position: absolute;
+                width: 18.15%;
+                height: auto;
+                // left: 1062px;
+                left: 79.49%;
+                top: 16px;
+                &>div>img {
+                    @include widthIcon(32px);
+                }
+                div {
+                    font-weight: 600;
+                    // font-size: 1.5em;
+                }
+            }
+        }
+        .bot-header {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: $mainColor;
+            color: $tx;
+            a {
+                font-size: 1em;
+                color: $tx;
+            }
+            #main-menu {
+                position: absolute;
+                top: 21px;
+                left: 33.3%;
+                width: 45.24%;
+                height: 67.2%;
+                display: flex;
+                justify-content: space-between;
+                .item {
+                    &:first-child {
+                        margin-right: 0 20px;
+                    }
+                    &:last-child {
+                        margin-left: 0 20px;
+                    }
+                    margin: 0 20px;
+                    &:hover,
+                    &.active {
+                        a {
+                            font-weight: 600;
+                            color: $hoverTxMenu;
+                        }
+                        border-bottom: 2px solid $hoverTxMenu;
+                    }
+                }
+            }
+            .dir-user {
+                position: relative;
+                width: 14.12%;
+                height: 62.5%;
+                left: 82.94%;
+                top: 12px;
+                display: flex;
+                // justify-content: space-around;
+                align-items: center;
+                .dir-tx {
+                    position: absolute;
+                    top: 3px;
+                    right: 35.23%;
+                    // letter-spacing: 0.02em;
+                    div {
+                        margin-bottom: 6px;
+                        a {
+                            font-size: 0.75em
+                        }
+                    }
+                }
+                .icon {
+                    position: absolute;
+                    top: 0;
+                    left: 68.91%;
+                    @include widthIcon(40px);
+                }
+                .arrow-down {
+                    position: absolute;
+                    left: 94.81%;
+                    // top: 45%;
+                    // @include wh(5px, 8px);
+                }
+            }
+            .dir-box {
+                display: none;
+                position: absolute;
+                right: 34px;
+                top: 66px;
+                z-index: 100;
+                @include wh(193px, auto);
+                box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
+                &>span.triangle {
+                    position: absolute;
+                    right: 22.48%;
+                    top: -7.18%;
+                    @include wh(12px, 12px);
+                    display: block;
+                    background-color: $topHeader;
+                }
+                .box-text {
+                    background-color: $topHeader;
+                    padding: 16px 0;
+                    a {
+                        display: block;
+                        padding: 16px 61px;
+                        text-align: center;
+                        font-size: 0.875rem;
+                        color: $txBlack;
+                        &:hover {
+                            background-color: #F6F6F6;
+                        }
+                    }
+                }
+            }
+        }
+        .logo {
+            position: absolute;
+            left: 5.27%;
+            top: 14.06%;
+            @include wh(10.24%, 71.09%);
+        }
+    }
+}

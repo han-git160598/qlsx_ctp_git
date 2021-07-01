@@ -1,0 +1,29 @@
+#show_info_file {
+    position: relative;
+    padding: 1rem;
+    border: 1px solid #C4C4C4;
+    margin-bottom: 2rem;
+}
+
+.box-attach {
+    position: relative;
+    background: #F6F6F6;
+    padding: .5rem 1rem;
+    margin: 1rem 0;
+}
+
+#file_name {
+    width: 20%;
+    position: relative;
+    border-radius: 10px;
+    .file-name {
+        position: relative;
+    }
+    .file-close {
+        display: block;
+        @include widthIcon(1rem);
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}

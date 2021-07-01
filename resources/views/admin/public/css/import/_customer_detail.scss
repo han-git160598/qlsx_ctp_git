@@ -1,0 +1,19 @@
+ul.sub-menu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    .sub-item {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        // width: 15%;
+        &:hover,
+        &.active {
+            border-bottom: 1px solid #15A4DD;
+            a {
+                color: #15A4DD;
+            }
+        }
+    }
+}
