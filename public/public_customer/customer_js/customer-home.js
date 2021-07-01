@@ -1,15 +1,16 @@
 $(document).ready(function () {
     list_customer_product();
-    list_customer_order();
+    arr_customer_order();
 
 })
 function account_customer()
 {
     
 }
+
 function list_customer_product()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     var count = 0;
     $.ajax({
         url: urlapi,
@@ -47,9 +48,9 @@ function list_customer_product()
     })
 }
 
-function list_customer_order()
+function arr_customer_order()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     var count = 0 
     $.ajax({
         url: urlapi,
@@ -102,7 +103,7 @@ function list_customer_order()
 
 function all_customer_product()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -137,7 +138,7 @@ function all_customer_product()
 
 function all_customer_order()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',

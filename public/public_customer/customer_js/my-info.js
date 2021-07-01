@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 function customer_detail()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -45,7 +45,7 @@ function update_customer(id)
 
 function list_address_shipping()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -124,7 +124,7 @@ function list_address_shipping()
 }
 function add_address_shipping()
 {
-    let id_customer= 48;
+    let id_customer= item.id;
     if( $('#address_shipping').val() == '' ||$('#ward_shipping').val() =='' ||
         $('#district_shipping').val()=='' ||$('#city_shipping').val() =='' )
     {
@@ -205,7 +205,7 @@ function edit_address_shipping(id_shipping){
 }
 function update_address_shipping(id)
 {
-    let id_customer = 48 ;
+    let id_customer = item.id ;
     let reminiscent_company_name = $('#edit_reminiscent_company_name').val()
     let address_address = $('#edit_address_shipping').val() +", " + $('#edit_ward_shipping').val() +", " + $('#edit_district_shipping').val() +", " + $('#edit_city_shipping').val();
     let contact_person = $('#edit_contact_person').val();
@@ -268,7 +268,7 @@ function hidden_password1(id)
 
 function change_password()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     var password = $('#password_new').val();
     var old_password = $('#password_old').val();
     var password_confirm = $('#password_confirm').val();
@@ -308,7 +308,7 @@ function change_password()
 /////////////////////////////////////////////////////////////////////////////////////////////////
 function list_address_delivery()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -388,7 +388,7 @@ function list_address_delivery()
 }
 function add_address_delivery()
 {
-    let id_customer= 48;
+    let id_customer= item.id;
     if( $('#address_shipping').val() == '' ||$('#ward_shipping').val() =='' ||
         $('#district_shipping').val()=='' ||$('#city_shipping').val() =='' )
     {
@@ -469,7 +469,7 @@ function edit_address_delivery(id_shipping){
 }
 function update_address_delivery(id)
 {
-    let id_customer = 48 ;
+    let id_customer = item.id ;
     let reminiscent_company_name = $('#edit_reminiscent_company_name').val()
     let address_address = $('#edit_address_shipping').val() +", " + $('#edit_ward_shipping').val() +", " + $('#edit_district_shipping').val() +", " + $('#edit_city_shipping').val();
     let contact_person = $('#edit_contact_person').val();

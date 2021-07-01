@@ -564,4 +564,8 @@
             </div>
         </div>
     </div>
+
+
+    <script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
+<script src="{{ asset('public_customer/customer_js/my-info.js')}}" type="text/javascript "></script>
 @endsection

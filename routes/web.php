@@ -32,3 +32,11 @@ Route::get('/my-order',function()
 {
     return view('customer.my-order');
 });
+
+Route::get('/detail-product',function()
+{
+    return view('customer.detail_product');
+});
+Route::get('/cart',function(){
+    return view('customer.cart');
+});

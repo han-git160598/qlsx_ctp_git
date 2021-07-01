@@ -3,14 +3,14 @@ $(document).ready(function() {
 })
 function list_customer_order()
 {
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
-        method: 'POST',
+        method: 'POST', 
         data: { detect: 'list_order', id_customer: id_customer},
-        dataType: 'json',
+        dataType: 'json', 
         headers: headers,
-        success: function(response) {
+        success: function(response) { 
             if(response.success=='true')
             {
                 var output= ``;
@@ -34,8 +34,9 @@ function list_customer_order()
                         </div>
                     </div>`;
                 })
-                $('#all_order').html(output);
                 $('#my_detail_invoice').hide();
+                $('#all_order').html(output);
+                
             }
         }
     })
@@ -48,7 +49,7 @@ function status_order(status)
     // payment = 4
     // complete = 5
     // cancel = 6  
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -127,8 +128,7 @@ function delivery_to_payment(id_order)
 ///////////my-detail-invoice
 function order_detail(id_order)
 {
-    console.log(id_order)
-    var id_customer = 48;
+    var id_customer = item.id;
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -138,12 +138,7 @@ function order_detail(id_order)
         success: function(response) {
             console.log(response);
             let item = response.data[0];
-            let order_record_delivery = item.order_record_delivery.split(",");
-            let array_record={};
-            array_record['company']=order_record_delivery[0]
-            array_record['name']=order_record_delivery[1]
-            array_record['phone']=order_record_delivery[2]
-            array_record['address']=order_record_delivery[3]
+            let order_record_delivery = JSON.parse(item.order_record_delivery);
         let output=`
         <div class="item-title mg-b-05rem py-05rem px-1rem d-flex justify-content-space-between">
         </div>
@@ -160,20 +155,20 @@ function order_detail(id_order)
                     <span data-tag="a" type="modal_edit_address_receive" class="get_modal fw-400 fz-1rem t-green-main">Sửa</span>
                 </div>
                 <div class="item-title d-flex">
-                    <p class="fw-600 fz-125rem"> ${array_record.company}</p>
+                    <p class="fw-600 fz-125rem"> ${order_record_delivery.company}</p>
                 </div>
                 <div class="item-content">
                     <p>
-                        <span class="icon"><img src="public/images/detail_account_black.png" alt=""></span>
-                        <span class="fw-600 fz-1rem">${array_record.name}</span>
+                        <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                        <span class="fw-600 fz-1rem">${order_record_delivery.customer}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="public/images/detail_phone_black.png" alt=""></span>
-                        <span class="fw-600 fz-1rem"> ${array_record.phone}</span>
+                        <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                        <span class="fw-600 fz-1rem"> ${order_record_delivery.phone}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="public/images/detail_location_black.png" alt=""></span>
-                        <span class="fw-600 fz-1rem"> ${array_record.address}</span>
+                        <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                        <span class="fw-600 fz-1rem"> ${order_record_delivery.address}</span>
                     </p>
                 </div>
             </div>
@@ -186,26 +181,48 @@ function order_detail(id_order)
                 </div>
                 <!-- product item -->
                 <div class="box-product">`;
+               
                 item.order_item_product.forEach(function(item_product) {
-                output+=`
-                    <a onclick="detail_product(${item_product.id})" class="item-title d-flex product-item py-2">
-                        <span class="fw-600 fz-125rem thumb-nail w-10">
-                            <img src="${urlserver+item_product.product_img}" alt="">
-                        </span>
-                        <span class="fw-600 fz-125rem mg-l-125rem">${item_product.product_name}</span>
-                        <span class="fw-400 fz-1rem t-right">
-                     
-                        <span class="d-block t-right">x${item_product.product_quantity_packet} Cái</span>
-                        </span>
-                    </a>`;
+                    console.log(item_product)
+                    output+=`
+                        <a onclick="detail_product(${item.id_product})" class="item-title d-flex flex-start product-item py-2">
+                            <span class="fw-600 fz-125rem thumb-nail w-10">
+                                <img src="../public_customer/images/product_4.png" alt="">
+                            </span>
+                            <span class="fw-600 fz-125rem mg-l-125rem t-left">Bao bì kem 2 dòng
+                            <span class="d-flex py-2 align-item-center">
+                                <span class="t-lable mr-3">x1000 </span>
+                            </span>
+                            <span class="d-flex py-2 align-item-center">
+                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                            <span class="fz-075rem">Ly</span>
+                            </span>
+                            <span class="d-flex py-2 align-item-center">
+                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                            <span class="fz-075rem">Thùng</span>
+                            </span>
+                            <span class="d-flex py-2 align-item-center">
+                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                            <span class="fz-075rem">300 Cái/Thùng</span>
+                            </span>
+                            <span class="d-flex py-2 align-item-center">
+                                <span class="t-lable mr-3">99.000d</span>
+                            </span>
+                            </span>
+                        </a>
+       
+                        `;
+                
+                
+
                 })
                 output +=` 
                 </div>
-                <!-- total money-->
-                <div class="box-money w-100">
+              
+                <div class="box-money w-100 border-bottom color-main">
                     <div class="d-flex justify-content-space-between py-2" id="total_money_final">
                         <span class="fw-400 d-inline-block t-right w-80">Tổng:</span>
-                        <strong class="d-inline-block t-right w-20">${item.order_total_cost} đ</strong>
+                        <strong class="d-inline-block t-right w-20">223.000 đ</strong>
                     </div>
                 </div>
 
@@ -225,22 +242,16 @@ function order_detail(id_order)
 
 function detail_product(id)
 {
+    
     $.ajax({
         url: urlapi,
         method: 'POST',
-        data: { detect: 'list_product', id_product: id},
+        data: { detect: 'product_manager',type_manager:'list_product', id_product: id},
         dataType: 'json',
         headers: headers,
         success: function(response) {
-            // $.redirectPost(urllocal+detail_product.html ,
-            //     {
-            //        response
-            //     });
-            postRedirect(urllocal+detail_product.html, response);
+            localStorage.setItem('detail_product', JSON.stringify(response.data[0]));
+            window.location.href = urlserver+ 'detail-product';
         }
     });
- 
-    
-  
-    
 }

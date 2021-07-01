@@ -30,3 +30,5 @@ function order_status(status)
     }
     return status_text;
 }
+
+var item = JSON.parse(localStorage.getItem('account_customer'));

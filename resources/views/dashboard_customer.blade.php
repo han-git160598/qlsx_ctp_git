@@ -74,36 +74,9 @@
                                 </div>
 
                             </a>
-                            <a href="#" class="d-flex header-cart-item px-1rem">
-                                <div class="thumb-nail">
-                                    <img src="{{ asset('public_customer/images/product_1.png')}}" alt="">
-                                </div>
-                                <div class="item-content px-1rem">
-                                    <h4 class="t-left fw-600 t-cap fz-1rem lh-1rem">Bao bì kem 2 dòng kem 2 dòng</h4>
-                                    <span class="t-left fw-400 t-cap fz-1rem lh-1rem">Bao bì nhựa</span>
-                                </div>
-                                <div class="cost t-left">
-                                    <span class="fw-400 fz-1rem">x10000 Cái</span>
-                                </div>
-
-                            </a>
-                            <a href="#" class="d-flex header-cart-item px-1rem">
-                                <div class="thumb-nail">
-                                    <img src="{{ asset('public_customer/images/product_1.png')}}" alt="">
-                                </div>
-                                <div class="item-content px-1rem">
-                                    <h4 class="t-left fw-600 t-cap fz-1rem lh-1rem">Bao bì kem 2 dòng kem 2 dòng</h4>
-                                    <span class="t-left fw-400 t-cap fz-1rem lh-1rem">Bao bì nhựa</span>
-                                </div>
-                                <div class="cost t-left">
-                                    <span class="fw-400 fz-1rem">x10000 Cái</span>
-                                </div>
-
-                            </a>
-
                         </div>
                         <div class="item-content t-right">
-                            <button class="btn-submit d-inline-block mg-t-1rem mg-r-1rem"><span>Xem đơn hàng</span></button>
+                            <a href="{{URL::to('cart')}}" class="btn-submit d-inline-block mg-t-1rem mg-r-1rem"><span>Xem đơn hàng</span></a>
                         </div>
 
                     </div>
@@ -172,10 +145,7 @@
 
     <script src="{{ asset('public_customer/url_global.js')}}" type="text/javascript "></script>
 
-    <script src="{{ asset('public_customer/customer_js/customer-home.js')}}" type="text/javascript "></script>
-    <script src="{{ asset('public_customer/customer_js/my-order.js')}}" type="text/javascript "></script>
-
-    <script src="{{ asset('public_customer/customer_js/my-info.js')}}" type="text/javascript "></script>
+    
     
 
     <script>
