@@ -26,7 +26,9 @@ function list_customer_product()
                     count +=1;
                     if(count < 4 )
                     {
-                        output  +=` <div class="box-item px-0 py-0">
+                        output  +=`
+                                    <div class="box-item px-0 py-0">
+                                    <a href onclick="detail_product(${item.id_product})">
                                         <div class="thumb-nail">
                                             <img src="${urlserver + item.product_img}" alt="">
                                         </div>
@@ -34,6 +36,7 @@ function list_customer_product()
                                             <h4 class="t-left fw-600 t-cap fz-15rem lh-15rem"> ${item.product_name}</h4>
                                             <span class="t-left fw-400 t-cap fz-15rem lh-15rem"> ${item.product_code}</span>
                                         </div>
+                                    </a>
                                     </div>`;
                     }
                     
@@ -46,6 +49,26 @@ function list_customer_product()
             }
         }
     })
+}
+function detail_product(id)
+{
+    
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'product_manager',type_manager:'list_product', id_product: id},
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            localStorage.setItem('detail_product', JSON.stringify(response.data[0]));
+            window.location.href = urlserver+ 'detail-product';
+        }
+    });
+}
+function order_detail(id_order)
+{
+    localStorage.setItem('detail_order', JSON.stringify(id_order));
+    window.location= urlserver + 'my-detail-invoice';
 }
 
 function arr_customer_order()
@@ -68,7 +91,9 @@ function arr_customer_order()
                     if(count < 4 )
                     {
                         output += `
+                           
                             <div class="box-item px-0 py-0">
+                                <a onclick="order_detail(${item.id_order})">
                                 <div class="thumb-nail">
                                     <img src="../public_customer/images/invoice_dashboard.png" alt="">
                                 </div>
@@ -83,7 +108,9 @@ function arr_customer_order()
                                         <span class="fw-600 fz-15rem"> ${item.order_total_cost} đ</span>
                                     </div>
                                 </div>
+                                </a>
                             </div>
+                       
                         `;
                     }
                
@@ -116,6 +143,7 @@ function all_customer_product()
                 var output=``;
                 response.data.forEach(function(item) {
                     output  +=` <div class="box-item px-0 py-0">
+                                 <a href onclick="detail_product(${item.id_product})">
                                     <div class="thumb-nail">
                                         <img src="${urlserver + item.product_img}" alt="">
                                     </div>
@@ -123,6 +151,7 @@ function all_customer_product()
                                         <h4 class="t-left fw-600 t-cap fz-15rem lh-15rem"> ${item.product_name}</h4>
                                         <span class="t-left fw-400 t-cap fz-15rem lh-15rem"> ${item.product_code}</span>
                                     </div>
+                                </a>
                                 </div>`;
                    
                     
@@ -154,6 +183,7 @@ function all_customer_order()
                    
                 output += `
                     <div class="box-item px-0 py-0">
+                        <a  onclick="order_detail(${item.id_order})">
                         <div class="thumb-nail">
                             <img src="../public_customer/images/invoice_dashboard.png" alt="">
                         </div>
@@ -168,6 +198,7 @@ function all_customer_order()
                                 <span class="fw-600 fz-15rem"> ${item.order_total_cost} đ</span>
                             </div>
                         </div>
+                        </a>
                     </div>
                 `;
                     

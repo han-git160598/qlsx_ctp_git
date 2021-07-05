@@ -36,6 +36,7 @@ function add_cart()
 		cart=[];
 		cart.push(item_product);
 		localStorage.setItem('cart', JSON.stringify(cart));
+		alert('Thêm vào giỏ hàng thành công');
 	}else{
 		
 		cart.push(item_product);
@@ -45,6 +46,7 @@ function add_cart()
 
 		//cart.push(item_product);
 		localStorage.setItem('cart', JSON.stringify(unique));
+		alert('Thêm vào giỏ hàng thành công');
 	 	
 	}
    

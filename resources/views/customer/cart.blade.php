@@ -83,15 +83,15 @@
                                     </style>
                                     <!-- address_send -->
                                     <div class="box-address active p-4" id="address_send">
-                                        <div class="d-flex justify-content-space-between">
+                                        <!-- <div class="d-flex justify-content-space-between">
                                             <h1 class="fw-600 fz-1rem">Địa chỉ gửi hàng</h1>
                                             <div>
 
                                                 <span type="delete_address_send" data-tag="a" class="get_modal fw-400 t-green-main px-2">Xóa</span>
-                                                <span type="choose_address_send_order" data-tag="a" class="get_modal fw-400 t-green-main px-2">Sửa</span>
+                                                <span onclick="show_modal_address_shipping()" data-tag="a" class="get_modal fw-400 t-green-main px-2">Sửa</span>
                                             </div>
                                         </div>
-                                        <div class="p-4 box-address">
+                                        <div class="p-4 box-address" id="address_shipping">
                                             <p class="fw-600 fz-125rem">Công ty Cổ Phần ABC - Chi nhánh 1</p>
                                             <div class="item-content">
                                                 <p>
@@ -107,20 +107,20 @@
                                                     <span class="fw-600 fz-1rem">157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</span>
                                                 </p>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
-                                    <div class="p-4">
+                                    <div class="p-4" id="btn_show_modal_address_shipping">
                                         <a onclick="show_modal_address_shipping()" class="fw-600  t-green-main">+ Thêm địa chỉ gửi</a>
                                     </div>
 
                                     <!-- date give order -->
                                     <div class="d-flex p-4 mt-4 justify-content-space-between" style="border-top: 1px dashed #EBEBEB ;">
-                                        <p class="fw-400">Ngày nhận: </p>
-                                        <p class="fw-400">2021-04-05</p>
+                                        <span type="choose_date_give_order" data-tag="a" class="get_modal fw-400">Ngày nhận:</span>
+                                        <p class="fw-400" id="view_date"></p>
                                     </div>
                                     <div style="height: 100px; visibility: hidden;"></div>
-                                    <div class="t-center w-100" style="position: absolute; bottom: 2rem;">
+                                    <div class="t-center w-100" style="position: absolute; bottom: 2rem;" id="btn_create_order">
                                         <span type="choose_date_give_order" data-tag="a" class="get_modal btn btn-green  w-70">Tiến hành đặt hàng</span>
                                         <span type="order_stock" data-tag="a" class="d-none btn btn-green  w-70">Đặt hàng</span>
                                         <!-- text check -->
@@ -145,11 +145,11 @@
                                     <div class="p-4">
                                         <label for="choose_date" class="fw-400 d-block mb-3 t-left">Ngày nhận</label>
                                         <input type="date" name="choose_date" id="choose_date" class="w-100 py-1 px-3" style="border:  1px solid #C4C4C4;">
-                                        <small class="error-text mt-3 t-center">Bạn chưa chọn ngày nhận hàng</small>
+                                        <small class="error-text mt-3 t-center" id="erro_choose_date">Bạn chưa chọn ngày nhận hàng</small>
                                     </div>
 
                                     <div class="item-content t-center mg-t-175rem ">
-                                        <button id="submit_choose_date_give_order" class="btn-submit w-50 d-inline-block fz-1rem">Hoàn thành</button>
+                                        <button onclick="submit_choose_date_give_order()" class="btn-submit w-50 d-inline-block fz-1rem">Hoàn thành</button>
                                     </div>
                                 </div>
                             </div>
@@ -182,52 +182,47 @@
                                     </div>
 
                                     <!-- form add address -->
-                                    <form action="" id="add_address_give_order" method="post" class="form-edit mt-2" style="background-color: #F6F6F6;">
+                                    <form action="" method="post" class="form-edit mt-2" id="add_address_give_order" style="background-color: #F6F6F6;">
                                         <div class="form-edit-row">
-                                            <label class="form-lable">Tên công ty</label>
-                                            <input type="text" class="form-input" name="address_name" id="address_name" placeholder="Nhập tên công ty" value="">
+                                            <label class="form-lable">Tên gợi nhớ</label>
+                                            <input type="text" class="form-input" name="address_name" id="reminiscent_company_name" placeholder="Nhập tên công ty" value="">
                                         </div>
                                         <div class="form-edit-row form-edit-row-flex input-content ">
                                             <div class="form-box-flex">
-                                                <label class="form-lable">Người đại diện</label>
-                                                <input type="text" class="form-input" name="contact_name" id="contact_name" placeholder="Nhập tên người đại diện" value="">
+                                                <label class="form-lable">Liên hệ</label>
+                                                <input type="text" class="form-input" name="contact_name" id="contact_person" placeholder="Nhập tên người đại diện" value="">
                                             </div>
                                             <div class="form-box-flex">
                                                 <label class="form-lable">Số điện thoại</label>
-                                                <input type="text" class="form-input name" name="contact_number" id="contact_number" placeholder="Số điện thoại" value="">
+                                                <input type="text" class="form-input name" name="contact_number" id="address_phone" placeholder="Số điện thoại" value="">
                                             </div>
                                         </div>
-                                        <div class="form-edit-row ">
+                                        <div class="form-box-flex">
                                             <label class="form-lable ">Thành phố</label>
-                                            <select name="city " id="city " class="form-select">
-                                                                <option value="0 ">Chọn thành phố</option>
-                                                            </select>
+                                            <input name="city " id="city_shipping" class="form-input name" placeholder="Thành phố">
                                         </div>
                                         <div class="form-edit-row form-edit-row-flex input-content ">
                                             <div class="form-box-flex ">
                                                 <label class="form-lable ">Quận/huyện</label>
-                                                <select name="district " id="district " class="form-select">
-                                                                        <option value="0 ">Chọn quận/huyện</option>
-                                                                    </select>
+                                                <input name="district " id="district_shipping" class="form-input name" placeholder="Quận/huyện">
                                             </div>
                                             <div class="form-box-flex ">
                                                 <label class="form-lable ">Phường/xã</label>
-                                                <select name="ward " id="ward " class="form-select">
-                                                                        <option value="0 ">Chọn phường/xã</option>
-                                                                    </select>
+                                                <input name="ward " id="ward_shipping" class="form-input name" placeholder="Phường/xã">
                                             </div>
                                         </div>
                                         <div class="form-edit-row ">
                                             <label class="form-lable ">Địa chỉ</label>
-                                            <select name="address " id="address " class="form-select">
-                                                                <option value="0 ">Nhập địa chỉ cụ thể</option>
-                                                            </select>
+                                            <input name="address " id="address_shipping" class="form-input name" placeholder="Nhập địa chỉ cụ thể">
+
                                         </div>
-                                        <div class="form-edit-row-check t-left">
-                                            <input type="checkbox" class="form-input-check " name="choose_default " id="choose_default ">
+                                        <div class="form-edit-row-check ">
+                                            <input type="checkbox" class="form-input-check " name="choose_default " id="choose_default">
                                             <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>
                                         </div>
                                     </form>
+
+                                    
                                     <!-- end form add address -->
                                     <div class="t-right mg-t-175rem" id="btn_default_address">
                                         <button id="submit_give_order" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
@@ -245,78 +240,65 @@
                                         <h4 class="t-left fw-600 t-cap fz-15rem lh-2rem">Chọn địa chỉ gửi hàng</h4>
                                         <span class="icon"><a href="#cancel_add_attach"><img src="{{ asset('public_customer/images/x-black.png')}} " alt=" "></a></span>
                                     </div>
-
-                                    <div class="py-3" style="position: relative; text-align: left;">
-                                        <input type="radio" name="choose_address_send_order" id="address_1" value="address_1" class="d-inline-block" style="position: relative;top: -4.5rem;">
-                                        <div class="lh-15rem mg-l-1rem d-inline-block w-70">
-                                            <strong>Phước Bình</strong>
-                                            <p>Cecilia Chapman | (257) 563-7401 </p>
-                                            <p>Tòa nhà TMA, đường số 10, Công viên phần mềm Quang Trung, P. Tân Chánh Hiệp, Quận 12, TP.HCM </p>
-                                        </div>
-                                    </div>
-                                    <div class="py-3" style="position: relative; text-align: left;">
-                                        <input type="radio" name="choose_address_send_order" id="address_1" value="address_1" class="d-inline-block" style="position: relative;top: -4.5rem;">
-                                        <div class="lh-15rem mg-l-1rem d-inline-block w-70">
-                                            <strong>Phước Bình</strong>
-                                            <p>Cecilia Chapman | (257) 563-7401 </p>
-                                            <p>Tòa nhà TMA, đường số 10, Công viên phần mềm Quang Trung, P. Tân Chánh Hiệp, Quận 12, TP.HCM </p>
-                                        </div>
+                                    <div id="list_address_shipping_cart">
+                                        <!-- <div class="py-3" style="position: relative; text-align: left;">
+                                            <input type="radio" name="choose_address_send_order" id="address_1" value="address_1" class="d-inline-block" style="position: relative;top: -4.5rem;">
+                                            <div class="lh-15rem mg-l-1rem d-inline-block w-70">
+                                                <strong>Phước Bình</strong>
+                                                <p>Cecilia Chapman | (257) 563-7401 </p>
+                                                <p>Tòa nhà TMA, đường số 10, Công viên phần mềm Quang Trung, P. Tân Chánh Hiệp, Quận 12, TP.HCM </p>
+                                            </div>
+                                        </div> -->
                                     </div>
 
                                     <div class="t-left mg-t-175rem ">
-                                        <a href="#add_address_give_order" class="fw-600 t-green-main">+ Thêm địa chỉ</a>
+                                        <a onclick="show_add_address_shipping()" class="fw-600 t-green-main">+ Thêm địa chỉ</a>
                                     </div>
 
                                     <!-- form add address -->
-                                    <form action="" method="post" class="form-edit mt-2" style="background-color: #F6F6F6;">
+                                    <form action="" method="post" class="form-edit mt-2" id="show_add_address_shipping" style="background-color: #F6F6F6;">
                                         <div class="form-edit-row">
                                             <label class="form-lable">Tên gợi nhớ</label>
-                                            <input type="text" class="form-input" name="address_name" id="address_name" placeholder="Nhập tên công ty" value="">
+                                            <input type="text" class="form-input" name="address_name" id="reminiscent_company_name1" placeholder="Nhập tên công ty" value="">
                                         </div>
                                         <div class="form-edit-row form-edit-row-flex input-content ">
                                             <div class="form-box-flex">
                                                 <label class="form-lable">Liên hệ</label>
-                                                <input type="text" class="form-input" name="contact_name" id="contact_name" placeholder="Nhập tên người đại diện" value="">
+                                                <input type="text" class="form-input" name="contact_name" id="contact_person1" placeholder="Nhập tên người đại diện" value="">
                                             </div>
                                             <div class="form-box-flex">
                                                 <label class="form-lable">Số điện thoại</label>
-                                                <input type="text" class="form-input name" name="contact_number" id="contact_number" placeholder="Số điện thoại" value="">
+                                                <input type="text" class="form-input name" name="contact_number" id="address_phone1" placeholder="Số điện thoại" value="">
                                             </div>
                                         </div>
-                                        <div class="form-edit-row ">
+                                        <div class="form-box-flex">
                                             <label class="form-lable ">Thành phố</label>
-                                            <select name="city " id="city " class="form-select">
-                                                                <option value="0 ">Chọn thành phố</option>
-                                                            </select>
+                                            <input name="city " id="city_shipping1" class="form-input name" placeholder="Thành phố">
                                         </div>
                                         <div class="form-edit-row form-edit-row-flex input-content ">
                                             <div class="form-box-flex ">
                                                 <label class="form-lable ">Quận/huyện</label>
-                                                <select name="district " id="district " class="form-select">
-                                                                        <option value="0 ">Chọn quận/huyện</option>
-                                                                    </select>
+                                                <input name="district " id="district_shipping1" class="form-input name" placeholder="Quận/huyện">
                                             </div>
                                             <div class="form-box-flex ">
                                                 <label class="form-lable ">Phường/xã</label>
-                                                <select name="ward " id="ward " class="form-select">
-                                                                        <option value="0 ">Chọn phường/xã</option>
-                                                                    </select>
+                                                <input name="ward " id="ward_shipping1" class="form-input name" placeholder="Phường/xã">
                                             </div>
                                         </div>
                                         <div class="form-edit-row ">
                                             <label class="form-lable ">Địa chỉ</label>
-                                            <select name="address " id="address " class="form-select">
-                                                                <option value="0 ">Nhập địa chỉ cụ thể</option>
-                                                            </select>
+                                            <input name="address " id="address_shipping1" class="form-input name" placeholder="Nhập địa chỉ cụ thể">
+
                                         </div>
-                                        <div class="form-edit-row-check t-left">
-                                            <input type="checkbox" class="form-input-check " name="choose_default " id="choose_default ">
+                                        <div class="form-edit-row-check ">
+                                            <input type="checkbox" class="form-input-check " name="choose_default " id="choose_default1">
                                             <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>
                                         </div>
                                     </form>
+
                                     <!-- end form add address -->
                                     <div class="t-right mg-t-175rem ">
-                                        <button id="submit_send_order" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
+                                        <button id="submit_send_order" class="btn-submit w-20 d-inline-block fz-1rem" onclick="add_address_shipping()">Hoàn thành</button>
                                     </div>
                                 </div>
                             </div>

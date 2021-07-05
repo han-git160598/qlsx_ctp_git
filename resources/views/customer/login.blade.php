@@ -70,8 +70,8 @@
                                     </div>
                                     <div class="item-content">
                                         <span type="forgot_password" data-tag="a" class="d-block t-green-main fw-400 fz-1rem t-center mg-b-05rem">Quên mật khẩu?</span>
-                                        <p class="fw-400 fz-1rem t-center mt-4">Bạn vừa biết đến ứng dụng XYZ? <a href="register.html" class="d-inline-block t-green-main fw-600 fz-1rem t-left">Đăng ký</a></p>
-                                        <a href="index.html" class="d-block t-green-main fw-600 fz-1rem t-center mg-t-2rem">Quay lại</a>
+                                        <p class="fw-400 fz-1rem t-center mt-4">Bạn vừa biết đến ứng dụng XYZ? <a href="{{URL::to('register')}}" class="d-inline-block t-green-main fw-600 fz-1rem t-left">Đăng ký</a></p>
+                                        <a href="{{URL::to('')}}" class="d-block t-green-main fw-600 fz-1rem t-center mg-t-2rem">Quay lại</a>
                                     </div>
 
                                 </div>

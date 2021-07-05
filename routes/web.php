@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('customer.index');
 });
 //--------------------------------CUSTOMER---------------------------------------
+Route::get('register',function(){
+    return view('customer.register');
+
+});
+
+
 Route::get('/login',function(){
     return view('customer.login');
 });
@@ -39,4 +45,32 @@ Route::get('/detail-product',function()
 });
 Route::get('/cart',function(){
     return view('customer.cart');
+});
+Route::get('my-detail-invoice',function(){
+    return view('customer.my-detail-invoice');
+});
+Route::get('my-announce',function(){
+    return view('customer.my-announce');
+});
+/// slide
+Route::get('about-us',function(){
+
+    return view('customer.about-us');
+});
+
+Route::get('process',function(){
+
+    return view('customer.process');
+});
+Route::get('product',function(){
+
+    return view('customer.product');
+});
+Route::get('service',function(){
+
+    return view('customer.service');
+});
+Route::get('contact',function(){
+
+    return view('customer.contact');
 });

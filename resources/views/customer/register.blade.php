@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/reset.css" rel="stylesheet" type="text/css" />
-    <link href="public/global.css" rel="stylesheet" type="text/css" />
-    <link href="public/css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/style.css" rel="stylesheet" type="text/css" />
-    <link href="public/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/css/bootstrap/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/reset.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/global.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/css/font-awesome/css/all.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_customer/responsive.css')}}" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="public/carousel/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="public/carousel/owl-carousel/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ asset('public_customer/carousel/owl-carousel/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('public_customer/carousel/owl-carousel/assets/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css')}}">
 
-    <link rel="icon" href="public/images/logolink.png" type="image/x-icon">
+    <link rel="icon" href="{{ asset('public_customer/images/logolink.png')}}" type="image/x-icon">
 
     <title>QLSX - Đăng kí</title>
 </head>
@@ -37,7 +37,7 @@
                         <div class="box-content">
                             <div class="box-left">
                                 <div class="w-100">
-                                    <img src="public/images/frame-reg.png" alt="">
+                                    <img src="{{ asset('public_customer/images/frame-reg.png')}}" alt="">
                                 </div>
                             </div>
                             <div class="box-right">
@@ -56,15 +56,17 @@
                                     <div class="item-title">
                                         <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Đăng ký</h4>
                                         <p class="short-desc fw-400 fz-125rem t-left mt-3">Đăng nhập hoặc tạo tài khoản của bạn</p>
-                                        <!-- <span class="icon"><a href="#"><img src="public/images/help-line.png" alt=""></a></span> -->
+                                        <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
 
                                     </div>
                                     <form action="" method="post" class="box-request mg-t-1rem" id="form_reg">
                                         <input type="text" name="phone_reg" id="phone_reg" class="mg-t-2rem" placeholder="Nhập số điện thoại">
+                                        <div id="recaptcha-container"></div>
+                                        <div id="btn_phoneauth"></div>
                                     </form>
                                     <div class="t-center">
                                         <small class="error-text t-center my-3">Vui lòng nhập số điện thoại</small>
-                                        <button type="submit" class="mg-t-2rem btn btn-green w-100" id="submit_phone">Tiếp theo</button>
+                                        <button type="submit" class="mg-t-2rem btn btn-green w-100" id="submit_phone" >Tiếp theo</button>
                                     </div>
                                     <div class="item-content">
                                         <p class="fw-400 fz-1rem t-center">Bằng việc tiếp tục bạn đã chấp nhận</p>
@@ -82,23 +84,23 @@
                         <div class="progress-step t-center">
                             <ul class="progressbar-point">
                                 <li class="progressbar-item active" data-step="1">
-                                    <span class="icon"><img src="public/images/Radiobutton_active.png" alt=""></span>
+                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton_active.png')}}" alt=""></span>
                                     <span>1. Xác minh số điện thoại</span>
                                 </li>
                                 <li class="progressbar-item" data-step="2">
-                                    <span class="icon"><img src="public/images/Radiobutton.png"  alt=""></span>
+                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
                                     <span>2. Tạo mật khẩu</span>
                                 </li>
                                 <!-- <li class="progressbar-item" data-step="3">
-                                    <span class="icon"><img src="public/images/Radiobutton.png"  alt=""></span>
+                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
                                     <span>3. Thông tin cá nhân</span>
                                 </li> -->
                                 <li class="progressbar-item" data-step="3">
-                                    <span class="icon"><img src="public/images/Radiobutton.png"  alt=""></span>
+                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
                                     <span>4. Thêm địa chỉ</span>
                                 </li>
                                 <li class="progressbar-item" data-step="4">
-                                    <span class="icon"><img src="public/images/Radiobutton.png"  alt=""></span>
+                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
                                     <span>5. Hoàn thành</span>
                                 </li>
                             </ul>
@@ -109,8 +111,8 @@
                                     <div class="box-item w-100">
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Xác nhận mã OTP</h4>
-                                            <p class="short-desc fw-400 fz-125rem t-center mg-t-2rem">Nhập mã OTP đã gửi đến ********89</p>
-                                            <!-- <span class="icon"><a href="#"><img src="public/images/help-line.png" alt=""></a></span> -->
+                                            <p class="short-desc fw-400 fz-125rem t-center mg-t-2rem" id="phone_OTP">Nhập mã OTP đã gửi đến ********89</p>
+                                            <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
 
                                         </div>
                                         <form method="get" class="digit-group mg-t-2rem" data-group-name="digits" data-autosubmit="false" autocomplete="off">
@@ -142,17 +144,17 @@
                                     <div class="box-item w-100">
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thông tin cá nhân</h4>
-                                            <!-- <span class="icon"><a href="#"><img src="public/images/help-line.png" alt=""></a></span> -->
+                                            <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
                                         </div>
 
                                         <form action="" method="post" class="box-request mg-t-1rem" id="set_pass">
                                             <div>
                                                 <input type="password" name="password" id="password" class="mg-t-2rem" placeholder="Mật khẩu">
-                                                <span><img src="public/images/eye.png" alt=""></span>
+                                                <span><img src="{{ asset('public_customer/images/eye.png')}}" alt=""></span>
                                             </div>
                                             <div>
                                                 <input type="password" name="password_confirm" id="password_confirm" class="mg-t-2rem" placeholder="Nhập lại mật khẩu">
-                                                <span><img src="public/images/eye.png" alt=""></span>
+                                                <span><img src="{{ asset('public_customer/images/eye.png')}}" alt=""></span>
                                             </div>
                                             <small class="error-text mt-3 t-center">Vui lòng nhập mật khẩu</small>
                                         </form>
@@ -174,14 +176,14 @@
                                     <div class="box-item w-100">
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thông tin cá nhân</h4>
-                                            <span class="icon"><a href="#"><img src="public/images/help-line.png" alt=""></a></span>
+                                            <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span>
 
                                         </div>
                                         <form action="" method="post" class="box-request mg-t-2rem" id="form_info">
                                             <div class="box-left">
                                                 <div class="request-item avatar">
                                                     <input type="file" name="avatar" id="avatar">
-                                                    <span class="avatar"><img src="public/images/account-reg.png" alt=""></span>
+                                                    <span class="avatar"><img src="{{ asset('public_customer/images/account-reg.png')}}" alt=""></span>
                                                     <span class="fw-400 lh-12rem">Dụng lượng file tối đa 1 MB
                                                         Định dạng:.JPEG, .PNG</span>
                                                 </div>
@@ -276,7 +278,7 @@
                                     <div class="box-item w-100">
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thêm địa chỉ</h4>
-                                            <!-- <span class="icon"><a href="#"><img src="public/images/help-line.png" alt=""></a></span> -->
+                                            <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
                                         </div>
                                         <form action="" method="post" class="box-request mg-t-2rem" id="form_address">
                                             <div>
@@ -331,7 +333,7 @@
                                         </div>
 
                                         <div class="item-content mg-t-2rem t-center">
-                                            <span class="d-inline-block tick-success"><img src="public/images/tick-success.png" alt=""></span>
+                                            <span class="d-inline-block tick-success"><img src="{{ asset('public_customer/images/tick-success.png')}}" alt=""></span>
                                             <p class="t-center mg-t-2rem">Bạn đã tạo thành công tài khoản với số điện thoại</p>
                                             <strong class="t-center">(+84) 944810055</strong>
                                             <p class="t-center mg-t-2rem">Bạn sẽ được chuyển hướng đến trang mua sắm trong vòng </p>
@@ -349,18 +351,19 @@
     </div>
 
     <!-- END FOOTER -->
-    <!-- <script src="public/js/jquery-2.2.4.min.js " type="text/javascript "></script> -->
-    <script src="public/js/jquery.js " type="text/javascript "></script>
+    <!-- <script src="{{ asset('public_customer/js/jquery-2.2.4.min.js')}} " type="text/javascript "></script> -->
+    <script src="{{ asset('public_customer/js/jquery.js ')}}" type="text/javascript "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
-    <script src="public/js/bootstrap/bootstrap.min.js " type="text/javascript "></script>
-    <script src="public/carousel/owl-carousel/owl.carousel.min.js "></script>
-    <script src="public/js/plugins/ckeditor/ckeditor.js " type="text/javascript "></script>
+    <script src="{{ asset('public_customer/js/bootstrap/bootstrap.min.js')}} " type="text/javascript "></script>
+    <script src="{{ asset('public_customer/carousel/owl-carousel/owl.carousel.min.js')}} "></script>
+    <script src="{{ asset('public_customer/js/plugins/ckeditor/ckeditor.js')}} " type="text/javascript "></script>
 
-    <script src="public/js/main.js " type="text/javascript "></script>
-    <script src="public/js/otp.js " type="text/javascript "></script>
-    <script src="public/js/register.js " type="text/javascript "></script>
-    <!-- <script src="public/js/progress_bar.js " type="text/javascript "></script> -->
-
+    <script src="{{ asset('public_customer/js/main.js')}} " type="text/javascript "></script>
+    <script src="{{ asset('public_customer/js/otp.js')}} " type="text/javascript "></script>
+    <script src="{{ asset('public_customer/js/register.js')}} " type="text/javascript "></script>
+    <!-- <script src="{{ asset('public_customer/js/progress_bar.js')}} " type="text/javascript "></script> -->
+    <script src="{{ asset('public_customer/url_global.js')}}" type="text/javascript "></script>
+    <script src="{{ asset('public_customer/customer_js/register.js')}}" type="text/javascript "></script>
     <script>
     </script>
 </body>

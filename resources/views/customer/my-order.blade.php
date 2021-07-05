@@ -61,7 +61,7 @@
                                             </ul>
                                         </li>
                                         <li class="item">
-                                            <a href="my-announce.html" class="d-flex">
+                                            <a href="{{URL::to('my-announce')}}" class="d-flex">
                                                 <span class="icon">
                                                     <img src="{{ asset('public_customer/images/icon-announce.png')}}" alt="">
                                                 </span>
@@ -78,7 +78,7 @@
                         <!-- ========================================================== -->
                         <!-- ========================================================== -->
                         <!-- MY INVOICE -->
-                        <div class="rcontent" id="my_detail_invoice"></div>
+                       <!--  <div class="rcontent" id="my_detail_invoice"></div> -->
                         <div class="rcontent" id="my_invoice">
                             <div class="item-title mg-b-05rem py-05rem px-1rem d-flex justify-content-space-between">
                                 <h4 class="t-left fw-600 t-cap fz-15rem lh-2rem">Thông báo</h4>

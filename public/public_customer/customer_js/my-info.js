@@ -441,7 +441,7 @@ function edit_address_delivery(id_shipping){
         array_record['ward']=address_shipping[1]
         array_record['distric']=address_shipping[2]
         array_record['city']=address_shipping[3]    
-        if(response.data[0].shipping_default == 'Y')
+        if(response.data[0].delivery_default == 'Y')
         {
             let output =`
             <input type="checkbox" checked class="form-input-check " name="choose_default " id="edit_choose_default">

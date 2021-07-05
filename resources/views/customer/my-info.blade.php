@@ -61,7 +61,7 @@
                                             </ul>
                                         </li>
                                         <li class="item">
-                                            <a href="my-announce.html" class="d-flex">
+                                            <a href="{{URL::to('my-announce')}}" class="d-flex">
                                                 <span class="icon">
                                                     <img src="{{ asset('public_customer/images/icon-announce.png')}}" alt="">
                                                 </span>

@@ -45,22 +45,22 @@
                 </div>
                 <div class="header-cart">
                     <span class="d-block icon"><img src="{{ asset('public_customer/images/header-cart.png')}}" alt=""></span>
-                    <span class="amount">4</span>
+                    <span class="amount" id="count_cart"></span>
                 </div>
-
+                
                 <div class="dir-box" id="dir_box">
                     <span class="triangle"></span>
                     <div class="box-text">
                         <a href="{{ URL::to('my-order')}}">Đơn hàng của tôi</a>
                         <a href="{{ URL::to('my-info')}}">Tài khoản của tôi</a>
-                        <a href="my-notify.html">Thông báo của tôi</a>
+                        <a href="{{ URL::to('my-announce')}}">Thông báo của tôi</a>
                         <a onclick="customer_logout()">Đăng xuất</a>
                     </div>
                 </div>
                 <div class="dir-box header-cart-box">
                     <span class="triangle"></span>
                     <div class="box-text">
-                        <div class="wp-header-cart-box">
+                        <div class="wp-header-cart-box" id="arr_cart">
                             <a href="#" class="d-flex header-cart-item px-1rem">
                                 <div class="thumb-nail">
                                     <img src="{{ asset('public_customer/images/product_1.png')}}" alt="">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div class="logo">
-                    <a href="#"><img src="{{ asset('public_customer/images/logo.png')}}" alt=""></a>
+                    <a href="{{URL::to('customer-home')}}"><img src="{{ asset('public_customer/images/logo.png')}}" alt=""></a>
                 </div>
             </nav>
         </div>
@@ -149,25 +149,53 @@
     
 
     <script>
-        $( document ).ready(function() {
+    $( document ).ready(function() {
         var username = JSON.parse(localStorage.getItem('account_customer'));
-        
-        if(username != null || username !='')
+        if(username == null || username =='')
         {
-        //$('#username').html(username.full_name);
-        var output = `
+            window.location.href = urlserver;
+        }else{
+             //$('#username').html(username.full_name);
+            var output = `
             <div><a>Tài khoản</a></div>
             <p>${username.customer_name}</p>`;
             $('#username_ac').html(output);
-        }else{
 
-        }          
-        
+           
+        }     
+
+        var response = JSON.parse(localStorage.getItem('cart'));
+        var output=``;
+        var count_cart=0;
+        response.forEach(function(item){  
+            count_cart+=1;
+        output+=`
+        <a href="#" class="d-flex header-cart-item px-1rem">
+            <div class="thumb-nail">
+                <img src="${urlserver + item.product_img}" alt="">
+            </div>
+            <div class="item-content px-1rem">
+                <h4 class="t-left fw-600 t-cap fz-1rem lh-1rem">${item.product_name}</h4>
+                <span class="t-left fw-400 t-cap fz-1rem lh-1rem">${item.product_packet_title}</span>
+            </div>
+            <div class="cost t-left">
+                <span class="fw-400 fz-1rem">x${item.current_quantity} Cái</span>
+            </div>
+        </a>`;
+        });
+        $('#count_cart').html(count_cart);
+        $('#arr_cart').html(output);
+
     });
+
+
     function customer_logout() {
     localStorage.removeItem('account_customer');
     window.location = urlserver;
-}
+    }
+    
+
+    
     </script>
 
 

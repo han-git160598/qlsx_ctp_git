@@ -1,15 +1,15 @@
 $(document).ready(function() {
 
     // step start   
-    $('#submit_phone').click(function() {
-        if ($('#phone_reg').val() == "") {
-            $("#phone_reg").addClass('error-input');
-            $("#form_reg ~div> .error-text").addClass('d-block');
-        } else {
-            $('.step-start').toggleClass('d-none');
-            $('.step-otp').toggleClass('d-none');
-        }
-    });
+    // $('#submit_phone').click(function() {
+    //     if ($('#phone_reg').val() == "") {
+    //         $("#phone_reg").addClass('error-input');
+    //         $("#form_reg ~div> .error-text").addClass('d-block');
+    //     } else {
+    //         $('.step-start').toggleClass('d-none');
+    //         $('.step-otp').toggleClass('d-none');
+    //     }
+    // });
 
     // step 1
     $("span[type='step_start']").click(function() {
@@ -19,6 +19,7 @@ $(document).ready(function() {
         $("#phone_reg").removeClass('error-input');
 
     });
+    
     $(".step-1 #submit_step_1").click(function() {
         if ($("#digit-1").val() == "" || $("#digit-2").val() == "" || $("#digit-3").val() == "" || $("#digit-4").val() == "" || $("#digit-5").val() == "" || $("#digit-6").val() == "") {
             $(".digit-group~.error-text").addClass('d-block');
