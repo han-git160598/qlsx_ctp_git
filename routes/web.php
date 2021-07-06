@@ -74,3 +74,20 @@ Route::get('contact',function(){
 
     return view('customer.contact');
 });
+
+
+//--------------------------------ADMIN---------------------------------------
+Route::get('login-admin',function(){
+    return view('admin.login');
+});
+
+Route::get('admin',function(){
+    return view('admin.customer_index');
+});
+
+Route::get('customer-list-customer',function(){
+    return view('admin.customer_list_customer');
+});
+
+
+

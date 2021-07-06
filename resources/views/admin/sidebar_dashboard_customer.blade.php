@@ -14,4 +14,3 @@
         <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
     </ul>
 </div>
-<div id="sidebar-left-hidden"></div>

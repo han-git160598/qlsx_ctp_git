@@ -4,19 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/reset.css" rel="stylesheet" type="text/css" />
-    <link href="public/global.css" rel="stylesheet" type="text/css" />
-    <link href="public/css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
-    <link href="public/style.css" rel="stylesheet" type="text/css" />
-    <link href="public/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/css/bootstrap/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/reset.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/global.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/css/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/style.css" rel="stylesheet" type="text/css" />
+    <link href="../public_admin/responsive.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="public/carousel/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="public/carousel/owl-carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../public_admin/carousel/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../public_admin/carousel/owl-carousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
 
-    <link rel="icon" href="public/images/logolink.png" type="image/x-icon">
+    <link rel="icon" href="../public_admin/images/logolink.png" type="image/x-icon">
 
     <title>QLSX - Cường Thịnh Phúc</title>
 </head>
@@ -31,16 +31,16 @@
                         <p>Jemis Kevin</p>
                     </div>
                     <div class="icon">
-                        <span><img src="public/images/avatar.png" alt=""></span>
+                        <span><img src="../public_admin/images/avatar.png" alt=""></span>
                     </div>
                     <div class="arrow-down">
-                        <span><img src="public/images/arrow_down.png" alt=""></span>
+                        <span><img src="../public_admin/images/arrow_down.png" alt=""></span>
                     </div>
                 </div>
 
                 <div class="ring-bell">
                     <!-- header-cart -->
-                    <span class="d-block icon"><img src="public/images/bell.png" alt=""></span>
+                    <span class="d-block icon"><img src="../public_admin/images/bell.png" alt=""></span>
                     <span class="amount">4</span>
                 </div>
 
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="logo">
-                    <a href="#"><img src="public/images/logo.png" alt=""></a>
+                    <a href="#"><img src="../public_admin/images/logo.png" alt=""></a>
                 </div>
             </nav>
         </div>
@@ -107,7 +107,7 @@
                         <div class="search" style="position: relative;">
                             <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                             <button class="input d-flex">
-                                <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="public/images/search_black.png" alt=""></span>
+                                <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
                             </button>
                         </div>
                     </div>
@@ -308,7 +308,7 @@
             <div class="modal-title">
                 <h4>Thêm tài khoản mới</h4>
                 <span class="icon" data-tag="a">
-                    <img src="public/images/x-black.png" alt="">
+                    <img src="../public_admin/images/x-black.png" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -441,7 +441,7 @@
             <div class="modal-title">
                 <h4>Thêm tài khoản mới</h4>
                 <span class="icon" data-tag="a">
-                    <img src="public/images/x-black.png" alt="">
+                    <img src="../public_admin/images/x-black.png" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -563,7 +563,7 @@
             <div class="modal-title">
                 <h4>Thay đổi mật khẩu</h4>
                 <span class="icon" data-tag="a">
-                    <img src="public/images/x-black.png" alt="">
+                    <img src="../public_admin/images/x-black.png" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -598,12 +598,12 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="public/images/x-black.png" alt="">
+                    <img src="../public_admin/images/x-black.png" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="public/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
                 </div>
                 <div class="t-center mg-t-175rem">
@@ -615,17 +615,17 @@
 
 
     <!-- END FOOTER -->
-    <script src="public/js/jquery.js " type="text/javascript "></script>
+    <script src="../public_admin/js/jquery.js " type="text/javascript "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
-    <script src="public/js/bootstrap/bootstrap.min.js " type="text/javascript "></script>
-    <script src="public/carousel/owl-carousel/owl.carousel.min.js "></script>
-    <script src="public/js/plugins/ckeditor/ckeditor.js " type="text/javascript "></script>
+    <script src="../public_admin/js/bootstrap/bootstrap.min.js " type="text/javascript "></script>
+    <script src="../public_admin/carousel/owl-carousel/owl.carousel.min.js "></script>
+    <script src="../public_admin/js/plugins/ckeditor/ckeditor.js " type="text/javascript "></script>
 
-    <script src="public/js/main.js " type="text/javascript "></script>
-    <script src="public/js/app.js " type="text/javascript "></script>
+    <script src="../public_admin/js/main.js " type="text/javascript "></script>
+    <script src="../public_admin/js/app.js " type="text/javascript "></script>
 
-    <script src="public/js/progress_bar.js " type="text/javascript "></script>
-    <script src="public/js/view_img.js " type="text/javascript "></script>
+    <script src="../public_admin/js/progress_bar.js " type="text/javascript "></script>
+    <script src="../public_admin/js/view_img.js " type="text/javascript "></script>
 
     <script>
     </script>
