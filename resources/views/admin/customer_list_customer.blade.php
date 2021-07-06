@@ -1,9 +1,10 @@
 @extends('layouts.dashboard_admin')
+
 @section('sidebar')
 <div id="sidebar-left">
     <ul id="main-menu">
         <li class="item"><a href="customer_index.html">Dasboard</a></li>
-        <li class="item active"><a href="{{ URL::to('customer_list_customer')">Khách hàng</a></li>
+        <li class="item active"><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
         <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
         <li class="item"><a href="customer_list_product_inventory.html">Kho hàng</a></li>
         <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
@@ -31,19 +32,23 @@
                 <p>Từ</p>
             </div>
             <div class="form-edit-row m-0">
-                <input type="date" class="form-input py-1 px-2">
+                <input 
+        onchange="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )"  
+        type="date" id="date_begin"  class="form-input py-1 px-2">
             </div>
             <div class="form-edit-row m-0 mx-3">
                 <p>Đến</p>
             </div>
             <div class="form-edit-row m-0">
-                <input type="date" class="form-input py-1 px-2">
+            <input 
+        onchange="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )" 
+            type="date" id="date_end"  class="form-input py-1 px-2">
             </div>
         </div>
 
         <div class="form-edit-row m-0 w-35">
             <div class="search" style="position: relative;">
-                <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
+                <input type="text" onkeyup="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val())" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                 <button class="input d-flex">
                     <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
                 </button>
@@ -89,8 +94,8 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr data-id-customer="1">
+                <tbody id="list_customer">
+                   <!--  <tr data-id-customer="1">
                         <td>KH1234567</td>
                         <td>Nguyễn Văn A</td>
                         <td>Công ty Cổ Phần ABCD - Chi nh... </td>
@@ -106,60 +111,26 @@
                             <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
                         </td>
 
-                    </tr>
-                    <tr data-id-customer="2">
-                        <td>KH1234567</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Công ty Cổ Phần ABCD - Chi nh... </td>
-                        <td>(+84) 944810055</td>
-                        <td>
-                            <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </td>
-                        <td class="t-center">
-                            <a href="customer_detail.html" class="t-green-main my-1">Sửa</a>
-                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-                        </td>
-
-                    </tr>
-                    <tr data-id-customer="3">
-                        <td>KH1234567</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Công ty Cổ Phần ABCD - Chi nh... </td>
-                        <td>(+84) 944810055</td>
-                        <td>
-                            <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                          </label>
-                        </td>
-                        <td class="t-center">
-                            <a href="customer_detail.html" class="t-green-main my-1">Sửa</a>
-                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-                        </td>
-
-                    </tr>
+                    </tr> -->
+                   
                 </tbody>
             </table>
         </div>
 
-        <ul class="pagination">
-            <li class="item prev"><i class="fas fa-chevron-left"></i></li>
+        <ul class="pagination" id="cusotmer_pagination">
+           <!--  <li class="item prev"><i class="fas fa-chevron-left"></i></li>
             <li class="item">1</li>
             <li class="item">2</li>
             <li class="item">3</li>
             <li class="item">4</li>
             <li class="item">5</li>
-            <li class="item next"><i class="fas fa-chevron-right"></i></li>
+            <li class="item next"><i class="fas fa-chevron-right"></i></li> -->
         </ul>
     </div>
 </div>
 
 @endsection
-
-  <!-- 
+@section('modal') 
     <div class="modal" id="add_module">
         <div class="modal-box w-50" style=" margin-top: 50px;">
             <div class="modal-title">
@@ -172,10 +143,11 @@
                 <div class="form-info">
                     <div class="form-info-content">
                         <div class="form-info-right w-100">
+                            <form id="create_customer_form">
                             <div class="form-info-row align-item-center">
                                 <label for="title" class="form-info-lable">Mã khách hàng</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="" placeholder="Nhập mã khách hàng">
+                                    <input type="text" id="customer_code" placeholder="Nhập mã khách hàng">
                                 </div>
                             </div>
                             <div class="form-info-row align-item-center">
@@ -193,7 +165,7 @@
                                     <label class="fw-400 lh-12rem">Tên công ty</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="" placeholder="Nhập tên công ty">
+                                    <input type="text" id="customer_company" placeholder="Nhập tên công ty">
                                 </div>
                             </div>
                             <div class="form-info-row align-item-center">
@@ -201,7 +173,7 @@
                                     <label class="fw-400 lh-12rem">Họ tên</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="" placeholder="Nhập họ tên">
+                                    <input type="text" id="customer_name" placeholder="Nhập họ tên">
                                 </div>
                             </div>
                             <div class="form-info-row align-item-center">
@@ -209,7 +181,7 @@
                                     <label class="fw-400 lh-12rem">Số điện thoại</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="" placeholder="Nhập số điện thoại">
+                                    <input type="text" id="customer_phone" placeholder="Nhập số điện thoại">
                                 </div>
                             </div>
                             <div class="form-info-row align-item-center">
@@ -217,16 +189,17 @@
                                     <label class="fw-400 lh-12rem">Email</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="email" class="" value="" placeholder="Nhập email">
+                                    <input type="email" id="customer_email" placeholder="Nhập email">
                                 </div>
                             </div>
+                            </form>
                             <div class="form-info-row align-item-center">
                                 <div class="form-info-lable">
                                     <label class="fw-400 lh-12rem">Mật khẩu</label>
                                 </div>
                                 <div class="form-info-input-content">
                                     <div class="form-info-row justify-content-space-between">
-                                        <input type="text" class="w-70 py-1" value="D#)zS0Uu(rUu2EV*UM0Z2QW%" placeholder="Nhập email">
+                                        <input type="text" id="customer_password" class="w-70 py-1" value="D#)zS0Uu(rUu2EV*UM0Z2QW%" placeholder="Nhập email">
                                         <button class="rand_pass btn btn-green btn-outline py-1">Tạo mật khẩu</button>
                                     </div>
                                 </div>
@@ -235,7 +208,7 @@
                     </div>
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
+                    <button id="add_file" onclick="create_customer()" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
@@ -252,13 +225,15 @@
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
                     <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
-                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
+                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa tài khoản này?</p>
                 </div>
-                <div class="t-center mg-t-175rem">
+                <div class="t-center mg-t-175rem" id="btn_delete_customer">
                     <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
     </div>
- -->
 
+<script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
+<script src="{{ asset('public_admin/admin_js/customer_manager.js')}}" type="text/javascript "></script>
+@endsection

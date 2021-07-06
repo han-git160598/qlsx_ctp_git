@@ -77,6 +77,8 @@ Route::get('contact',function(){
 
 
 //--------------------------------ADMIN---------------------------------------
+
+
 Route::get('login-admin',function(){
     return view('admin.login');
 });
@@ -88,6 +90,8 @@ Route::get('admin',function(){
 Route::get('customer-list-customer',function(){
     return view('admin.customer_list_customer');
 });
-
+Route::get('customer-detail',function(){
+    return view('admin.customer_detail');
+});
 
 
