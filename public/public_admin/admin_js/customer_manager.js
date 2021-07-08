@@ -82,6 +82,11 @@ function cusotmer_pagination(page, search , date_begin , date_end)
 	}
 	
 }
+function show_modal_create_customer()
+{
+	$('#create_customer_form')[0].reset()
+	$('#add_module').show();
+}
 function create_customer()
 {
 	var customer_code=$('#customer_code').val();
@@ -157,7 +162,7 @@ function customer_status(id,status)
         headers: headers,
         success: function(response) {
         	cusotmer_pagination(page,search);
-        	$('#delete_module').hide();
+        
         	alert(response.message);
 
         }
@@ -223,6 +228,10 @@ function update_customer(id)
 
 	});
 }
+
+//////////////////////////////////// ADDRESS //////////////////////////////////////////////////
+
+
 function customer_address_shipping(){
 	let id = JSON.parse(sessionStorage.getItem('detail_customer'));
     if(id == null || id == '')
@@ -252,15 +261,15 @@ function customer_address_shipping(){
                 if(item.shipping_default == 'Y')
                 {
                 	output+=`
-                    <input type="radio" checked name="radio_shipping">`;
+                    <input type="radio" checked name="radio_shipping" onchange="default_address(${item.id_shipping},${item.id_customer},'shipping')">`;
                 }else{
                 	output+=`
-                 	<input type="radio" name="radio_shipping">`;
+                 	<input type="radio" name="radio_shipping" onchange="default_address(${item.id_shipping},${item.id_customer},'shipping')">`;
                 }
                	output+=`
                 </td>
                 <td class="t-center">
-                    <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1">Xoá</span>
+                    <span onClick="show_modal_delete_address(${item.id_shipping},'shipping')" data-tag="a" type="delete_module" class="get_modal t-green-main my-1">Xoá</span>
                 </td>
             </tr>
 	        `;
@@ -272,6 +281,55 @@ function customer_address_shipping(){
     }
 }
 
+function default_address(id_address,id_customer,type_address)
+{
+	console.log(type_address)
+	$.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'customer_address_manager',type_manager:'update_customer_address',
+         id_address: id_address,type_address:type_address,address_default:'Y',id_customer:id_customer
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+
+        	alert(response.message);
+
+        }
+    });
+}
+
+function show_modal_delete_address(id,type_address)
+{
+
+	$('#btn_delete_customer').html(`<button id="add_file" onclick="delete_address(${id},${type_address})" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>`);
+	$('#delete_module_address').show();
+}
+function delete_address(id,type_address)
+{
+	$.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'customer_manager',type_manager:'delete_customer_address', id_address: id
+        ,type_address:type_address
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+        	alert(response.message);
+        	if(type_address == 'shipping')
+        	{
+        		customer_address_shipping();
+        	}else{
+        		customer_address_delivery();
+        	}
+        	$('#delete_module_adress').hide();
+        	
+
+        }
+    })
+}
 
 function customer_address_delivery(){
 	let id = JSON.parse(sessionStorage.getItem('detail_customer'));
@@ -302,15 +360,15 @@ function customer_address_delivery(){
                 if(item.delivery_default == 'Y')
                 {
                 	output+=`
-                    <input type="radio" checked name="radio_shipping">`;
+                    <input type="radio" checked name="radio_delivery" onchange="default_address(${item.id_delivery},${item.id_customer},'delivery')">`;
                 }else{
                 	output+=`
-                 	<input type="radio" name="radio_shipping">`;
+                 	<input type="radio" name="radio_delivery" onchange="default_address(${item.id_delivery},${item.id_customer},'delivery')">`;
                 }
                	output+=`
                 </td>
                 <td class="t-center">
-                    <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1">Xoá</span>
+                    <span onClick="show_modal_delete_address(${item.id_shipping},'delivery')" data-tag="a" type="delete_module" class="get_modal t-green-main my-1">Xoá</span>
                 </td>
             </tr>
 	        `;
@@ -321,6 +379,8 @@ function customer_address_delivery(){
     	});
     }
 }
+
+//////////////////////////////////////// ORDER //////////////////////////////////////////////
 
 function customer_list_order(){
 	let id = JSON.parse(sessionStorage.getItem('detail_customer'));
@@ -364,6 +424,10 @@ function customer_list_order(){
 	   });
 	}
 }
+
+
+///////////////////////////////////// PASSWORK //////////////////////////////////////////////////
+
 function customer_hidden_password(id)
 {
     var pwd = document.getElementById(id);

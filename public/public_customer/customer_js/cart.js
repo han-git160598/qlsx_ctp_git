@@ -552,6 +552,7 @@ function create_order(id)
             dataType: 'json',
             headers: headers,
             success: function(response) {
+                console.log(response)
                 alert(response.message);
             }
         })

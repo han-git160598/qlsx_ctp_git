@@ -6,7 +6,7 @@
         <li class="item"><a href="customer_index.html">Dasboard</a></li>
         <li class="item active"><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
         <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
-        <li class="item"><a href="customer_list_product_inventory.html">Kho hàng</a></li>
+        <li class="item "><a href="{{ URL::to('list-product-inventory')}}">Kho hàng</a></li>
         <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
 
         <li class="item"><a href="customer_list_production.html">Sản xuất</a></li>
@@ -25,7 +25,7 @@
         Khách hàng
     </h1>
     <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
-        <span data-tag="a" type="add_module" class="get_modal t-green-main d-block t-right w-20 t-left">+ Thêm khách hàng</span>
+        <span onclick="show_modal_create_customer()"  class="get_modal t-green-main d-block t-right w-20 t-left">+ Thêm khách hàng</span>
         <!-- filter date -->
         <div class="form-edit-row-flex align-item-center">
             <div class="form-edit-row m-0 mx-3">
