@@ -74,7 +74,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <button class="btn btn-green btn-outline bg-white">Xuất file excel</button>
+                                            <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('stock')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead style="background-color: #FFF6E5;">
@@ -137,7 +137,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <button class="btn btn-green btn-outline bg-white">Xuất file excel</button>
+                                            <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('import')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead style="background-color: #FFF6E5;">
@@ -191,7 +191,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <button class="btn btn-green btn-outline bg-white">Xuất file excel</button>
+                                            <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('export')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead style="background-color: #FFF6E5;">
@@ -276,7 +276,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <button class="btn btn-green btn-outline bg-white">Xuất file excel</button>
+                                            <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('stock')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead style="background-color: #FFF6E5;">
@@ -337,7 +337,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <button class="btn btn-green btn-outline bg-white">Xuất file excel</button>
+                                            <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('import')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead style="background-color: #FFF6E5;">
@@ -385,7 +385,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <button class="btn btn-green btn-outline bg-white">Xuất file excel</button>
+                                            <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('export')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
                                             <thead style="background-color: #FFF6E5;">

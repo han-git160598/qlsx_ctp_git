@@ -4,8 +4,7 @@
  })
 var info_type = 'stock';
 ////////////////////// LIST_PRODUCT /////////////////////////////////
- function product_stock(item)
- {
+ function product_stock(item){
        let output =`
      
         <tr  data-id-customer="${item.id_storage}" type="info_order_history" class="click_doubble get_modal">
@@ -19,8 +18,7 @@ var info_type = 'stock';
               
     return output;
  }
- function product_import(item)
- {
+ function product_import(item){
        let output =`
        <tr ondblclick="detail_product_inventory(${item.id},'import')" data-id-customer="${item.id}">
         <td>${item.production_import_code}</td>
@@ -31,8 +29,7 @@ var info_type = 'stock';
        </tr>`;
     return output;
  }
- function product_export(item)
- {
+ function product_export(item){
        let output =`
        <tr ondblclick="detail_product_inventory(${item.id},'export')" data-id-customer="${item.id}"  >
        <td>${item.storage_export_code}</td>
@@ -287,7 +284,7 @@ function detail_material_inventory(id,type) {
        })
       
  }
-  function detail_material_import(item)
+function detail_material_import(item)
  {
        $('#material_import_tr1').text(item.storage_import_code)
        $('#material_import_tr12').text(item.import_date)
@@ -337,3 +334,215 @@ function detail_material_inventory(id,type) {
        })
        $('#list_material_export').html(output);
  }
+////////////////////////////////// EXCEL //////////////////////////////////////////////////////
+function export_excel_product(type_export){
+    var JSONData = [];
+    var title;
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'get_storeage_info',info_type:type_export, item_type: 'product'
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            switch(type_export)
+              {
+                 case 'stock':
+                 {
+                        title ='THANH PHAM - XUAT NHAP TON'
+                        response.data.forEach(function(item)
+                        {
+                            JSONData.push(product_stock_excel(item))
+                        })  
+                        break;
+                 }
+                 case 'import':
+                 {      
+                        title ='THANH PHAM - NHAP KHO'
+                        response.data.forEach(function(item)
+                        {
+                            JSONData.push(product_import_excel(item))
+                        })  
+                        break;
+                 }
+                 case 'export':
+                 {
+                        title ='THANH PHAM - XUAT KHO'
+                        response.data.forEach(function(item)
+                        {
+                            JSONData.push(product_export_excel(item))
+                        })  
+                        break;
+                 }
+              }
+              
+            JSONToCSVConvertor(JSONData,title,true)
+        }
+    })
+}
+function product_stock_excel(item) {
+   let data = 
+    {'Ma hang' : item.product_code,'Ton dau ky' :item.first_period_quantity
+    ,'Nhap' :item.import_quantity, 'Xuat' :item.export_quantity
+    ,'Ton cuoi ky' :item.last_period_quantity,'Don vi tinh' :item.unit_title
+    }
+    return data;
+}
+function product_import_excel(item) {
+   let data = 
+    {'Phieu nhap' : item.production_import_code,'Ngay nhap' :item.import_date
+    ,'Lenh san xuat' :item.production_code, 'Bo phan' :item.machine_title
+    ,'Ghi chu' :'item.last_period_quantity'  
+    }
+    return data;
+}
+function product_export_excel(item) {
+   let data = 
+    {'Phieu xuat' : item.storage_export_code,'Ngay xuat' :item.export_date
+    ,'Ma khachh hang' :item.customer_code, 'Ma van chuyen' :item.shipping_code
+    ,'Ghi chu' :item.export_note}
+    return data;
+}
+
+ function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
+  //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+  var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+
+  var CSV = '';
+  //Set Report title in first row or line
+
+  CSV += ReportTitle + '\r\n\n';
+
+  //This condition will generate the Label/Header
+  if (ShowLabel) {
+    var row = "";
+
+    //This loop will extract the label from 1st index of on array
+    for (var index in arrData[0]) {
+
+      //Now convert each value to string and comma-seprated
+      row += index + ',';
+    }
+
+    row = row.slice(0, -1);
+
+    //append Label row with line break
+    CSV += row + '\r\n';
+  }
+
+  //1st loop is to extract each row
+  for (var i = 0; i < arrData.length; i++) {
+    var row = "";
+
+    //2nd loop will extract each column and convert it in string comma-seprated
+    for (var index in arrData[i]) {
+      row += '"' + arrData[i][index] + '",';
+    }
+
+    row.slice(0, row.length - 1);
+
+    //add a line break after each row
+    CSV += row + '\r\n';
+  }
+
+  if (CSV == '') {
+    alert("Invalid data");
+    return;
+  }
+
+  //Generate a file name
+  var fileName = "";
+  //this will remove the blank-spaces from the title and replace it with an underscore
+  fileName += ReportTitle.replace(/ /g, "_");
+
+  //Initialize file format you want csv or xls
+  var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+
+  // Now the little tricky part.
+  // you can use either>> window.open(uri);
+  // but this will not work in some browsers
+  // or you will not get the correct file extension    
+
+  //this trick will generate a temp <a /> tag
+  var link = document.createElement("a");
+  link.href = uri;
+
+  //set the visibility hidden so it will not effect on your web-layout
+  link.style = "visibility:hidden";
+  link.download = fileName + ".csv";
+
+  //this part will append the anchor tag and remove it after automatic click
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+////////////////////////////// NGUYEN VAT LIEU /////////////////////////////////////////
+
+function export_excel_material(type_export){
+    var JSONData = [];
+    var title;
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'get_storeage_info',info_type:type_export, item_type: 'material'
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            switch(type_export)
+              {
+                 case 'stock':
+                 {
+                        title ='NGUYEN VAT LIEU - XUAT NHAP TON'
+                        response.data.forEach(function(item)
+                        {
+                            JSONData.push(material_stock_excel(item))
+                        })  
+                        break;
+                 }
+                 case 'import':
+                 {      
+                        title ='NGUYEN VAT LIEU - NHAP NVL'
+                        response.data.forEach(function(item)
+                        {
+                            JSONData.push(material_import_excel(item))
+                        })  
+                        break;
+                 }
+                 case 'export':
+                 {
+                        title ='NGUYEN VAT LIEU - XUAT NVL'
+                        response.data.forEach(function(item)
+                        {
+                            JSONData.push(material_export_excel(item))
+                        })  
+                        break;
+                 }
+              }
+              
+            JSONToCSVConvertor(JSONData,title,true)
+        }
+    })
+}
+function material_stock_excel(item) {
+   let data = 
+    {'Ma NVL' : item.material_code,'Ton dau ky' :item.first_period_quantity
+    ,'Nhap NVL' :item.import_quantity, 'Xuat NVL' :item.export_quantity
+    ,'Ton cuoi ky' :item.last_period_quantity,'Don vi tinh' :item.unit_title
+    }
+    return data;
+}
+function material_import_excel(item) {
+   let data = 
+    {'Phieu nhap' : item.storage_import_code,'Ngay nhap' :item.import_date
+    ,'Ma cung ung' :item.supplier_code,'Ghi chu' :item.storage_import_note 
+    }
+    return data;
+}
+function material_export_excel(item) {
+   let data = 
+    {'Phieu xuat' : item.storage_export_code,'Ngay xuat' :item.export_date
+    ,'Ma san xuat' :item.production_code, 'Ghi chu' :item.production_code}
+    return data;
+}
