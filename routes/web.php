@@ -98,3 +98,16 @@ Route::get('customer-detail',function(){
 Route::get('list-product-inventory',function(){
     return view('admin.customer_list_product_inventory');
 });
+
+
+Route::get('list-production',function(){
+    return view('admin.customer_list_production');
+});
+
+Route::get('list-production-detail',function(){
+    return view('admin.customer_list_production_detail');
+});
+
+Route::get('list-production1',function(){
+    return view('admin.customer_list_production1');
+});
