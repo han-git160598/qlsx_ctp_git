@@ -11,7 +11,7 @@
 
         <li class="item active"><a href="{{URL::to('list-production')}}">Sản xuất</a></li>
         <li class="item"><a href="customer_list_vendor.html">Nhà cung ứng</a></li>
-        <li class="item"><a href="customer_list_product.html">Sản phẩm</a></li>
+        <li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item"><a href="customer_list_ship.html">Vận chuyển</a></li>
         <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
         <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
@@ -391,13 +391,12 @@
                                 </select>
                             </div>
                             <div class="form-box-flex">
-                            <label for="machine_name" class="form-lable">Loại ca</label>
-                            <select name="ca_name" class="form-select" id="ca_name">
-                                    <option value="T">Ca tối</option>
-                                    <option value="S">Ca sáng</option>
-                   
-                            </select>
-                        </div>
+                                <label for="machine_name" class="form-lable">Loại ca</label>
+                                <select name="ca_name" class="form-select" id="ca_name">
+                                        <option value="T">Ca tối</option>
+                                        <option value="S">Ca sáng</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="box" id="prodution_calender">

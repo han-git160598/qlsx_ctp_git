@@ -108,6 +108,6 @@ Route::get('list-production-detail',function(){
     return view('admin.customer_list_production_detail');
 });
 
-Route::get('list-production1',function(){
-    return view('admin.customer_list_production1');
+Route::get('list-product',function(){
+    return view('admin.customer_list_product');
 });
