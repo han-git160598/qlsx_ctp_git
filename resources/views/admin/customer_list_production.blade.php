@@ -361,29 +361,23 @@
                     <div class="form-edit-row-flex mb-3">
                         <div class="form-box-flex w-30 d-flex justify-content-space-between align-item-center">
                             <label for="week" class="form-lable">Tuần</label>
-                            <input type="text" class="form-input w-80 ml-2" name="week" placeholder="Nhập tuần" id="week">
+                            <input type="text" class="form-input w-80 ml-2" name="week" placeholder="Nhập tuần" id="week_title">
                         </div>
                         <div class="form-box-flex w-30 d-flex justify-content-space-between align-item-center">
                             <label for="from_date" class="form-lable">Từ</label>
-                            <input type="date" name="from_date" class="form-input  w-80 ml-2" id="from_date">
+                            <input type="date" onchange="list_date()" name="from_date" class="form-input  w-80 ml-2" id="from_date">
                         </div>
                         <div class="form-box-flex w-30 d-flex justify-content-space-between align-item-center">
                             <label for="to_date" class="form-lable">Đến</label>
-                            <input type="date" name="to_date" class="form-input w-80 ml-2" id="to_date">
+                            <input type="date" onchange="list_date()" name="to_date" class="form-input w-80 ml-2" id="to_date">
                         </div>
                     </div>
                     <div class="form-edit-row-flex">
                         <div class="form-box-flex">
                             <label for="machine_name" class="form-lable">Tên máy sản xuất</label>
                             <select name="machine_name" class="form-select" id="machine_name">
-                                        <option value="0">Chọn loại máy</option>
-                                    </select>
-                        </div>
-                        <div class="form-box-flex">
-                            <label for="machine_name" class="form-lable">Loại ca</label>
-                            <select name="ca_name" class="form-select" id="ca_name">
-                                        <option value="0">Chọn ca</option>
-                                    </select>
+                                <option value="0">Chọn loại máy</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -392,11 +386,18 @@
                         <div class="form-edit-row-flex">
                             <div class="form-box-flex">
                                 <label for="machine_name" class="form-lable">Lịch sản xuất</label>
-                                <select name="machine_name" class="form-select" id="machine_name">
-                                            <option value="0">Chọn ngày</option>
-                                            <option value="1">Thứ 2 (2017-03-06)</option>
-                                        </select>
+                                <select name="machine_name" class="form-select" id="datetodate">
+                                    <option value="1">Chọn ngày</option>
+                                </select>
                             </div>
+                            <div class="form-box-flex">
+                            <label for="machine_name" class="form-lable">Loại ca</label>
+                            <select name="ca_name" class="form-select" id="ca_name">
+                                    <option value="T">Ca tối</option>
+                                    <option value="S">Ca sáng</option>
+                   
+                            </select>
+                        </div>
                         </div>
                     </div>
                     <div class="box" id="prodution_calender">
@@ -404,23 +405,23 @@
                             <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Sản phẩm</label>
-                                    <select name="choose_prd" id="choose_prd" class="form-input">
+                                    <select  name="choose_prd" id="choose_prd" class="form-input">
                                         <option value="0">Chọn sản phẩm</option>
                                     </select>
                                 </div>
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Số lượng</label>
                                     <div class="amount" style="height: 2.2rem;">
-                                        <button class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
-                                        <input type="text" value="1" class="form-input">
-                                        <button class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button onclick="decrease('product')" class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <input type="number" id="nums_product" min="1" value="1" class="form-input">
+                                        <button onclick="increase('product')" class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
                                     </div>
                                 </div>
                                 <div class="form-edit-row t-left">
-                                    <p>ĐVT: <strong>Cái</strong></p>
+                                    <p>ĐVT: <strong id="dvt_product"></strong></p>
                                 </div>
                                 <div class="form-edit-row t-left">
-                                    <p>Quy cách: <strong>300 Cái/Thùng</strong></p>
+                                    <p>Quy cách: <strong id="qc_product"></strong></p>
                                 </div>
 
                             </div>
@@ -434,13 +435,16 @@
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Số lượng</label>
                                     <div class="amount" style="height: 2.2rem;">
-                                        <button class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
-                                        <input type="text" value="1" class="form-input">
-                                        <button class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button onclick="decrease('material')" class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <input type="number" id="nums_material" min="1" value="1" class="form-input">
+                                        <button onclick="increase('material')" class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
                                     </div>
                                 </div>
                                 <div class="form-edit-row t-left">
-                                    <p>ĐVT: <strong>Kg</strong></p>
+                                    <p>ĐVT: <strong id="unit_material"></strong></p>
+                                </div>
+                                <div class="form-edit-row t-right">
+                                    <button id="save_product_material" class="btn-submit w-20 d-inline-block fz-1rem">Lưu</button>
                                 </div>
                             </div>
                         </div>
@@ -449,17 +453,17 @@
                 <div class="form-edit px-0">
                     <div class="form-edit-row mb-3">
                         <label for="week" class="form-lable">Ghi chú</label>
-                        <textarea name="" id="" cols="30" rows="3" class="form-input" placeholder="Nhập ghi chú...."></textarea>
+                        <textarea name="" id="production_note" cols="30" rows="3" class="form-input" placeholder="Nhập ghi chú...."></textarea>
                     </div>
 
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                    <button id="add_file" onclick="create_production()" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal" id="edit_production">
+  <!--   <div class="modal" id="edit_production">
         <div class="modal-box w-60">
             <div class="modal-title">
                 <h4>Thêm lệnh sản xuất</h4>
@@ -565,14 +569,14 @@
 
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                    <button id="add_file"  class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- modal delete file attach -->
-    <div class="modal" id="delete_module">
+ <!--    <div class="modal" id="delete_module">
         <div class="modal-box w-40">
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
@@ -590,10 +594,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div -->>
 
 
 
+    
 <script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
 <script src="{{ asset('public_admin/admin_js/production_manager.js')}}" type="text/javascript "></script>
 @endsection

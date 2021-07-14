@@ -30,5 +30,34 @@ function order_status(status)
     }
     return status_text;
 }
-
+function daysof_theweek(current_day)
+{
+    var date = new Date(current_day);
+ 
+    // Lấy số thứ tự của ngày hiện tại
+    var current_day = date.getDay();
+    switch (current_day) {
+    case 0:
+        day_name = "Chủ nhật";
+        break;
+    case 1:
+        day_name = "Thứ hai";
+        break;
+    case 2:
+        day_name = "Thứ ba";
+        break;
+    case 3:
+        day_name = "Thứ tư";
+        break;
+    case 4:
+        day_name = "Thứ năm";
+        break;
+    case 5:
+        day_name = "Thứ sau";
+        break;
+    case 6:
+        day_name = "Thứ bảy";
+    }
+    return day_name;
+}
 var item = JSON.parse(localStorage.getItem('account_customer'));
