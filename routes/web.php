@@ -111,3 +111,6 @@ Route::get('list-production-detail',function(){
 Route::get('list-product',function(){
     return view('admin.customer_list_product');
 });
+Route::get('product-detail',function(){
+    return view('admin.product_detail');
+});

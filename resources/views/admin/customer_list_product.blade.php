@@ -30,19 +30,19 @@
             <!-- filter date -->
             <div class="form-edit-row-flex align-item-center">
                 <div class="form-edit-row m-0">
-                    <input type="date" class="form-input py-1 px-2">
+                    <input type="date" onchange="list_product(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )" id="date_begin" class="form-input py-1 px-2">
                 </div>
                 <div class="form-edit-row m-0 mx-3">
                     <p>Đến</p>
                 </div>
                 <div class="form-edit-row m-0">
-                    <input type="date" class="form-input py-1 px-2">
+                    <input type="date" onchange="list_product(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )" id="date_end" class="form-input py-1 px-2">
                 </div>
             </div>
             <!-- search -->
             <div class="form-edit-row m-0 w-35">
                 <div class="search" style="position: relative;">
-                    <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
+                    <input type="text" name="search" onkeyup="list_product(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val())" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                     <button class="input d-flex">
                         <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
                     </button>
@@ -172,21 +172,8 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr data-id-customer="1" type="edit_material" class="click_doubble get_modal">
-                                        <td>NVL365</td>
-                                        <td>CU879879</td>
-                                        <td>Nhựa PE</td>
-                                        <td>6.892</td>
-                                        <td>
-                                            Kg
-                                        </td>
-                                        <td>
-                                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-
-                                        </td>
-                                    </tr>
-                                    <tr data-id-customer="2" type="edit_material" class="click_doubble get_modal">
+                                <tbody id="list_material">
+                                   <!--  <tr data-id-customer="2" type="edit_material" class="click_doubble get_modal">
                                         <td>NVL365</td>
                                         <td>CU879879</td>
                                         <td>Nhựa PE</td>
@@ -197,7 +184,7 @@
                                         <td>
                                             <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
@@ -207,14 +194,14 @@
             </div>
         </div>
 
-        <ul class="pagination">
-            <li class="item prev"><i class="fas fa-chevron-left"></i></li>
+        <ul class="pagination" id="cusotmer_pagination">
+           <!--  <li class="item prev"><i class="fas fa-chevron-left"></i></li>
             <li class="item">1</li>
             <li class="item">2</li>
             <li class="item">3</li>
             <li class="item">4</li>
             <li class="item">5</li>
-            <li class="item next"><i class="fas fa-chevron-right"></i></li>
+            <li class="item next"><i class="fas fa-chevron-right"></i></li> -->
         </ul>
     </div>
   
@@ -236,37 +223,39 @@
                 <div class="form-edit">
                     <div class="form-edit-row">
                         <label class="form-lable">Mã nhà cung ứng</label>
-                        <select name="city " id="city " class="form-select">
+                        <select name="city " id="city" class="form-select">
                             <option value="0 ">Chọn mã cung ứng</option>
                         </select>
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Mã NVL</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã NVL" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã NVL" id="edit_material_code" value="">
 
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Tên NVL</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập tên NVLL" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập tên NVLL" id="edit_material_name" value="">
 
                     </div>
-                    <div class="form-edit-row">
-                        <label class="form-lable">An toàn kho</label>
-                        <div class="amount">
-                            <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
-                            <input type="text" value="1">
-                            <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                    <div class="form-edit-row-flex">
+                        <div class="form-box-flex">
+                            <label class="form-lable">An toàn kho</label>
+                            <div class="amount">
+                                <button onclick="decrease('edit_safe_warehouse_material')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <input type="number" id="nums_edit_safe_warehouse_material" value="1">
+                                <button onclick="increase('edit_safe_warehouse_material')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="form-box-flex">
+                            <label class="form-lable">Đơn vị</label>
+                        <select name="city " id="list_unit_material" class="form-select">
+                            <option value="0 ">Chọn đơn vị</option>
+                        </select>
                         </div>
                     </div>
                     <div class="form-edit-row">
-                        <label class="form-lable">Đơn vị</label>
-                        <select name="city " id="city " class="form-select">
-                            <option value="0 ">Chọn đơn vị</option>
-                        </select>
-                    </div>
-                    <div class="form-edit-row">
                         <label class="form-lable">Quy cách NVL</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập quy cách NVL" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập quy cách NVL" id="edit_material_spec" value="">
 
                     </div>
                 </div>
@@ -289,42 +278,45 @@
                 <div class="form-edit">
                     <div class="form-edit-row">
                         <label class="form-lable">Mã nhà cung ứng</label>
-                        <select name="city " id="city " class="form-select">
+                        <select name="city " id="list_supplier" class="form-select">
                             <option value="0 ">Chọn mã cung ứng</option>
                         </select>
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Mã NVL</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã NVL" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã NVL" id="material_code" value="">
 
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Tên NVL</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập tên NVLL" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập tên NVLL" id="material_name" value="">
 
                     </div>
-                    <div class="form-edit-row">
-                        <label class="form-lable">An toàn kho</label>
-                        <div class="amount">
-                            <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
-                            <input type="text" value="1">
-                            <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                    <div class="form-edit-row-flex">
+                        <div class="form-box-flex">
+                            <label class="form-lable">An toàn kho</label>
+                            <div class="amount">
+                                <button onclick="decrease('safe_warehouse_material')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <input type="number" id="nums_safe_warehouse_material" value="1">
+                                <button onclick="increase('safe_warehouse_material')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-edit-row">
-                        <label class="form-lable">Đơn vị</label>
-                        <select name="city " id="city " class="form-select">
+                        <div class="form-box-flex">
+                            <label class="form-lable">Đơn vị</label>
+                        <select name="city " id="list_unit_material" class="form-select">
                             <option value="0 ">Chọn đơn vị</option>
                         </select>
+                        </div>
                     </div>
+              
                     <div class="form-edit-row">
                         <label class="form-lable">Quy cách NVL</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập quy cách NVL" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập quy cách NVL" id="material_spec" value="">
 
                     </div>
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
+                    <button onclick="create_material()" id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
@@ -342,11 +334,11 @@
                 <div class="form-edit">
                     <div class="form-edit-row">
                         <label class="form-lable">Mã khách hàng</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã khách hàng" id="customer_code" value="">
+                        <input type="text" class="form-input" name="product_customer_code" placeholder="Nhập mã khách hàng" id="product_customer_code" value="">
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Mã sản phẩm</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã sản phẩm" id="product_code" value="">
+                        <input type="text" class="form-input" name="product_code" placeholder="Nhập mã sản phẩm" id="product_code" value="">
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Tên sản phẩm</label>
@@ -379,17 +371,17 @@
                         <div class="form-box-flex">
                             <label class="form-lable">An toàn kho</label>
                             <div class="amount">
-                                <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
-                                <input type="number" value="1">
-                                <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                <button onclick="decrease('safe_warehouse')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <input type="number" id="nums_safe_warehouse" value="1">
+                                <button onclick="increase('safe_warehouse')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
                             </div>
                         </div>
                         <div class="form-box-flex">
                             <label class="form-lable">Số lượng đóng gói</label>
                             <div class="amount">
-                                <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
-                                <input type="number" value="1">
-                                <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                <button onclick="decrease('quantity_packet')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <input type="number" id="nums_quantity_packet" value="1">
+                                <button onclick="increase('quantity_packet')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -409,12 +401,12 @@
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Mô tả</label>
-                        <textarea name="" id="" cols="30" class="form-input" rows="5"></textarea>
+                        <textarea name="" id="product_description" cols="30" class="form-input" rows="5"></textarea>
                     </div>
 
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                    <button id="add_file" onclick="create_product()" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
@@ -433,9 +425,9 @@
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
                     <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
-                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
+                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa ?</p>
                 </div>
-                <div class="t-center mg-t-175rem">
+                <div class="t-center mg-t-175rem" id="btn_delete_material">
                     <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>

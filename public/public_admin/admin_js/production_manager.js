@@ -4,6 +4,7 @@ list_machine()
 list_product()
 list_material()
 })
+current_quantity=0;
 var id_category = 1;
 var temp= id_category;
 function list_category_machine()
@@ -309,24 +310,8 @@ $('#choose_nvl').change(function(){
         }
     })
 });
-var current_quantity=0;
-function decrease(key)
-{
-    current_quantity = $('#nums_'+key).val();
-    if(current_quantity < 2)
-    {
 
-    }else{
-        current_quantity -=1;
-        $('#nums_'+key).val(current_quantity);
-    }
-}
-function increase(key)
-{
-    current_quantity = $('#nums_'+key).val();
-    current_quantity1 =Number(current_quantity)+1;
-    $('#nums_'+key).val(current_quantity1);
-}
+
 var list_product_material=[];
 $('#save_product_material').click(function(){
 

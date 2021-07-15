@@ -21,28 +21,28 @@
 @section('content')
     <div id="content" class="w-100" style="float: none;">
         <h1 class="heading mb-4">
-            <a href="customer_list_product.html" class="mr-3"><i class="fas fa-chevron-left"></i></a>Chi tiết
+            <a href="{{URL::to('list-product')}}" class="mr-3"><i class="fas fa-chevron-left"></i></a>Chi tiết
         </h1>
         <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
             <span data-tag="a" type="add_module" class="visible-hidden t-green-main d-block t-right w-20 t-left">+ Thêm sản phẩm</span>
             <!-- filter date -->
             <div class="form-edit-row-flex align-item-center">
                 <div class="form-edit-row m-0">
-                    <input type="date" class="form-input py-1 px-2">
+                    <input type="date"  class="form-input py-1 px-2">
                 </div>
                 <div class="form-edit-row m-0 mx-3">
                     <p>Đến</p>
                 </div>
                 <div class="form-edit-row m-0">
-                    <input type="date" class="form-input py-1 px-2">
+                    <input type="date"  class="form-input py-1 px-2">
                 </div>
             </div>
             <!-- search -->
             <div class="form-edit-row m-0 w-35">
                 <div class="search" style="position: relative;">
-                    <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
+                    <input type="text" name="search"  id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                     <button class="input d-flex">
-                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="public/images/search_black.png" alt=""></span>
+                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
                     </button>
                 </div>
             </div>
@@ -94,6 +94,12 @@
                         <i class="fas fa-chevron-down arrow"></i>
                     </span>
                                         </th>
+                                        <th>Quy cách đóng
+                                            <span class="sort">
+                        <i class="fas fa-chevron-up arrow"></i>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </span>
+                                        </th>
                                         <th>Mô tả
                                             <span class="sort">
                         <i class="fas fa-chevron-up arrow"></i>
@@ -104,8 +110,8 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr data-id-customer="1" type="edit_product" class="click_doubble get_modal">
+                                <tbody id="list_product_detail">
+                                    <!-- <tr data-id-customer="1" type="edit_product" class="click_doubble get_modal">
                                         <td>QTR365</td>
                                         <td>6.892</td>
                                         <td>Cái</td>
@@ -114,17 +120,8 @@
                                             <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
 
                                         </td>
-                                    </tr>
-                                    <tr data-id-customer="2" type="edit_product" class="click_doubble get_modal">
-                                        <td>QTR365</td>
-                                        <td>6.892</td>
-                                        <td>Cái</td>
-                                        <td>Pellentesque interdum sed libero sit amet risus pulvinar. Ves...</td>
-                                        <td>
-                                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-
-                                        </td>
-                                    </tr>
+                                    </tr> -->
+                                   
                                 </tbody>
                             </table>
                         </div>
@@ -157,7 +154,7 @@
             <div class="modal-title">
                 <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
-                            <img src="public/images/x-black.png" alt="">
+                            <img src="../public_admin/images/x-black.png" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -188,9 +185,9 @@
                     <div class="form-edit-row">
                         <label class="form-lable">An toàn kho</label>
                         <div class="amount">
-                            <button class="minus"><img src="public/images/minus.png" alt=""></button>
+                            <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
                             <input type="text" value="1">
-                            <button class="plus"><img src="public/images/plus.png" alt=""></button>
+                            <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
                         </div>
                     </div>
                     <div class="form-edit-row">
@@ -213,7 +210,7 @@
                                 <span data-target="add_module" data-id="0" class="form-file-img"></span>
 
                                 <span data-target="add_module" data-id="0" data-tag="a" type="cancel_thumb_nails" class="form-file-view-img-close">
-                                    <img src="public/images/x_thumb_nail.png" alt="">
+                                    <img src="../public_admin/images/x_thumb_nail.png" alt="">
                                 </span>
                                 <strong data-target="add_module" data-id="0" class="form-file-img-title">Tải hình của bạn lên đây</strong>
                                 <span data-target="add_module" data-id="0" class="form-file-view-img">
@@ -242,15 +239,15 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="public/images/x-black.png" alt="">
+                    <img src="../public_admin/images/x-black.png" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="public/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
                 </div>
-                <div class="t-center mg-t-175rem">
+                <div class="t-center mg-t-175rem" id="btn_delete_product">
                     <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
@@ -260,5 +257,12 @@
     
 <script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
 <script src="{{ asset('public_admin/admin_js/product_manager.js')}}" type="text/javascript "></script>
+<script type="text/javascript">
+ $(document).ready(function()
+ {
+    var id_customer = JSON.parse(sessionStorage.getItem('detail_product'))
+    product_detail(id_customer)
+ })   
 
+</script>
 @endsection

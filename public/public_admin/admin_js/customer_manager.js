@@ -161,10 +161,7 @@ function customer_status(id,status)
         dataType: 'json',
         headers: headers,
         success: function(response) {
-        	cusotmer_pagination(page,search);
-        
         	alert(response.message);
-
         }
     })
 }

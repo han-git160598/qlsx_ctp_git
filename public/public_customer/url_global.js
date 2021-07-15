@@ -30,5 +30,22 @@ function order_status(status)
     }
     return status_text;
 }
+var current_quantity=0;
+function decrease(key)
+{
+    current_quantity = $('#nums_'+key).val();
+    if(current_quantity < 2)
+    {
 
+    }else{
+        current_quantity -=1;
+        $('#nums_'+key).val(current_quantity);
+    }
+}
+function increase(key)
+{
+    current_quantity = $('#nums_'+key).val();
+    current_quantity1 =Number(current_quantity)+1;
+    $('#nums_'+key).val(current_quantity1);
+}
 var item = JSON.parse(localStorage.getItem('account_customer'));
