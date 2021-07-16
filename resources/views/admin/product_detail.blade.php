@@ -12,7 +12,7 @@
         <li class="item "><a href="{{URL::to('list-production')}}">Sản xuất</a></li>
         <li class="item"><a href="customer_list_vendor.html">Nhà cung ứng</a></li>
         <li class="item active"><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
-        <li class="item"><a href="customer_list_ship.html">Vận chuyển</a></li>
+        <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
         <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
         <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
     </ul>
@@ -152,7 +152,7 @@
     <div class="modal" id="edit_product">
         <div class="modal-box w-50">
             <div class="modal-title">
-                <h4>Thông tin chi tiết</h4>
+                <h4>Thêm sản phẩm</h4>
                 <span class="icon" data-tag="a">
                             <img src="../public_admin/images/x-black.png" alt="">
                         </span>
@@ -161,72 +161,78 @@
                 <div class="form-edit">
                     <div class="form-edit-row">
                         <label class="form-lable">Mã khách hàng</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã khách hàng" id="address_name" value="">
+                        <input type="text" class="form-input" name="product_customer_code" placeholder="Nhập mã khách hàng" id="edit_customer_code" readonly="" value="">
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Mã sản phẩm</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập mã sản phẩm" id="address_name" value="">
+                        <input type="text" class="form-input" name="product_code" placeholder="Nhập mã sản phẩm" readonly id="edit_product_code" value="">
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Tên sản phẩm</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập tên sản phẩm" id="address_name" value="">
+                        <input type="text" class="form-input" name="address_name" placeholder="Nhập tên sản phẩm" id="edit_product_name" value="">
                     </div>
                     <div class="form-edit-row ">
                         <label class="form-lable ">Nhóm sản phẩm</label>
-                        <select name="city " id="city " class="form-select">
-                            <option value="0 ">Chọn loại sản phẩm</option>
-                        </select>
-                    </div>
-                    <div class="form-edit-row">
-                        <label class="form-lable">Kích thước</label>
-                        <input type="text" class="form-input" name="address_name" placeholder="Nhập kích thước sản phẩm" id="address_name" value="">
-                    </div>
-
-                    <div class="form-edit-row">
-                        <label class="form-lable">An toàn kho</label>
-                        <div class="amount">
-                            <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
-                            <input type="text" value="1">
-                            <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
-                        </div>
-                    </div>
-                    <div class="form-edit-row">
-                        <label class="form-lable">Đơn vị</label>
-                        <select name="city " id="city " class="form-select">
-                            <option value="0 ">Chọn đơn vị</option>
-                        </select>
-                    </div>
-                    <div class="form-edit-row">
-                        <label class="form-lable">Quy cách</label>
-                        <select name="city " id="city " class="form-select">
-                            <option value="0 ">300 Cái/Thùng</option>
+                        <select name="city " id="product_category" class="form-select">
                         </select>
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Hình ảnh</label>
                         <div class="form-file" data-target="add_module" data-id="0">
                             <div class="form-file-box">
-                                <input data-target="add_module" data-id="0" type="file" name="attach" id="attach" class="form-file-input">
-                                <span data-target="add_module" data-id="0" class="form-file-img"></span>
+                                <input data-target="add_module" data-id="0" type="file" name="attach" id="attach" class="form-file-input d-none">
+                                <span data-target="add_module" data-id="0" class="form-file-img d-none"></span>
 
-                                <span data-target="add_module" data-id="0" data-tag="a" type="cancel_thumb_nails" class="form-file-view-img-close">
+                                <span data-target="add_module" data-id="0" data-tag="a" type="cancel_thumb_nails" class="form-file-view-img-close d-block">
                                     <img src="../public_admin/images/x_thumb_nail.png" alt="">
                                 </span>
-                                <strong data-target="add_module" data-id="0" class="form-file-img-title">Tải hình của bạn lên đây</strong>
-                                <span data-target="add_module" data-id="0" class="form-file-view-img">
-                                    <img src="" alt="">
+                                <strong data-target="add_module" data-id="0" class="form-file-img-title d-none">Tải hình của bạn lên đây</strong>
+                                <span data-target="add_module" data-id="0" class="form-file-view-img d-block">
+                                    <img src="" id="edit_product_img" alt="">
                                 </span>
                             </div>
                         </div>
                     </div>
+                    <div class="form-edit-row-flex">
+                        <div class="form-box-flex">
+                            <label class="form-lable">An toàn kho</label>
+                            <div class="amount">
+                                <button onclick="decrease('edit_safe_warehouse')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <input type="number" id="nums_edit_safe_warehouse" value="1">
+                                <button onclick="increase('edit_safe_warehouse')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="form-box-flex">
+                            <label class="form-lable">Số lượng đóng gói</label>
+                            <div class="amount">
+                                <button onclick="decrease('edit_quantity_packet')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <input type="number" id="nums_edit_quantity_packet" value="1">
+                                <button onclick="increase('edit_quantity_packet')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-edit-row-flex">
+                        <div class="form-box-flex">
+                            <label for="machine_name" class="form-lable">Đơn vị</label>
+                            <select name="machine_name" class="form-select" id="list_unit">
+                               
+                            </select>
+                        </div>
+                        <div class="form-box-flex">
+                            <label for="machine_name" class="form-lable">Cách đóng gói</label>
+                            <select name="ca_name" class="form-select" id="list_unit_packet">
+                                    
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Mô tả</label>
-                        <textarea name="" id="" cols="30" class="form-input" rows="10"></textarea>
+                        <textarea name="" id="edit_product_description" cols="30" class="form-input" rows="5"></textarea>
                     </div>
 
                 </div>
-                <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                <div class="item-content t-right mg-t-175rem " id="btn_update_product">
+                    <button id="add_file"  class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>

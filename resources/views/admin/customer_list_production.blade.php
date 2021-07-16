@@ -12,7 +12,7 @@
         <li class="item active"><a href="{{URL::to('list-production')}}">Sản xuất</a></li>
         <li class="item"><a href="customer_list_vendor.html">Nhà cung ứng</a></li>
         <li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
-        <li class="item"><a href="customer_list_ship.html">Vận chuyển</a></li>
+        <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
         <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
         <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
     </ul>

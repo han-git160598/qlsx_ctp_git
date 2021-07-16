@@ -1,10 +1,10 @@
 $(document).ready(function(){
 	list_product(page, search , date_begin , date_end)
-	list_product_category()
-	list_unit()
-	list_unit_packet()
+	list_product_category(id_category='')
+	list_unit(id_unit='')
+	list_unit_packet(id_packet='')
 	list_material()
-	list_supplier()
+	list_supplier(id_supplier = '')
 })
 current_quantity=0;
 var page = 1;
@@ -86,7 +86,7 @@ function product_detail(id_customer)
 		let output =``;
 		response.data.forEach(function(item){
 			output+=`
-			<tr data-id-customer="${item.id_product}" type="edit_product" class="click_doubble get_modal">
+			<tr ondblclick="edit_product(${item.id_product})" data-id-customer="${item.id_product}" type="edit_product" class="click_doubble get_modal">
                 <td>${item.product_code}</td>
                 <td>${item.safety_stock}</td>
                 <td>${item.product_unit_title}</td>
@@ -126,9 +126,77 @@ function delete_product(id)
 		}
 	})
 }
+function edit_product(id_product)
+{
+	$.ajax({
+		url: urlapi,	
+		method: 'POST',
+		data: { detect: 'get_customer_product',id_product:id_product},
+		dataType: 'json',
+		headers: headers,
+		success: function(response) {
+		console.log(response)
+		let item = response.data[0]
+		$('#edit_product').show()
 
-//////////////////////////// TẠO SẢN PHẨM////////////////////////////////////////////
-function list_product_category()
+		$('#edit_customer_code').val(item.customer_code)
+		$('#edit_product_code').val(item.product_code)
+		$('#edit_product_name').val(item.product_name)
+		$('#nums_edit_safe_warehouse').val(item.safety_stock)
+		$('#nums_edit_quantity_packet').val(item.product_unit_packet)
+		$('#edit_product_description').val(item.product_description)
+		
+		$('#edit_product_img').attr("src", urlserver + item.product_img)
+		list_unit(item.id_unit)
+		list_unit_packet(item.id_packet)
+		list_product_category(item.id_category)
+
+		$('#btn_update_product').html(` <button id="add_file" onclick="update_product(${item.id_product})" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>`)
+		}
+	})
+}
+function update_product(id)
+{
+	var fileToUpload = $('#attach').prop('files')[0];
+    var formData = new FormData();
+    formData.append("detect", "product_manager");
+    formData.append("type_manager", "update_product");
+    formData.append("customer_code",  $('#edit_customer_code').val());
+    formData.append("product_img", fileToUpload);
+    formData.append("product_code", $('#edit_product_code').val());
+    formData.append("product_name", $('#edit_product_name').val());
+    formData.append("product_description", $('#edit_product_description').val());
+    formData.append("product_unit_packet", $('#nums_edit_quantity_packet').val());
+    formData.append("safety_stock", $('#nums_edit_safe_warehouse').val());
+
+    formData.append("id_unit", $('#list_unit').val());
+    formData.append("id_packet", $('#list_unit_packet').val());
+    formData.append("id_category", $('#product_category').val());
+    formData.append("id_admin",1);
+    formData.append("id_product",id);
+
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: formData,
+        dataType: 'JSON',
+        contentType: false,
+        processData: false,
+        //headers: headers,
+        success: function(response) {
+            if (response.success == 'true') {
+                alert(response.message);
+               	$('#edit_product').hide();
+               	let id = JSON.parse(sessionStorage.getItem('detail_product'))
+               	product_detail(id)
+            } else {
+                alert(response.message);
+            }
+        }
+    });
+}
+/////////////////////////////// TẠO SẢN PHẨM////////////////////////////////////////////
+function list_product_category(id_category='')
 {
 	$.ajax({
 		url: urlapi,
@@ -139,14 +207,20 @@ function list_product_category()
 		success: function(response) {
 			let output=``;
 			response.data.forEach(function(item){
-			output+=`<option value="${item.id}">${item.category_title}</option>`;
+			if(id_category == item.id)
+			{
+				output+=`<option selected value="${item.id}">${item.category_title}</option>`;
+			}else{
+				output+=`<option value="${item.id}">${item.category_title}</option>`;
+			}
+			
 			})
 			$('#product_category').html(output);
 		}
 	})
 }
 var id_material1= '';
-function list_unit(id_material1)
+function list_unit(id_unit ='')
 {
 	$.ajax({
 		url: urlapi,
@@ -159,15 +233,24 @@ function list_unit(id_material1)
 		success: function(response) {
 			let output=``;
 			response.data.forEach(function(item){
-			output+=`<option value="${item.id}">${item.unit_title}</option>`;
+
+				if(id_unit == item.id)
+				{
+				output+=`<option selected value="${item.id}">${item.unit_title}</option>`;
+				}else{
+				output+=`<option value="${item.id}">${item.unit_title}</option>`;
+				}
+				
 			})
+
 			$('#list_unit').html(output)
 			$('#list_unit_material').html(output)
+			$('#edit_list_unit_material').html(output)
 
 		}
 	})
 }
-function list_unit_packet()
+function list_unit_packet(id_packet='')
 {
 	$.ajax({
 		url: urlapi,
@@ -178,7 +261,13 @@ function list_unit_packet()
 		success: function(response) {
 			let output=``;
 			response.data.forEach(function(item){
-			output+=`<option value="${item.id_unit}">${item.unit_title}</option>`;
+			if(id_packet==item.id_unit)
+			{
+				output+=`<option selected value="${item.id_unit}">${item.unit_title}</option>`;
+			}else{
+				output+=`<option value="${item.id_unit}">${item.unit_title}</option>`;
+			}
+			
 			})
 			$('#list_unit_packet').html(output)
 		}
@@ -215,6 +304,7 @@ function create_product()
             if (response.success == 'true') {
                 alert(response.message);
                	$('#add_product').hide();
+               	list_product(1)
             } else {
                 alert(response.message);
             }
@@ -226,7 +316,6 @@ function create_product()
 ////////////////////////////////// NGUYÊN VẬT LIỆU //////////////////////////////
 function list_material()
 {
-	console.log(123);
 	$.ajax({
 		url: urlapi,
 		method: 'POST',
@@ -268,7 +357,7 @@ function delete_material(id)
 		dataType: 'json',
 		headers: headers,
 		success: function(response) {
-			if (response.message =='true') {
+			if (response.success =='true') {
 				alert(response.message)
 				$('#delete_module').hide()
 				list_material()
@@ -290,19 +379,47 @@ function modal_edit_material(id)
 		headers: headers,
 		success: function(response) {
 		let item = response.data[0]
-		console.log(item.safety_stock)
+		list_supplier(item.id_supplier)
+		list_unit(item.id_unit)
 		$('#edit_material').show()
 		$('#edit_material_code').val(item.material_code)
 		$('#edit_material_name').val(item.material_name)
 		$('#nums_edit_safe_warehouse_material').val(item.safety_stock)
 		$('#edit_material_spec').val(item.material_spec)
-
-
+		$('#btn_update_material').html(`<button id="add_file" onclick="update_material(${id})" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>`)
 		}
 	})	
 }
+function update_material(id)
+{
+	$.ajax({
+		url: urlapi,
+		method: 'POST',
+		data: { detect: 'material_manager',type_manager:'update_material'
+		,material_name:$('#edit_material_name').val(), id_supplier:$('#edit_list_supplier').val()
+		,id_unit:$('#edit_list_unit_material').val(),material_code:$('#edit_material_code').val()
+		,material_spec:$('#edit_material_spec').val(),safety_stock:$('#nums_edit_safe_warehouse_material').val()
+		,id_admin:1, id_material:id
+		},
+		dataType: 'json',
+		headers: headers,
+		success: function(response) {
+			if(response.success=='true')
+			{	
+				alert(response.message)
+				$('#edit_material').hide()
+				list_material()
+				
+			}else{
+				alert(response.message)
+			}
+
+		}
+	})
+}
 ////////// TẠO NGUYÊN VẬT LIỆU
-function list_supplier()
+// var id_supplier = '';
+function list_supplier(id_supplier = '')
 {
 	$.ajax({
 		url: urlapi,
@@ -312,9 +429,16 @@ function list_supplier()
 		headers: headers,
 		success: function(response) {
 			let output=``;
+
 			response.data.forEach(function(item){
-			output+=`<option value="${item.id}">${item.supplier_code}</option>`;
+				if(id_supplier == item.id)
+				{
+				output+=`<option selected value="${item.id}">${item.supplier_code}</option>`;
+				}else{
+				output+=`<option value="${item.id}">${item.supplier_code}</option>`;
+				}
 			})
+			$('#edit_list_supplier').html(output)
 			$('#list_supplier').html(output)
 		}
 	})
@@ -345,5 +469,4 @@ function create_material()
 
 		}
 	})
-
 }

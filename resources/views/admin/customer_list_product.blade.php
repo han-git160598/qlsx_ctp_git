@@ -192,7 +192,7 @@
                 </div>
 
             </div>
-        </div>
+       
 
         <ul class="pagination" id="cusotmer_pagination">
            <!--  <li class="item prev"><i class="fas fa-chevron-left"></i></li>
@@ -203,6 +203,7 @@
             <li class="item">5</li>
             <li class="item next"><i class="fas fa-chevron-right"></i></li> -->
         </ul>
+         </div>
     </div>
   
 
@@ -214,7 +215,7 @@
     <div class="modal" id="edit_material">
         <div class="modal-box w-50">
             <div class="modal-title">
-                <h4>Thêm nguyên vật liệu</h4>
+                <h4>Chi tiết nguyên vật liệu</h4>
                 <span class="icon" data-tag="a">
                             <img src="../public_admin/images/x-black.png" alt="">
                         </span>
@@ -223,7 +224,7 @@
                 <div class="form-edit">
                     <div class="form-edit-row">
                         <label class="form-lable">Mã nhà cung ứng</label>
-                        <select name="city " id="city" class="form-select">
+                        <select name="city " id="edit_list_supplier" class="form-select">
                             <option value="0 ">Chọn mã cung ứng</option>
                         </select>
                     </div>
@@ -248,8 +249,8 @@
                         </div>
                         <div class="form-box-flex">
                             <label class="form-lable">Đơn vị</label>
-                        <select name="city " id="list_unit_material" class="form-select">
-                            <option value="0 ">Chọn đơn vị</option>
+                        <select name="city " id="edit_list_unit_material" class="form-select">
+                           
                         </select>
                         </div>
                     </div>
@@ -259,8 +260,8 @@
 
                     </div>
                 </div>
-                <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
+                <div class="item-content t-right mg-t-175rem" id="btn_update_material">
+                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
                 </div>
             </div>
         </div>
@@ -271,8 +272,8 @@
             <div class="modal-title">
                 <h4>Thêm nguyên vật liệu</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
-                        </span>
+                    <img src="../public_admin/images/x-black.png" alt="">
+                </span>
             </div>
             <div class="modal-content">
                 <div class="form-edit">
@@ -304,7 +305,7 @@
                         <div class="form-box-flex">
                             <label class="form-lable">Đơn vị</label>
                         <select name="city " id="list_unit_material" class="form-select">
-                            <option value="0 ">Chọn đơn vị</option>
+                            
                         </select>
                         </div>
                     </div>
