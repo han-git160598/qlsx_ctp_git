@@ -30,6 +30,25 @@ function order_status(status)
     }
     return status_text;
 }
+function shipping_status1(status)
+{
+    let shipping_status = '';
+    switch(status)
+    {
+        case '1':
+            shipping_status = 'KHỞI TẠO';
+            break;
+        case '2':
+            shipping_status = 'HOÀN TẤT';
+            break;
+        case '3':
+            status_text = 'HỦY ĐƠN';
+            break;
+    }
+    return shipping_status;
+}
+
+
 var current_quantity=0;
 function decrease(key)
 {

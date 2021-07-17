@@ -29,16 +29,17 @@
             <!-- filter date -->
             <div class="form-edit-row-flex align-item-center">
                 <div class="form-edit-row m-0 mx-3">
-                    <p>Từ</p>
+                    <p><button onclick="reset_date()">Reset</button></p>
                 </div>
                 <div class="form-edit-row m-0">
-                    <input type="date" class="form-input py-1 px-2">
+                    <input type="date" onchange="list_ship($('#stauts_ship').val(),$('#date_begin').val(),$('#date_end').val())" id="date_begin" class="form-input py-1 px-2">
                 </div>
+                <input type="hidden" id="stauts_ship" name="">
                 <div class="form-edit-row m-0 mx-3">
                     <p>Đến</p>
                 </div>
                 <div class="form-edit-row m-0">
-                    <input type="date" class="form-input py-1 px-2">
+                    <input type="date" onchange="list_ship($('#stauts_ship').val(),$('#date_begin').val(),$('#date_end').val())" id="date_end" class="form-input py-1 px-2">
                 </div>
             </div>
 
@@ -57,13 +58,13 @@
             <div class="tabs-container">
                 <ul class="sub-menu nav nav-tabs tab-border-top-danger" style="position: relative;">
                     <li class="sub-item active">
-                        <a data-toggle="tab" href="#tab-1" aria-expanded="true">Khởi tạo</a>
+                        <a onclick="list_ship(1,$('#date_begin').val(),$('#date_end').val())" data-toggle="tab" href="#tab-1" aria-expanded="true">Khởi tạo</a>
                     </li>
                     <li class="sub-item">
-                        <a data-toggle="tab" href="#tab-2" aria-expanded="false">Hoàn tất</a>
+                        <a onclick="list_ship(2,$('#date_begin').val(),$('#date_end').val())" data-toggle="tab" href="#tab-1" aria-expanded="false">Hoàn tất</a>
                     </li>
                     <li class="sub-item">
-                        <a data-toggle="tab" href="#tab-3" aria-expanded="false">Hủy lệnh</a>
+                        <a onclick="list_ship(3,$('#date_begin').val(),$('#date_end').val())" data-toggle="tab" href="#tab-1" aria-expanded="false">Hủy lệnh</a>
                     </li>
                     <!-- filter by pages -->
                     <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
@@ -115,8 +116,8 @@
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr data-id-customer="1" type="info_init" class="click_doubble get_modal">
+                                <tbody id="list_ship">
+                                   <!--  <tr data-id-customer="1" type="" class="click_doubble get_modal">
                                         <td>VC7161638</td>
                                         <td>KH1234567</td>
                                         <td>MDH879879</td>
@@ -130,7 +131,7 @@
                                         </td>
                                         <td>2021-05-21</td>
 
-                                    </tr>
+                                    </tr> -->
                                   
                                 </tbody>
                             </table>
@@ -303,464 +304,6 @@
 @endsection
 @section('modal')
 
-    <!-- Modal info order history-->
-    <div class="modal" id="info_order_history">
-        <div class="modal-box">
-            <div class="modal-title">
-                <h4>Thông tin chi tiết</h4>
-                <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
-                        </span>
-            </div>
-            <div class="modal-content">
-                <div class="form-info">
-                    <div class="form-info-content justify-content-center">
-                        <div class="form-info-right w-60">
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Mã vận chuyển</label>
-                                <div class="form-info-input-content t-left">
-                                    <strong>VC7161638</strong>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Mã khách hàng</label>
-                                <div class="form-info-input-content t-left">
-                                    <strong>KH12345678</strong>
-                                </div>
-                            </div>
-                            <div class="form-info-row align-item-start">
-                                <label for="title" class="form-info-lable">Tên công ty</label>
-                                <div class="form-info-input-content t-left">
-                                    <strong>Công ty Cổ Phần XYZ</strong>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Địa chỉ</label>
-                                <div class="form-info-input-content t-left">
-                                    <strong>157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</strong>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Mã đơn hàng</label>
-                                <div class="form-info-input-content t-left">
-                                    <strong>MDH879879</strong>
-                                </div>
-                            </div>
-                            <div class="form-info-row" style="align-items: flex-start;">
-                                <label for="title" class="form-info-lable">Sản phẩm</label>
-                                <div class="form-info-input-content ">
-                                    <!-- chua confirm -->
-                                    <div class="d-flex justify-content-space-between bg-F6 py-2 px-3 my-1">
-                                        <p>Túi nilon màu</p>
-                                        <p>125 Cái</p>
-                                    </div>
-                                    <div class="d-flex justify-content-space-between bg-F6 py-2 px-3 my-1 ">
-                                        <p>Bao bì kem</p>
-                                        <p>125 Cái</p>
-                                    </div>
-                                    <div class="d-flex justify-content-space-between bg-F6 py-2 px-3 my-1">
-                                        <p>Ly nhựa nắp tim cứng 500ml</p>
-                                        <p>125 Cái</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Tổng giá trị</label>
-                                <div class="form-info-input-content t-left">
-                                    <strong>59.400.000 đ</strong>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Ngày giao (TT)</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>2021-04-05</p>
-                                </div>
-                            </div>
-
-                            <div class="form-info-row">
-                                <label for="title" class="form-info-lable">Trạng thái</label>
-                                <div class="form-info-input-content t-left t-blue">
-                                    <p>ĐANG XỬ LÝ</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row" style="align-items: flex-start;">
-                                <label for="title" class="form-info-lable">Ghi chú</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>Ghi chú</p>
-
-                                </div>
-                            </div>
-
-                            <div class="form-info-row">
-                                <div for="title" class="form-info-lable">
-                                    <input type="checkbox" name="cancel_order" id="cancel_order">
-                                    <label for="cancel_order">Hủy đơn</label>
-                                </div>
-                                <div class="form-info-input-content t-left">
-                                    <textarea name="cancel_reason" id="cancel_reason" class="w-100" cols="30" rows="10"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hủy lệnh</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Thông tin lệnh vận chuyển đã hủy -->
-    <div class="modal" id="info_cancel">
-        <div class="modal-box w-50">
-            <div class="modal-title">
-                <h4>Thông tin chi tiết</h4>
-                <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
-                        </span>
-            </div>
-            <div class="modal-content">
-                <div class="form-info">
-                    <div class="form-info-content justify-content-center">
-                        <div class="form-info-right w-100">
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Mã vận chuyển</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>VC7161638</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Trạng thái</label>
-                                <div class="form-info-input-content t-left">
-                                    <p class="t-blue">HỦY LỆNH</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Mã đơn hàng</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>MDH879879</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- sau khi chọn / điền mã đơn hàng thì hiển thi box thông tin chi tiết đơn hàng đó -->
-                <div class="box bg-F6">
-                    <div class="form-info w-100">
-                        <div class="form-info-content justify-content-center">
-                            <div class="form-info-right w-100">
-                                <div class="form-info-row" style="align-items: flex-start;">
-                                    <label for="title" class="form-info-lable">Sản phẩm</label>
-                                    <div class="form-info-input-content ">
-                                        <!-- product items -->
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Ngày nhận</label>
-                                    <div class="form-info-input-content t-left">
-                                        <input type="date" name="date_give" id="date_give" value="2021-04-21">
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Mã khách hàng</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>KH12345678</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Tên công ty</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>Công ty Cổ Phần XYZ</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row align-item-start">
-                                    <label for="title" class="form-info-lable">Địa chỉ</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row" style="align-items: flex-start;">
-                                    <label for="title" class="form-info-lable">Ghi chú</label>
-                                    <div class="form-info-input-content t-left">
-                                        <p>Ghi chú</p>
-
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Tổng giá trị</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>59.400.000 đ</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Trạng thái</label>
-                                    <div class="form-info-input-content t-left">
-                                        <p class="t-blue">ĐANG XỬ LÝ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-info">
-                    <div class="form-info-content justify-content-center">
-                        <div class="form-info-right w-100">
-
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Ngày giao (TT)</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>2021-04-05</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Ghi chú</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Hủy lệnh</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Thông tin lệnh vận chuyển đã hoàn tất -->
-    <div class="modal" id="info_complete">
-        <div class="modal-box w-50">
-            <div class="modal-title">
-                <h4>Thông tin chi tiết</h4>
-                <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
-                        </span>
-            </div>
-            <div class="modal-content">
-                <div class="form-info">
-                    <div class="form-info-content justify-content-center">
-                        <div class="form-info-right w-100">
-
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Mã vận chuyển</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>VC7161638</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Trạng thái</label>
-                                <div class="form-info-input-content t-left">
-
-                                    <p class="t-blue">HOÀN TẤT</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Mã đơn hàng</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>MDH879879</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- sau khi chọn / điền mã đơn hàng thì hiển thi box thông tin chi tiết đơn hàng đó -->
-                <div class="box bg-F6">
-                    <div class="form-info w-100">
-                        <div class="form-info-content justify-content-center">
-                            <div class="form-info-right w-100">
-                                <div class="form-info-row" style="align-items: flex-start;">
-                                    <label for="title" class="form-info-lable">Sản phẩm</label>
-                                    <div class="form-info-input-content ">
-                                        <!-- product items -->
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Ngày nhận</label>
-                                    <div class="form-info-input-content t-left">
-                                        <input type="date" name="date_give" id="date_give" value="2021-04-21">
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Mã khách hàng</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>KH12345678</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Tên công ty</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>Công ty Cổ Phần XYZ</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row align-item-start">
-                                    <label for="title" class="form-info-lable">Địa chỉ</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row" style="align-items: flex-start;">
-                                    <label for="title" class="form-info-lable">Ghi chú</label>
-                                    <div class="form-info-input-content t-left">
-                                        <p>Ghi chú</p>
-
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Tổng giá trị</label>
-                                    <div class="form-info-input-content t-left">
-                                        <strong>59.400.000 đ</strong>
-                                    </div>
-                                </div>
-                                <div class="form-info-row">
-                                    <label for="title" class="form-info-lable">Trạng thái</label>
-                                    <div class="form-info-input-content t-left">
-                                        <p class="t-blue">ĐANG XỬ LÝ</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-info">
-                    <div class="form-info-content justify-content-center">
-                        <div class="form-info-right w-100">
-
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Ngày giao (TT)</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>2021-04-05</p>
-                                </div>
-                            </div>
-                            <div class="form-info-row">
-                                <label class="form-info-lable">Ghi chú</label>
-                                <div class="form-info-input-content t-left">
-                                    <p>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- Thông tin lệnh vận chuyển vừa khởi tạo -->
     <div class="modal" id="info_init">
         <div class="modal-box w-50">
@@ -778,20 +321,20 @@
                             <div class="form-info-row">
                                 <label class="form-info-lable">Mã vận chuyển</label>
                                 <div class="form-info-input-content t-left">
-                                    <p>VC7161638</p>
+                                    <p id="detail_shipping_code"></p>
                                 </div>
                             </div>
                             <div class="form-info-row">
                                 <label class="form-info-lable">Trạng thái</label>
                                 <div class="form-info-input-content t-left">
 
-                                    <p class="t-blue">KHỞI TẠO</p>
+                                    <p class="t-blue" id="detail_shipping_status"></p>
                                 </div>
                             </div>
                             <div class="form-info-row">
                                 <label class="form-info-lable">Mã đơn hàng</label>
                                 <div class="form-info-input-content t-left">
-                                    <p>MDH879879</p>
+                                    <p id="detail_order_code"></p>
                                 </div>
                             </div>
                         </div>
@@ -804,9 +347,10 @@
                             <div class="form-info-right w-100">
                                 <div class="form-info-row" style="align-items: flex-start;">
                                     <label for="title" class="form-info-lable">Sản phẩm</label>
-                                    <div class="form-info-input-content ">
+                                    <div class="form-info-input-content" id="detail_list_product_order">
                                         <!-- product items -->
-                                        <div class="bg-white py-2 px-3 my-1">
+
+                                        <!-- <div class="bg-white py-2 px-3 my-1">
                                             <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
                                                 <strong>NGON MÊ LY R365</strong>
                                                 <p class="mt-2">NML-R365</p>
@@ -824,88 +368,51 @@
                                                 <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
                                                 <span>300 Cái/Thùng</span>
                                             </div>
-                                        </div>
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
-                                        <div class="bg-white py-2 px-3 my-1">
-                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                <strong>NGON MÊ LY R365</strong>
-                                                <p class="mt-2">NML-R365</p>
-                                                <p class="mt-2">x1234 Thùng</p>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                <span>Ly</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                <span>Thùng</span>
-                                            </div>
-                                            <div class="d-flex py-2 align-item-center">
-                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                <span>300 Cái/Thùng</span>
-                                            </div>
-                                        </div>
+                                        </div> -->
+                                      
                                     </div>
                                 </div>
                                 <div class="form-info-row">
                                     <label for="title" class="form-info-lable">Ngày nhận</label>
                                     <div class="form-info-input-content t-left">
-                                        <p>2021-04-21</p>
+                                        <p id="detail_order_date_delivery"></p>
                                     </div>
                                 </div>
                                 <div class="form-info-row">
                                     <label for="title" class="form-info-lable">Mã khách hàng</label>
                                     <div class="form-info-input-content t-left">
-                                        <strong>KH12345678</strong>
+                                        <strong id="detail_customer_code"></strong>
                                     </div>
                                 </div>
                                 <div class="form-info-row">
                                     <label for="title" class="form-info-lable">Tên công ty</label>
                                     <div class="form-info-input-content t-left">
-                                        <strong>Công ty Cổ Phần XYZ</strong>
+                                        <strong id="detail_company_name"></strong>
                                     </div>
                                 </div>
                                 <div class="form-info-row align-item-start">
                                     <label for="title" class="form-info-lable">Địa chỉ</label>
                                     <div class="form-info-input-content t-left">
-                                        <strong>157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</strong>
+                                        <strong id="detail_shipping_address"></strong>
                                     </div>
                                 </div>
                                 <div class="form-info-row" style="align-items: flex-start;">
                                     <label for="title" class="form-info-lable">Ghi chú</label>
                                     <div class="form-info-input-content t-left">
-                                        <p>Ghi chú</p>
+                                        <p id="detail_order_note"></p>
 
                                     </div>
                                 </div>
                                 <div class="form-info-row">
                                     <label for="title" class="form-info-lable">Tổng giá trị</label>
                                     <div class="form-info-input-content t-left">
-                                        <strong>59.400.000 đ</strong>
+                                        <strong id="detail_order_total_cost"></strong>
                                     </div>
                                 </div>
                                 <div class="form-info-row">
                                     <label for="title" class="form-info-lable">Trạng thái</label>
                                     <div class="form-info-input-content t-left">
-                                        <p class="t-blue">ĐANG XỬ LÝ</p>
+                                        <p class="t-blue" id="detail_order_status"></p>
                                     </div>
                                 </div>
                             </div>
@@ -920,31 +427,31 @@
                             <div class="form-info-row">
                                 <label class="form-info-lable">Ngày giao (TT)</label>
                                 <div class="form-info-input-content t-left">
-                                    <p>2021-04-05</p>
+                                    <p id="detail_order_date_shipping"></p>
                                 </div>
                             </div>
                             <div class="form-info-row">
                                 <label class="form-info-lable">Ghi chú</label>
                                 <div class="form-info-input-content t-left">
-                                    <p>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</p>
+                                    <p id="detail_shipping_note"></p>
                                 </div>
                             </div>
-                            <div class="form-info-row">
-                                <div for="title" class="form-info-lable">
+                            <div class="form-info-row" id="stauts_ship_html">
+                               <!--  <div for="title" class="form-info-lable">
                                     <input type="checkbox" name="cancel_order" id="cancel_order">
                                     <label for="cancel_order">Hủy lệnh</label>
                                 </div>
                                 <div class="form-info-input-content t-left">
-                                    <textarea name="cancel_reason" id="cancel_reason" class="w-100" cols="30" rows="10" placeholder="Lí do hủy lệnh...."></textarea>
-                                </div>
+                                    <textarea name="cancel_reason" id="cancel_reason" class="w-100" cols="20" rows="5" placeholder="Lí do hủy lệnh...."></textarea>
+                                </div> -->
                             </div>
 
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </div>
-            <div class="item-content t-right mb-3">
-                <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hủy lệnh</button>
+            <div class="item-content t-right mb-3" id="btn_cancel_ship">
+                
             </div>
         </div>
     </div>
@@ -961,21 +468,20 @@
                 <div class="form-edit">
                     <div class="form-edit-row">
                         <label class="form-lable">Mã đơn hàng</label>
-                        <select name="choose_mdh" id="choose_mdh" class="form-input">
+                        <select name="choose_mdh" onchange="list_product_order()" id="choose_mdh" class="form-input">
                             <option value="0">Chọn đơn hàng</option>
-                            <option value="1">MDH879879</option>
                         </select>
                     </div>
                     <!-- sau khi chọn / điền mã đơn hàng thì hiển thi box thông tin chi tiết đơn hàng đó -->
                     <div class="box bg-F6">
                         <div class="form-info w-100">
                             <div class="form-info-content justify-content-center">
-                                <div class="form-info-right w-100">
-                                    <div class="form-info-row" style="align-items: flex-start;">
+                                <div class="form-info-right w-100" id="div_detail_order">
+                                    <div class="form-info-row" style="align-items: flex-start;" >
                                         <label for="title" class="form-info-lable">Sản phẩm</label>
-                                        <div class="form-info-input-content ">
+                                        <div class="form-info-input-content" id="list_product_order">
                                             <!-- product items -->
-                                            <div class="bg-white py-2 px-3 my-1">
+                                            <!-- <div class="bg-white py-2 px-3 my-1">
                                                 <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
                                                     <strong>NGON MÊ LY R365</strong>
                                                     <p class="mt-2">NML-R365</p>
@@ -993,88 +499,51 @@
                                                     <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
                                                     <span>300 Cái/Thùng</span>
                                                 </div>
-                                            </div>
-                                            <div class="bg-white py-2 px-3 my-1">
-                                                <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                    <strong>NGON MÊ LY R365</strong>
-                                                    <p class="mt-2">NML-R365</p>
-                                                    <p class="mt-2">x1234 Thùng</p>
-                                                </div>
-                                                <div class="d-flex py-2 align-item-center">
-                                                    <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                    <span>Ly</span>
-                                                </div>
-                                                <div class="d-flex py-2 align-item-center">
-                                                    <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                    <span>Thùng</span>
-                                                </div>
-                                                <div class="d-flex py-2 align-item-center">
-                                                    <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                    <span>300 Cái/Thùng</span>
-                                                </div>
-                                            </div>
-                                            <div class="bg-white py-2 px-3 my-1">
-                                                <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-                                                    <strong>NGON MÊ LY R365</strong>
-                                                    <p class="mt-2">NML-R365</p>
-                                                    <p class="mt-2">x1234 Thùng</p>
-                                                </div>
-                                                <div class="d-flex py-2 align-item-center">
-                                                    <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                                                    <span>Ly</span>
-                                                </div>
-                                                <div class="d-flex py-2 align-item-center">
-                                                    <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                                                    <span>Thùng</span>
-                                                </div>
-                                                <div class="d-flex py-2 align-item-center">
-                                                    <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                                                    <span>300 Cái/Thùng</span>
-                                                </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
+
                                     <div class="form-info-row">
                                         <label for="title" class="form-info-lable">Ngày nhận</label>
                                         <div class="form-info-input-content t-left">
-                                            <p>2021-04-21</p>
+                                            <p id="order_date_delivery">2021-04-21</p>
                                         </div>
                                     </div>
                                     <div class="form-info-row">
                                         <label for="title" class="form-info-lable">Mã khách hàng</label>
                                         <div class="form-info-input-content t-left">
-                                            <strong>KH12345678</strong>
+                                            <strong id="customer_code">KH12345678</strong>
                                         </div>
                                     </div>
                                     <div class="form-info-row">
                                         <label for="title" class="form-info-lable">Tên công ty</label>
                                         <div class="form-info-input-content t-left">
-                                            <strong>Công ty Cổ Phần XYZ</strong>
+                                            <strong id="company_name">Công ty Cổ Phần XYZ</strong>
                                         </div>
                                     </div>
                                     <div class="form-info-row align-item-start">
                                         <label for="title" class="form-info-lable">Địa chỉ</label>
                                         <div class="form-info-input-content t-left">
-                                            <strong>157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</strong>
+                                            <strong id="shipping_address">157/17/1 Nguyen Gia Tri Street, Ward 25, Binh Thanh District, HCM City</strong>
                                         </div>
                                     </div>
                                     <div class="form-info-row" style="align-items: flex-start;">
                                         <label for="title" class="form-info-lable">Ghi chú</label>
                                         <div class="form-info-input-content t-left">
-                                            <p>Ghi chú</p>
+                                            <p id="order_note">Ghi chú</p>
 
                                         </div>
                                     </div>
                                     <div class="form-info-row">
                                         <label for="title" class="form-info-lable">Tổng giá trị</label>
                                         <div class="form-info-input-content t-left">
-                                            <strong>59.400.000 đ</strong>
+                                            <strong id="order_total_cost">590.400.000 đ</strong>
                                         </div>
                                     </div>
                                     <div class="form-info-row">
                                         <label for="title" class="form-info-lable">Trạng thái</label>
                                         <div class="form-info-input-content t-left">
-                                            <p class="t-blue">ĐANG XỬ LÝ</p>
+                                            <p class="t-blue" id="order_status">ĐANG XỬ LÝ</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1083,16 +552,16 @@
                     </div>
                     <div class="form-edit-row t-left">
                         <label class="form-lable">Ngày giao (TT)</label>
-                        <input type="date" class="form-input w-40 " name="address_name" id="address_name" value="">
+                        <input type="date" class="form-input w-40 " name="address_name" id="shipping_time" value="">
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Ghi chú</label>
-                        <textarea name="" id="" cols="30" class="form-input" rows="5">Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</textarea>
+                        <textarea name="" id="shipping_note" cols="30" class="form-input" rows="5">Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</textarea>
                     </div>
 
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Xác nhận</button>
+                    <button id="add_file" onclick="create_ship()" class="btn-submit w-20 d-inline-block fz-1rem">Xác nhận</button>
                 </div>
             </div>
         </div>
