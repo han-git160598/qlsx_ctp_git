@@ -166,6 +166,7 @@ function edit_ship(id_shipping){
         dataType: 'json',
         headers: headers,
         success: function(response) {
+        	console.log(response)
     	let output=``;
     	let address_shipping1 = JSON.parse(response.data[0].order_detail[0].order_record_shipping)
     	let address_delivery1 = JSON.parse(response.data[0].order_detail[0].order_record_delivery)
@@ -199,8 +200,14 @@ function edit_ship(id_shipping){
 		$('#detail_order_date_delivery').text(response.data[0].order_detail[0].order_date_delivery)
 		$('#detail_customer_code').text(response.data[0].customer_code)
 		$('#detail_company_name').text(address_delivery1.delivery_company)
-		
- 		$('#detail_shipping_address').text(address_delivery1.shipping_address)
+		$('#detail_delivery_address').text(address_delivery1.delivery_address)
+		if(address_shipping1 == '' || address_shipping1 == null)
+		{
+			
+		}else{
+			$('#detail_shipping_address').text(address_shipping1.shipping_address)
+		}
+ 		
 
 		$('#detail_order_note').text(response.data[0].order_detail[0].order_note)
 		$('#detail_order_total_cost').text(response.data[0].order_detail[0].order_total_cost)

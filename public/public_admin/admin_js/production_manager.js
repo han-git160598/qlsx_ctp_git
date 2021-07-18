@@ -137,8 +137,10 @@ function production_detail()
 }
 function update_stauts_production(id_production)
 {
-    console.log(id_production)
-    $.ajax({
+    var r = confirm('Bạn có muốn hoàn tất lệnh sản xuấy này')
+    if(r==true)
+    {
+        $.ajax({
         url: urlapi,
         method: 'POST',
         data: { detect: 'production_manager',type_manager:'update_production',id_production:id_production
@@ -147,11 +149,18 @@ function update_stauts_production(id_production)
         dataType: 'json',
         headers: headers,
         success: function(response) {
-            console.log(response)
-            alert(response.message);
-            list_production(temp);
+            if(response.success=='true')
+            {
+                alert(response.message);
+                list_production(temp); 
+            }else{
+                 alert(response.message);
+            }
+            
         }
-    });
+        });
+    }
+    
 }
 
 
@@ -224,7 +233,7 @@ function list_date()
     if(from_date > to_date)
     {
         alert('Ngày bắt đầu phải nhỏ hơn ngày kết thúc')
-    }else{
+    }else{  
         let output=``;
         let from_date_timestamp  = new Date($('#from_date').val()).getTime();
         let temp = from_date_timestamp;

@@ -391,9 +391,15 @@
                                     </div>
                                 </div>
                                 <div class="form-info-row align-item-start">
-                                    <label for="title" class="form-info-lable">Địa chỉ</label>
+                                    <label for="title" class="form-info-lable">Địa chỉ gửi</label>
                                     <div class="form-info-input-content t-left">
                                         <strong id="detail_shipping_address"></strong>
+                                    </div>
+                                </div>
+                                <div class="form-info-row align-item-start">
+                                    <label for="title" class="form-info-lable">Địa chỉ nhận</label>
+                                    <div class="form-info-input-content t-left">
+                                        <strong id="detail_delivery_address"></strong>
                                     </div>
                                 </div>
                                 <div class="form-info-row" style="align-items: flex-start;">

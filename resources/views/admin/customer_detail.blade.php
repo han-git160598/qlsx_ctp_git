@@ -311,6 +311,56 @@
 
 @endsection      
 @section('modal') 
+
+ 
+
+    <div class="modal" id="edit_address">
+        <div class="modal-box">
+
+            <div class="modal-title">
+                <h4>Chỉnh sửa địa chỉ gửi</h4>
+                <span class="icon" data-tag="a">
+                    <img src="../public_admin/images/x-black.png" alt="">
+                </span>
+            </div>
+            <div class="modal-content">
+                <form action="" method="post" class="form-edit">
+                    <div class="form-edit-row">
+                        <label class="form-lable">Tên gợi nhớ</label>
+                        <input type="text" class="form-input" name="address_name" id="address_name" value="Phước Bình">
+                    </div>
+                    <div class="form-edit-row form-edit-row-flex input-content ">
+                        <div class="form-box-flex">
+                            <label class="form-lable">Liên hệ</label>
+                            <input type="text" class="form-input" name="contact_name" id="contact_name" value="Jemis Kevin">
+                        </div>
+                        <div class="form-box-flex">
+                            <label class="form-lable">Số điện thoại</label>
+                            <input type="text" class="form-input name" name="contact_number" id="contact_number" value="">
+                        </div>
+                    </div>
+                    <div class="form-edit-row ">
+                        <label class="form-lable ">Địa chỉ</label>
+                        <input type="text" name="address " id="address" class="form-input">
+                    </div>
+                    <!-- <div class="form-edit-row-check t-left">
+                        <input type="checkbox" class="form-input-check " name="choose_default" id="choose_default ">
+                        <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>
+                    </div> -->
+                </form>
+            </div>
+
+            <div class="item-content mb-3 d-flex justify-content-end" id="btn_update_address">
+                <button class="btn-submit w-30 ">Hoàn thành</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
     <div class="modal" id="delete_module_address">
         <div class="modal-box w-40">
             <div class="modal-title">
@@ -334,5 +384,5 @@
 
 
 <script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
-<script src="{{ asset('public_admin/admin_js/customer_manager.js')}}" type="text/javascript "></script>
+<script src="{{ asset('public_admin/admin_js/detail_customer.js')}}" type="text/javascript "></script>
 @endsection
