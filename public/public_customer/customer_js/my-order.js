@@ -78,7 +78,7 @@ function status_order(status)
                         <div>`;
                         if(status == 1)
                         {
-                        output += `<a onclick="cancel_order(${item.id_order})" class="btn btn-outline btn-green">Hủy đơn</a>`;
+                        output += `<a onclick="show_cancel_order(${item.id_order})" class="btn btn-outline btn-green">Hủy đơn</a>`;
                         }
                         if(status == 3)
                         {
@@ -95,9 +95,15 @@ function status_order(status)
         }
     })
 }
+function show_cancel_order(id_order)
+{
+    let output = `<button id="add_file" onclick="cancel_order(${id_order})" class="btn-submit w-20 d-inline-block fz-1rem">Hủy</button>`
+    $('#btn_cancel_order').html(output)
+    $('#cancel_order').show()
+}
 function cancel_order(id_order)
 {
-    var order_record_cancel_note = 'áds';
+    var order_record_cancel_note = $('#order_record_cancel_note').val()
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -105,8 +111,16 @@ function cancel_order(id_order)
         dataType: 'json',
         headers: headers,
         success: function(response) {
-            alert(response.message);
-            status_order(1)
+            if(response.success=='true')
+            {
+                alert(response.message);
+                status_order(1)
+                $('#cancel_order').hide()  
+            }else{
+                alert(response.message)
+            }
+            
+            
         }
     });
 

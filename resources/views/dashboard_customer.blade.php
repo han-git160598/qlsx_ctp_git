@@ -160,6 +160,7 @@
             <div><a>Tài khoản</a></div>
             <p>${username.customer_name}</p>`;
             $('#username_ac').html(output);
+             $('#username_ac1').html(output);
 
            
         }     

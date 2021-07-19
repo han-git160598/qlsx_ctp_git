@@ -25,7 +25,7 @@
                                     <div class="icon w-10">
                                         <a href="#dir_box" class="d-block"><img src="{{ asset('public_customer/images/avatar.png')}}" alt=""></a>
                                     </div>
-                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem ">Jemis Kevin</h4>
+                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem" id="username_ac1"></h4>
                                 </div>
                                 <div class="item-content">
                                     <!-- menu side bar -->
@@ -161,7 +161,7 @@
                                 </div> -->
                             </div>
                             
-                            
+                             
                         </div>
                         <!-- MODAL my address send-->
                         <!-- Modal edit my address send-->
@@ -188,7 +188,7 @@
                                                     <input type="text" class="form-input name" name="contact_number" id="edit_address_phone" placeholder="Số điện thoại" value="">
                                                 </div>
                                             </div>
-                                            <div class="form-box-flex">
+                                            <!-- <div class="form-box-flex">
                                                 <label class="form-lable ">Thành phố</label>
                                                 <input name="city " id="edit_city_shipping" class="form-input name" placeholder="Thành phố">
                                             </div>
@@ -201,7 +201,7 @@
                                                     <label class="form-lable ">Phường/xã</label>
                                                     <input name="ward " id="edit_ward_shipping" class="form-input name" placeholder="Phường/xã">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-edit-row ">
                                                 <label class="form-lable ">Địa chỉ</label>
                                                 <input name="address " id="edit_address_shipping" class="form-input name" placeholder="Nhập địa chỉ cụ thể">
@@ -244,7 +244,7 @@
                                                     <input type="text" class="form-input name" name="contact_number" id="address_phone" placeholder="Số điện thoại" value="">
                                                 </div>
                                             </div>
-                                            <div class="form-box-flex">
+                                           <!--  <div class="form-box-flex">
                                                 <label class="form-lable ">Thành phố</label>
                                                 <input name="city " id="city_shipping" class="form-input name" placeholder="Thành phố">
                                             </div>
@@ -257,7 +257,7 @@
                                                     <label class="form-lable ">Phường/xã</label>
                                                     <input name="ward " id="ward_shipping" class="form-input name" placeholder="Phường/xã">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-edit-row ">
                                                 <label class="form-lable ">Địa chỉ</label>
                                                 <input name="address " id="address_shipping" class="form-input name" placeholder="Nhập địa chỉ cụ thể">
@@ -333,140 +333,9 @@
                                 </div>
                             </div>
 
-                            
                         </div>
                         <!-- MODAL my address send-->
-                        <!-- Modal edit my address receive-->
-                        <div class="modal" id="modal_edit_address_receive">
-                            <div class="modal-box">
-                                <div class="box-content justify-content-center">
-                                    <div class="box-item w-100">
-                                        <div class="item-title">
-                                            <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Chỉnh sửa địa chỉ nhận</h4>
-                                            <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/x-black.png')}}" alt=""></a></span>
-                                        </div>
-                                        <form action="" method="post" class="form-edit">
-                                            <div class="form-edit-row">
-                                                <label class="form-lable">Tên gợi nhớ</label>
-                                                <input type="text" class="form-input" name="address_name" id="address_name" value="Phước Bình">
-                                            </div>
-                                            <div class="form-edit-row form-edit-row-flex input-content ">
-                                                <div class="form-box-flex">
-                                                    <label class="form-lable">Liên hệ</label>
-                                                    <input type="text" class="form-input" name="contact_name" id="contact_name" value="Jemis Kevin">
-                                                </div>
-                                                <div class="form-box-flex">
-                                                    <label class="form-lable">Số điện thoại</label>
-                                                    <input type="text" class="form-input name" name="contact_number" id="contact_number " value="(+84) 944810055 ">
-                                                </div>
-                                            </div>
-                                            <div class="form-edit-row ">
-                                                <label class="form-lable ">Thành phố</label>
-                                                <select name="city " id="city " class="form-select">
-                                                        <option value="0 ">TP. Hồ Chí Minh</option>
-                                                    </select>
-                                            </div>
-                                            <div class="form-edit-row form-edit-row-flex input-content ">
-                                                <div class="form-box-flex ">
-                                                    <label class="form-lable ">Quận/huyện</label>
-                                                    <select name="district " id="district " class="form-select">
-                                                                <option value="0 ">Quận Bình Thạnh</option>
-                                                            </select>
-                                                </div>
-                                                <div class="form-box-flex ">
-                                                    <label class="form-lable ">Phường/xã</label>
-                                                    <select name="ward " id="ward " class="form-select">
-                                                                <option value="0 ">Phường 25</option>
-                                                            </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-edit-row ">
-                                                <label class="form-lable ">Địa chỉ</label>
-                                                <select name="address " id="address " class="form-select">
-                                                        <option value="0 ">157/17/1 Nguyen Gia Tri Street</option>
-                                                    </select>
-                                            </div>
-                                            <div class="form-edit-row-check ">
-                                                <input type="checkbox" class="form-input-check " name="choose_default " id="choose_default ">
-                                                <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>
-                                            </div>
-                                        </form>
-
-                                        <div class="item-content mg-t-2rem d-flex justify-content-end ">
-                                            <button class="btn-submit w-30 ">Hoàn thành</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal add my address receive-->
-                        <div class="modal" id="modal_add_address_receive">
-                            <div class="modal-box">
-                                <div class="box-content justify-content-center">
-                                    <div class="box-item w-100">
-                                        <div class="item-title">
-                                            <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thêm địa chỉ nhận</h4>
-                                            <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/x-black.png')}}" alt=""></a></span>
-                                        </div>
-                                        <form action="" method="post" class="form-edit">
-                                            <div class="form-edit-row">
-                                                <label class="form-lable">Tên gợi nhớ</label>
-                                                <input type="text" class="form-input" name="address_name" id="address_name" placeholder="Nhập tên công ty" value="">
-                                            </div>
-                                            <div class="form-edit-row form-edit-row-flex input-content ">
-                                                <div class="form-box-flex">
-                                                    <label class="form-lable">Liên hệ</label>
-                                                    <input type="text" class="form-input" name="contact_name" id="contact_name" placeholder="Nhập tên người đại diện" value="">
-                                                </div>
-                                                <div class="form-box-flex">
-                                                    <label class="form-lable">Số điện thoại</label>
-                                                    <input type="text" class="form-input name" name="contact_number" id="contact_number" placeholder="Số điện thoại" value="">
-                                                </div>
-                                            </div>
-                                            <div class="form-edit-row ">
-                                                <label class="form-lable ">Thành phố</label>
-                                                <select name="city " id="city " class="form-select">
-                                                    <option value="0 ">Chọn thành phố</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-edit-row form-edit-row-flex input-content ">
-                                                <div class="form-box-flex ">
-                                                    <label class="form-lable ">Quận/huyện</label>
-                                                    <select name="district " id="district " class="form-select">
-                                                            <option value="0 ">Chọn quận/huyện</option>
-                                                        </select>
-                                                </div>
-                                                <div class="form-box-flex ">
-                                                    <label class="form-lable ">Phường/xã</label>
-                                                    <select name="ward " id="ward " class="form-select">
-                                                            <option value="0 ">Chọn phường/xã</option>
-                                                        </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-edit-row ">
-                                                <label class="form-lable ">Địa chỉ</label>
-                                                <select name="address " id="address " class="form-select">
-                                                    <option value="0 ">Nhập địa chỉ cụ thể</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-edit-row-check ">
-                                                <input type="checkbox" class="form-input-check " name="choose_default " id="choose_default ">
-                                                <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>
-                                            </div>
-                                        </form>
-
-                                        <div class="item-content mg-t-2rem d-flex justify-content-end ">
-                                            <button class="btn-submit w-30 ">Hoàn thành</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal delete my address receive-->
-
-                        <!-- ========================================================== -->
-                        <!-- ========================================================== -->
-                        <!-- ========================================================== -->
+                     
 
                         <!-- Change password-->
                         <div class="rcontent d-none" id="my_reset_password">
@@ -501,7 +370,7 @@
 
                                     <div class="item-content mg-t-1rem t-center ">
                                         <button class="btn-submit w-20 mg-t-1rem d-inline-block " onclick="change_password()">Xác nhận</button>
-                                        <a href="# " class="d-block t-green-main fw-600 fz-1rem t-center mg-t-1rem ">Quên mật khẩu?</a>
+                                       <!--  <a href="# " class="d-block t-green-main fw-600 fz-1rem t-center mg-t-1rem ">Quên mật khẩu?</a> -->
                                     </div>
 
                                 </div>
@@ -511,14 +380,6 @@
                         <!-- ========================================================== -->
                         <!-- ========================================================== -->
                         <!-- ========================================================== -->
-
-                        <!-- My announce-->
-
-
-                        <!-- ========================================================== -->
-                        <!-- ========================================================== -->
-                        <!-- ========================================================== -->
-                        <!-- MY INVOICE -->
 
 
                         <!-- My detail invoice -->

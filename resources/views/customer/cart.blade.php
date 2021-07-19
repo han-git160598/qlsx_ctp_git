@@ -1,7 +1,7 @@
 @extends('dashboard_customer')
 @section('customer_content')
     <div id="wrapper">
-        <div class="wp-container">
+        <div class="wp-container"> 
 
             <div class="bot-content mt-0">
                 <div class="wp-content p-5">
@@ -122,6 +122,7 @@
                                     <div style="height: 100px; visibility: hidden;"></div>
                                     <div class="t-center w-100" style="position: absolute; bottom: 2rem;" id="btn_create_order">
                                         <span type="choose_date_give_order" data-tag="a" class="get_modal btn btn-green  w-70">Tiến hành đặt hàng</span>
+                                        
                                         <span type="order_stock" data-tag="a" class="d-none btn btn-green  w-70">Đặt hàng</span>
                                         <!-- text check -->
                                         <i class="d-block fw-400 fz-075rem mt-3 t-black">Xin vui lòng kiểm tra lại đơn hàng trước khi đặt hàng</i>
@@ -130,6 +131,11 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- ====================================================== -->
+                    <!-- ====================================================== -->
+                    <!-- ====================================================== -->
 
 
                     <!-- modal choose date give order -->
@@ -197,20 +203,7 @@
                                                 <input type="text" class="form-input name" name="contact_number" id="address_phone" placeholder="Số điện thoại" value="">
                                             </div>
                                         </div>
-                                        <div class="form-box-flex">
-                                            <label class="form-lable ">Thành phố</label>
-                                            <input name="city " id="city_shipping" class="form-input name" placeholder="Thành phố">
-                                        </div>
-                                        <div class="form-edit-row form-edit-row-flex input-content ">
-                                            <div class="form-box-flex ">
-                                                <label class="form-lable ">Quận/huyện</label>
-                                                <input name="district " id="district_shipping" class="form-input name" placeholder="Quận/huyện">
-                                            </div>
-                                            <div class="form-box-flex ">
-                                                <label class="form-lable ">Phường/xã</label>
-                                                <input name="ward " id="ward_shipping" class="form-input name" placeholder="Phường/xã">
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-edit-row ">
                                             <label class="form-lable ">Địa chỉ</label>
                                             <input name="address " id="address_shipping" class="form-input name" placeholder="Nhập địa chỉ cụ thể">
@@ -271,20 +264,7 @@
                                                 <input type="text" class="form-input name" name="contact_number" id="address_phone1" placeholder="Số điện thoại" value="">
                                             </div>
                                         </div>
-                                        <div class="form-box-flex">
-                                            <label class="form-lable ">Thành phố</label>
-                                            <input name="city " id="city_shipping1" class="form-input name" placeholder="Thành phố">
-                                        </div>
-                                        <div class="form-edit-row form-edit-row-flex input-content ">
-                                            <div class="form-box-flex ">
-                                                <label class="form-lable ">Quận/huyện</label>
-                                                <input name="district " id="district_shipping1" class="form-input name" placeholder="Quận/huyện">
-                                            </div>
-                                            <div class="form-box-flex ">
-                                                <label class="form-lable ">Phường/xã</label>
-                                                <input name="ward " id="ward_shipping1" class="form-input name" placeholder="Phường/xã">
-                                            </div>
-                                        </div>
+                                        
                                         <div class="form-edit-row ">
                                             <label class="form-lable ">Địa chỉ</label>
                                             <input name="address " id="address_shipping1" class="form-input name" placeholder="Nhập địa chỉ cụ thể">

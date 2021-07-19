@@ -92,12 +92,6 @@ function remove_cart(id)
         show_cart();
 
     }
-
-
-
-		
-	
-
 	
 }
 function default_delivery()
@@ -191,41 +185,35 @@ function show_modal_delivery(id)
 function add_address_delivery()
 {
     let id_customer= item.id;
-    if( $('#address_shipping').val() == '' ||$('#ward_shipping').val() =='' ||
-        $('#district_shipping').val()=='' ||$('#city_shipping').val() =='' )
+    let reminiscent_company_name = $('#reminiscent_company_name').val()
+    let address_address = $('#address_shipping').val() 
+    let contact_person = $('#contact_person').val();
+    let address_phone = $('#address_phone').val();
+    let address_default ='N';
+    if($('#choose_default')[0].checked == true)
     {
-        alert('Vui lòng điền đẩy đủ thông tin');
-    }else{
-        let reminiscent_company_name = $('#reminiscent_company_name').val()
-        let address_address = $('#address_shipping').val() +", " + $('#ward_shipping').val() +", " + $('#district_shipping').val() +", " + $('#city_shipping').val();
-        let contact_person = $('#contact_person').val();
-        let address_phone = $('#address_phone').val();
-        let address_default ='N';
-        if($('#choose_default')[0].checked == true)
-        {
-            address_default = 'Y';
-        }
-    
-        $.ajax({
-            url: urlapi,
-            method: 'POST',
-            data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
-            type_address:'delivery' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
-            contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
-            },
-            dataType: 'json',
-            headers: headers,
-            success: function(response) {
-                alert(response.message);
-                default_delivery();
-                $('#add_address_give_order')[0].reset();
-                $('#choose_address_give_order').hide();
-    
-            }
-        });
+        address_default = 'Y';
     }
-    
+
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
+        type_address:'delivery' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
+        contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            alert(response.message);
+            default_delivery();
+            $('#add_address_give_order')[0].reset();
+            $('#choose_address_give_order').hide();
+
+        }
+    });
 }
+   
 
 function list_address_delivery_cart()
 {
@@ -400,39 +388,35 @@ function show_add_address_shipping()
 function add_address_shipping()
 {
     let id_customer= item.id;
-    if( $('#address_shipping1').val() == '' ||$('#ward_shipping1').val() =='' ||
-        $('#district_shipping1').val()=='' ||$('#city_shipping1').val() =='' )
+
+    let reminiscent_company_name = $('#reminiscent_company_name1').val()
+    let address_address = $('#address_shipping1').val() 
+    let contact_person = $('#contact_person1').val();
+    let address_phone = $('#address_phone1').val();
+    let address_default ='N';
+    if($('#choose_default')[0].checked == true)
     {
-        alert('Vui lòng điền đẩy đủ thông tin');
-    }else{
-        let reminiscent_company_name = $('#reminiscent_company_name1').val()
-        let address_address = $('#address_shipping1').val() +", " + $('#ward_shipping1').val() +", " + $('#district_shipping1').val() +", " + $('#city_shipping1').val();
-        let contact_person = $('#contact_person1').val();
-        let address_phone = $('#address_phone1').val();
-        let address_default ='N';
-        if($('#choose_default')[0].checked == true)
-        {
-            address_default = 'Y';
-        }
-    
-        $.ajax({
-            url: urlapi,
-            method: 'POST',
-            data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
-            type_address:'shipping' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
-            contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
-            },
-            dataType: 'json',
-            headers: headers,
-            success: function(response) {
-                alert(response.message);
-                list_address_shipping_cart();
-                $('#show_add_address_shipping')[0].reset();
-                //$('#choose_address_shipping_order').hide();
-    
-            }
-        });
+        address_default = 'Y';
     }
+
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
+        type_address:'shipping' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
+        contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            alert(response.message);
+            list_address_shipping_cart();
+            $('#show_add_address_shipping')[0].reset();
+            //$('#choose_address_shipping_order').hide();
+
+        }
+    });
+    
     
 }
 function remove_address_shipping()
@@ -524,22 +508,14 @@ function create_order(id)
         var id_product= arr_id_product.toString();
         var quantity_packet= arr_current_quantity.toString();
         var order_date_delivery =  $('#view_date').text(); 
-        var order_record_delivery = JSON.stringify({"company":$('#company_delivery').text(),"customer":$('#customer_delivery').text(),"phone":$('#phone_delivery').text(),"address":$('#address_delivery').text()});
-        var order_record_shipping = JSON.stringify({"company":$('#company_shipping').text(),"customer":$('#customer_shipping').text(),"phone":$('#phone_shipping').text(),"address":$('#address_shipping').text()});
+        var order_record_delivery = JSON.stringify({"delivery_company":$('#company_delivery').text(),"delivery_deputy_person":$('#customer_delivery').text(),"delivery_deputy_phone":$('#phone_delivery').text(),"delivery_address":$('#address_delivery').text()});
+        var order_record_shipping = JSON.stringify({"shipping_reminiscent_name":$('#company_shipping').text(),"shipping_contact_person":$('#customer_shipping').text(),"shipping_contact_phone":$('#phone_shipping').text(),"shipping_address":$('#address_shipping').text()});
         var order_note = $('#order_note').val();
         var customer_code = item.customer_code;
         if($('#company_shipping').text() == '' && $('#customer_shipping').text()=='' && $('#phone_shipping').text()=='')
         {
             order_record_shipping ='';
         }
-        console.log(id_customer)
-        console.log(id_product)
-        console.log(quantity_packet)
-        console.log(order_date_delivery)
-        console.log(order_record_delivery)
-        console.log(order_record_shipping)
-        console.log(order_note)
-        console.log(customer_code)
         $.ajax({
             url: urlapi,
             method: 'POST',
@@ -552,10 +528,25 @@ function create_order(id)
             dataType: 'json',
             headers: headers,
             success: function(response) {
-                console.log(response)
-                alert(response.message);
+                if(response.success=='true')
+                {
+                    alert(response.message);
+                    let output=`
+                    <span type="choose_date_give_order" onClick="btn_abc()" data-tag="a" class="get_modal btn btn-green  w-70">Tiến hành đặt hàng</span>            
+                    <span type="order_stock" data-tag="a" class="d-none btn btn-green  w-70">Đặt hàng</span>
+                    <i class="d-block fw-400 fz-075rem mt-3 t-black">Xin vui lòng kiểm tra lại đơn hàng trước khi đặt hàng</i>
+                    `
+                    $('#btn_create_order').html(output)
+                }else{
+                    alert(response.message)
+                }
+                
             }
         })
 
     }
 } 
+function btn_abc()
+{
+    $('#choose_date_give_order').show()
+}

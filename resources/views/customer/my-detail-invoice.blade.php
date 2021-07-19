@@ -1,6 +1,12 @@
 @extends('dashboard_customer')
 @section('customer_content')
-
+<style>
+    #my_detail_invoice .box-product .product-item > span:last-child {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+</style>
     <!-- END HEADER -->
     <div id="wrapper">
         <div class="wp-container">
@@ -27,7 +33,7 @@
                                     <div class="icon w-10">
                                         <a href="#dir_box" class="d-block"><img src="{{ asset('public_customer/images/avatar.png')}}" alt=""></a>
                                     </div>
-                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem ">Jemis Kevin</h4>
+                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem " id="username_ac1"></h4>
                                 </div>
                                 <div class="item-content">
                                     <!-- menu side bar -->
@@ -82,7 +88,7 @@
 
                         <!-- My detail invoice -->
                         <div class="rcontent" id="my_detail_invoice">
-                       <!--      <div class="item-title mg-b-05rem py-05rem px-1rem d-flex justify-content-space-between">
+                            <!-- <div class="item-title mg-b-05rem py-05rem px-1rem d-flex justify-content-space-between">
                             </div>
                             <div class="box-right w-100">
                                 <div class="t-right mg-b-175rem">
@@ -114,7 +120,7 @@
                                             <span class="fw-600 fz-1rem">Số 12 Đại lộ Khoa học, P, Ghềnh Ráng, Thành phố Qui Nhơn, Bình Định</span>
                                         </p>
                                     </div>
-                                </div>
+                                </div> 
                 
                                 <div class="box-item mg-b-1rem px-3 py-5 w-100">
                                     <div class="item-title d-flex mg-b-15rem">
@@ -123,42 +129,39 @@
 
                                     </div>
                                  
+                   
+                                 
                                     <div class="box-product">
-                                        <a href="detail_product.html" class="item-title d-flex product-item py-2">
-                                            <span class="fw-600 fz-125rem thumb-nail w-10">
-                                                <img src="https://ctp.nongtrangviet.com/images/product_product/zo6xPbaUjM86Adqxw0DdCJIK3e9ucpli6X7143eDJqwOk5C06z6qLRfw4ACn.png" alt="">
-                                            </span>
-                                            <span class="fw-600 fz-125rem mg-l-125rem">Bao bì kem 2 dòng</span>
-                                            <span class="fw-400 fz-1rem t-right">
-                                                <span class="d-block t-right">99.000 đ</span>
-                                            <span class="d-block t-right">x2 Cái</span>
-                                            </span>
-                                        </a>
-                                        <a href="detail_product.html" class="item-title d-flex product-item py-2">
+                                        <a href="detail_product.html" class="item-title d-flex flex-start product-item py-2">
                                             <span class="fw-600 fz-125rem thumb-nail w-10">
                                                 <img src="public/images/product_4.png" alt="">
                                             </span>
-                                            <span class="fw-600 fz-125rem mg-l-125rem">Bao bì kem 2 dòng</span>
-                                            <span class="fw-400 fz-1rem t-right">
-                                                <span class="d-block t-right">99.000 đ</span>
-                                            <span class="d-block t-right">x2 Cái</span>
+                                            <span class="fw-600 fz-125rem mg-l-125rem t-left">Bao bì kem 2 dòng
+                                      
+                                            <span class="d-flex py-2 align-item-center">
+                                                <span class="t-lable mr-3">x1000 </span>
+                                            </span>
+                                            <span class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                                            <span class="fz-075rem">Ly</span>
+                                            </span>
+                                            <span class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                                            <span class="fz-075rem">Thùng</span>
+                                            </span>
+                                            <span class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                                            <span class="fz-075rem">300 Cái/Thùng</span>
+                                            </span>
+                                            <span class="d-flex py-2 align-item-center">
+                                                <span class="t-lable mr-3">99.000d</span>
+                                            </span>
                                             </span>
                                         </a>
                                     </div>
                              
                                     <div class="box-money w-100">
-                                        <div class="d-flex justify-content-space-between py-2">
-                                            <span class="fw-400 d-inline-block t-right w-80">Tổng tiền hàng:</span>
-                                            <span class="fw-400 d-inline-block t-right w-20" id="total_money_order">198.000 đ</span>
-                                        </div>
-                                        <div class="d-flex justify-content-space-between py-2">
-                                            <span class="fw-400 d-inline-block t-right w-80">Phí vận chuyển:</span>
-                                            <span class="fw-400 d-inline-block t-right w-20" id="fee_ship">25.000 đ</span>
-                                        </div>
-                                        <div class="d-flex justify-content-space-between py-2">
-                                            <span class="fw-400 d-inline-block t-right w-80">Giảm giá:</span>
-                                            <span class="fw-400 d-inline-block t-right w-20" id="sale_price">0 đ</span>
-                                        </div>
+                                
                                         <div class="d-flex justify-content-space-between py-2" id="total_money_final">
                                             <span class="fw-400 d-inline-block t-right w-80">Tổng:</span>
                                             <strong class="d-inline-block t-right w-20">223.000 đ</strong>

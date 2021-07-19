@@ -321,89 +321,53 @@ function customer_list_order(){
 function detail_order(id_order){
 
     $('#detail_order').show()
-    // $.ajax({
-    //     url: urlapi,
-    //     method: 'POST',
-    //     data: { detect: 'list_order', order_id:id_order},
-    //     dataType: 'json',
-    //     headers: headers,
-    //     success: function(response) {
-    //         console.log(response)
-    //     let output=``;
-    //     let address_shipping1 = JSON.parse(response.data[0].order_detail[0].order_record_shipping)
-    //     let address_delivery1 = JSON.parse(response.data[0].order_detail[0].order_record_delivery)
-    //     response.data[0].order_detail[0].order_item_product.forEach(function(item) {
-    //         output+=`
-    //         <div class="bg-white py-2 px-3 my-1">
-    //             <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
-    //                 <strong>${item.product_name}</strong>
-    //                 <p class="mt-2">${item.product_code}</p>
-    //                 <p class="mt-2">x${item.product_quantity_packet} ${item.product_packet_title}</p>
-    //             </div>
-    //             <div class="d-flex py-2 align-item-center">
-    //                 <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-    //                 <span>${item.product_unit_title}</span>
-    //             </div>
-    //             <div class="d-flex py-2 align-item-center">
-    //                 <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-    //                 <span>${item.product_packet_title}</span>
-    //             </div>
-    //             <div class="d-flex py-2 align-item-center">
-    //                 <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-    //                 <span>${item.product_unit_packet} ${item.product_unit_title}/${item.product_packet_title}</span>
-    //             </div>
-    //         </div>`;
-    //     })
-     
-    //     $('#detail_shipping_code').text(response.data[0].shipping_code)
-    //     $('#detail_shipping_status').text(shipping_status1(response.data[0].shipping_status))
-    //     $('#detail_order_code').text(response.data[0].order_code)
-     
-    //     $('#detail_order_date_delivery').text(response.data[0].order_detail[0].order_date_delivery)
-    //     $('#detail_customer_code').text(response.data[0].customer_code)
-    //     $('#detail_company_name').text(address_delivery1.delivery_company)
-    //     $('#detail_delivery_address').text(address_delivery1.delivery_address)
-    //     if(address_shipping1 == '' || address_shipping1 == null)
-    //     {
-            
-    //     }else{
-    //         $('#detail_shipping_address').text(address_shipping1.shipping_address)
-    //     }
-        
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'list_order', order_id:id_order},
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+        let output=``;
+        let address_shipping1 = JSON.parse(response.data[0].order_record_shipping)
+        let address_delivery1 = JSON.parse(response.data[0].order_record_delivery)
+        response.data[0].order_item_product.forEach(function(item) {
+            output+=`
+            <div class="bg-F6 py-2 px-3 my-1">
+                <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
+                    <strong>${item.product_name}</strong>
+                    <p class="mt-2">${item.product_code}</p>
+                    <p class="mt-2">x${item.product_quantity_packet} ${item.product_packet_title}</p>
+                </div>
+                <div class="d-flex py-2 align-item-center">
+                    <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                    <span>${item.product_unit_title}</span>
+                </div>
+                <div class="d-flex py-2 align-item-center">
+                    <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                    <span>${item.product_packet_title}</span>
+                </div>
+                <div class="d-flex py-2 align-item-center">
+                    <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                    <span>${item.product_unit_packet} ${item.product_unit_title}/${item.product_packet_title}</span>
+                </div>
+            </div>`;
+        })
+        var data = response.data[0]
+        $('#order_customer_code').text(data.customer_code)
+        $('#order_company_name').text(address_delivery1.delivery_company)
+        $('#order_address').text(address_delivery1.delivery_address)
+        $('#order_order_code').text(data.order_code)
 
-    //     $('#detail_order_note').text(response.data[0].order_detail[0].order_note)
-    //     $('#detail_order_total_cost').text(response.data[0].order_detail[0].order_total_cost)
-    //     $('#detail_order_status').text(order_status(response.data[0].order_detail[0].order_status))
-
-    //     $('#detail_order_date_shipping').text(response.data[0].shipping_time)
-    //     $('#detail_shipping_note').text(response.data[0].shipping_note)
-        
-    //     let output_status=``
-
-    //     if(response.data[0].shipping_status == 1)
-    //     {
-    //          output_status += 
-    //         `<div for="title" class="form-info-lable">
-    //             <input type="checkbox" name="cancel_order" id="cancel_order">
-    //             <label for="cancel_order">Hủy lệnh</label>
-    //         </div>
-    //         <div class="form-info-input-content t-left">
-    //             <textarea name="cancel_reason" id="cancel_reason" class="w-100" cols="20" rows="5" placeholder="Lí do hủy lệnh...."></textarea>
-    //         </div>`
-    //         $('#btn_cancel_ship').html(` <button onclick="cancel_ship(${id_shipping})" id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hủy lệnh</button>`)
-    //     }else if(response.data[0].shipping_status == 3){
-    //             output_status +=`
-    //             <label class="form-info-lable">Hủy lệnh</label>
-    //             <div class="form-info-input-content t-left">
-    //                 <p>${response.data[0].shipping_record_cancel_note}</p>
-    //             </div>`
-    //         $('#btn_cancel_ship').html('')
-    //     }
-    //     $('#stauts_ship_html').html(output_status)
+        $('#order_date_book').text(data.order_date_create)
+        $('#order_date_delivery').text(data.order_date_delivery)
+        $('#order_status').text(order_status(data.order_status))
+        $('#order_note').text(data.order_note)
+        $('#order_total').text(data.order_total_cost)
        
-    //     $('#detail_list_product_order').html(output)    
-    //     }
-    // })
+        $('#order_list_product').html(output)    
+        }
+     })
 
 }
 

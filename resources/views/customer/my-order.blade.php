@@ -25,7 +25,7 @@
                                     <div class="icon w-10">
                                         <a href="#dir_box" class="d-block"><img src="{{ asset('public_customer/images/avatar.png')}}" alt=""></a>
                                     </div>
-                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem ">Jemis Kevin</h4>
+                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem " id="username_ac1"></h4>
                                 </div>
                                 <div class="item-content">
                                     <!-- menu side bar -->
@@ -126,6 +126,45 @@
 
                 </div>
             </div>
+
+
+
+ 
+
+                <div class="modal" id="cancel_order">
+                        <div class="modal-box" style="width: 25%;">
+                            <div class="box-content justify-content-center">
+                                <div class="box-item w-100" style = "background-color: #FFFFFF; padding:28px">
+                                    <div class="item-title py-3" style="border-bottom: 1px solid #c4c4c4!important;">
+                                        <h4 class="t-left fw-600 t-cap fz-15rem lh-2rem">Lý do hủy</h4>
+                                        <span class="icon"><a href="#cancel_add_attach"><img src="../public_customer/images/x-black.png " alt=" "></a></span>
+                                    </div>
+
+                                    <div class="p-4">
+                                        <div class="form-edit-row">
+                            
+                                            <textarea name="" id="order_record_cancel_note" cols="30" class="form-input" rows="10"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="item-content t-center mg-t-175rem " id="btn_cancel_order">
+                                        <button id="submit_choose_date_give_order" class="btn-submit w-50 d-inline-block fz-1rem">Hủy đơn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
             <!-- contact box -->
             <div id="contact-box">
                 <span class="box-contact-shadow "></span>

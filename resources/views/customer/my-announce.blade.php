@@ -27,7 +27,7 @@
                                     <div class="icon w-10">
                                         <a href="#dir_box" class="d-block"><img src="{{ asset('public_customer/images/avatar.png')}}" alt=""></a>
                                     </div>
-                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem ">Jemis Kevin</h4>
+                                    <h4 class="mg-l-1rem t-left fw-600 t-cap fz-1rem lh-2rem " id="username_ac1">Jemis Kevin</h4>
                                 </div>
                                 <div class="item-content">
                                     <!-- menu side bar -->

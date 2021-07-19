@@ -33,20 +33,20 @@ function order_detail()
                     <span data-tag="a" type="modal_edit_address_receive" class="get_modal fw-400 fz-1rem t-green-main">Sửa</span>
                 </div>
                 <div class="item-title d-flex">
-                    <p class="fw-600 fz-125rem"> ${order_record_delivery.company}</p>
+                    <p class="fw-600 fz-125rem"> ${order_record_delivery.delivery_company}</p>
                 </div>
                 <div class="item-content">
                     <p>
                         <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
-                        <span class="fw-600 fz-1rem">${order_record_delivery.customer}</span>
+                        <span class="fw-600 fz-1rem">${order_record_delivery.delivery_deputy_person}</span>
                     </p>
                     <p>
                         <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
-                        <span class="fw-600 fz-1rem"> ${order_record_delivery.phone}</span>
+                        <span class="fw-600 fz-1rem"> ${order_record_delivery.delivery_deputy_phone}</span>
                     </p>
                     <p>
                         <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
-                        <span class="fw-600 fz-1rem"> ${order_record_delivery.address}</span>
+                        <span class="fw-600 fz-1rem"> ${order_record_delivery.delivery_address}</span>
                     </p>
                 </div>
             </div>
@@ -54,7 +54,7 @@ function order_detail()
             <div class="box-item mg-b-1rem px-3 py-5 w-100">
                 <div class="item-title d-flex mg-b-15rem">
                     <p class="fw-600 fz-125rem">Sản phẩm</p>
-                    <span data-tag="a" class="fw-400 fz-1rem t-blue">ĐANG GIAO</span>
+                    <span data-tag="a" class="fw-400 fz-1rem t-blue">${order_status(item.order_status)}</span>
 
                 </div>
                 <!-- product item -->
@@ -63,29 +63,30 @@ function order_detail()
                 item.order_item_product.forEach(function(item_product) {
               
                     output+=`
-                        <a onclick="detail_product(${item.id_product})" class="item-title d-flex flex-start product-item py-2">
+                        <a onclick="detail_product(${item.id_product})" href class="item-title d-flex flex-start product-item py-2">
                             <span class="fw-600 fz-125rem thumb-nail w-10">
-                                <img src="../public_customer/images/product_4.png" alt="">
+                                <img src="${urlserver + item_product.product_img}" alt="">
                             </span>
-                            <span class="fw-600 fz-125rem mg-l-125rem t-left">Bao bì kem 2 dòng
-                            <span class="d-flex py-2 align-item-center">
-                                <span class="t-lable mr-3">x1000 </span>
-                            </span>
-                            <span class="d-flex py-2 align-item-center">
-                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
-                            <span class="fz-075rem">Ly</span>
-                            </span>
-                            <span class="d-flex py-2 align-item-center">
-                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
-                            <span class="fz-075rem">Thùng</span>
-                            </span>
-                            <span class="d-flex py-2 align-item-center">
-                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
-                            <span class="fz-075rem">300 Cái/Thùng</span>
-                            </span>
-                            <span class="d-flex py-2 align-item-center">
-                                <span class="t-lable mr-3">99.000d</span>
-                            </span>
+                            <span class="fw-600 fz-125rem mg-l-125rem t-left">${item_product.product_name}
+
+                                <span class="d-flex py-2 align-item-center">
+                                    <span class="t-lable mr-3">x${item_product.product_quantity_packet}</span>
+                                </span>
+                                <span class="d-flex py-2 align-item-center">
+                                    <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                                <span class="fz-075rem">${item_product.product_unit_title}</span>
+                                </span>
+                                <span class="d-flex py-2 align-item-center">
+                                    <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                                <span class="fz-075rem">${item_product.product_packet_title}</span>
+                                </span>
+                                <span class="d-flex py-2 align-item-center">
+                                    <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                                <span class="fz-075rem">${item_product.product_unit_packet} ${item_product.product_unit_title}/${item_product.product_packet_title}</span>
+                                </span>
+                                <span class="d-flex py-2 align-item-center">
+                                    <span class="t-lable mr-3"></span>
+                                </span>
                             </span>
                         </a>
                         `;

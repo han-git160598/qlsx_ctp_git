@@ -40,12 +40,12 @@
                                          <div class="amount" id="product_packet_title">Thùng</div>
                                    
                                     </div>
-                                    
-
+                                        
+                                    <!-- 
                                     <span data-tag="a" type="add_attach_file" class="get_modal fw-400 t-green-main">+Thêm dữ liệu đính kèm sản phẩm</span>
-                                    <!-- show_info_file -->
+                             
                                     <div id="show_info_file" style="min-height: 120px;">
-                                        <!-- class="visible-hidden"-->
+                                     
                                         <div class="">
                                             <p class="fw-600">Dữ liệu đính kèm</p>
                                             <p id="file_name" class="box-attach">
@@ -57,10 +57,10 @@
                                             <p class="fw-600">Ghi chú</p>
                                             <p id="note" class="box-attach"></p>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <div style="position: relative;bottom: 0;left: 0; width: 100%;">
-                                        <a onclick="add_cart()" class="btn btn-outline btn-green w-30 fz-125rem">Thêm vào giỏ hàng</a>
+                                        <a onclick="add_cart()" class="btn btn-outline btn-green w-35 fz-125rem">Thêm vào giỏ hàng</a>
                                         <a onclick="buy_now()" class="btn btn-green w-30 fz-125rem">Mua ngay</a>
                                     </div>
                                 </div>

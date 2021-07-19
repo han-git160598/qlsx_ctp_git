@@ -314,44 +314,101 @@
 
  
 
-    <div class="modal" id="edit_address">
-        <div class="modal-box">
-
+    <div class="modal" id="detail_order">
+        <div class="modal-box w-50">
             <div class="modal-title">
-                <h4>Chỉnh sửa địa chỉ gửi</h4>
+                <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
                     <img src="../public_admin/images/x-black.png" alt="">
                 </span>
             </div>
             <div class="modal-content">
-                <form action="" method="post" class="form-edit">
-                    <div class="form-edit-row">
-                        <label class="form-lable">Tên gợi nhớ</label>
-                        <input type="text" class="form-input" name="address_name" id="address_name" value="Phước Bình">
-                    </div>
-                    <div class="form-edit-row form-edit-row-flex input-content ">
-                        <div class="form-box-flex">
-                            <label class="form-lable">Liên hệ</label>
-                            <input type="text" class="form-input" name="contact_name" id="contact_name" value="Jemis Kevin">
-                        </div>
-                        <div class="form-box-flex">
-                            <label class="form-lable">Số điện thoại</label>
-                            <input type="text" class="form-input name" name="contact_number" id="contact_number" value="">
-                        </div>
-                    </div>
-                    <div class="form-edit-row ">
-                        <label class="form-lable ">Địa chỉ</label>
-                        <input type="text" name="address " id="address" class="form-input">
-                    </div>
-                    <!-- <div class="form-edit-row-check t-left">
-                        <input type="checkbox" class="form-input-check " name="choose_default" id="choose_default ">
-                        <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>
-                    </div> -->
-                </form>
-            </div>
+                <div class="form-info">
+                    <div class="form-info-content justify-content-center">
+                        <div class="form-info-right w-100">
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Mã khách hàng</label>
+                                <div class="form-info-input-content t-left">
+                                    <strong id="order_customer_code"></strong>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Tên công ty</label>
+                                <div class="form-info-input-content t-left">
+                                    <strong id="order_company_name"></strong>
+                                </div>
+                            </div>
+                            <div class="form-info-row align-item-start">
+                                <label for="title" class="form-info-lable">Địa chỉ</label>
+                                <div class="form-info-input-content t-left">
+                                    <strong id="order_address"></strong>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Mã đơn hàng</label>
+                                <div class="form-info-input-content t-left">
+                                    <strong id="order_order_code"></strong>
+                                </div>
+                            </div>
+                            <div class="form-info-row" style="align-items: flex-start;">
+                                <label for="title" class="form-info-lable">Sản phẩm</label>
+                                <div class="form-info-input-content" id="order_list_product">
+                                    <!-- product items -->
+                                    <!-- <div class="bg-F6 py-2 px-3 my-1">
+                                        <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
+                                            <strong>NGON MÊ LY R365</strong>
+                                            <p class="mt-2">NML-R365</p>
+                                            <p class="mt-2">x1234 Thùng</p>
+                                        </div>
+                                        <div class="d-flex py-2 align-item-center">
+                                            <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                                            <span>Ly</span>
+                                        </div>
+                                        <div class="d-flex py-2 align-item-center">
+                                            <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                                            <span>Thùng</span>
+                                        </div>
+                                        <div class="d-flex py-2 align-item-center">
+                                            <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                                            <span>300 Cái/Thùng</span>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Ngày đặt</label>
+                                <div class="form-info-input-content t-left">
+                                    <p id="order_date_book"></p>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Ngày nhận</label>
+                                <div class="form-info-input-content t-left">
+                                    <p id="order_date_delivery"></p>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Trạng thái</label>
+                                <div class="form-info-input-content t-left">
+                                    <p class="t-blue" id="order_status"></p>
+                                </div>
+                            </div>
+                            <div class="form-info-row" style="align-items: flex-start;">
+                                <label for="title" class="form-info-lable">Ghi chú</label>
+                                <div class="form-info-input-content t-left">
+                                    <p id="order_note"></p>
 
-            <div class="item-content mb-3 d-flex justify-content-end" id="btn_update_address">
-                <button class="btn-submit w-30 ">Hoàn thành</button>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Tổng giá trị</label>
+                                <div class="form-info-input-content t-left">
+                                    <strong id="order_total"></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

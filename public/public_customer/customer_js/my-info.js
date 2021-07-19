@@ -125,39 +125,35 @@ function list_address_shipping()
 function add_address_shipping()
 {
     let id_customer= item.id;
-    if( $('#address_shipping').val() == '' ||$('#ward_shipping').val() =='' ||
-        $('#district_shipping').val()=='' ||$('#city_shipping').val() =='' )
+
+    let reminiscent_company_name = $('#reminiscent_company_name').val()
+    let address_address = $('#address_shipping').val()
+    let contact_person = $('#contact_person').val();
+    let address_phone = $('#address_phone').val();
+    let address_default ='N';
+    if($('#choose_default')[0].checked == true)
     {
-        alert('Vui lòng điền đẩy đủ thông tin');
-    }else{
-        let reminiscent_company_name = $('#reminiscent_company_name').val()
-        let address_address = $('#address_shipping').val() +", " + $('#ward_shipping').val() +", " + $('#district_shipping').val() +", " + $('#city_shipping').val();
-        let contact_person = $('#contact_person').val();
-        let address_phone = $('#address_phone').val();
-        let address_default ='N';
-        if($('#choose_default')[0].checked == true)
-        {
-            address_default = 'Y';
-        }
-    
-        $.ajax({
-            url: urlapi,
-            method: 'POST',
-            data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
-            type_address:'shipping' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
-            contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
-            },
-            dataType: 'json',
-            headers: headers,
-            success: function(response) {
-                alert(response.message);
-                list_address_shipping();
-                $('#add_address_shipping')[0].reset();
-                $('#modal_add_address_send').hide();
-    
-            }
-        });
+        address_default = 'Y';
     }
+
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
+        type_address:'shipping' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
+        contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            alert(response.message);
+            list_address_shipping();
+            $('#add_address_shipping')[0].reset();
+            $('#modal_add_address_send').hide();
+
+        }
+    });
+    
     
 }
 function edit_address_shipping(id_shipping){
@@ -170,13 +166,7 @@ function edit_address_shipping(id_shipping){
         },
         dataType: 'json',
         headers: headers,
-        success: function(response) {
-        let address_shipping = response.data[0].shipping_address.split(",");;
-        let array_record={};
-        array_record['address']=address_shipping[0]
-        array_record['ward']=address_shipping[1]
-        array_record['distric']=address_shipping[2]
-        array_record['city']=address_shipping[3]    
+        success: function(response) { 
         if(response.data[0].shipping_default == 'Y')
         {
             let output =`
@@ -189,11 +179,7 @@ function edit_address_shipping(id_shipping){
             <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>`;
             $('#btn_checked_default').html(output);
         }
-        $('#edit_address_shipping').val(array_record['address'])
-        $('#edit_ward_shipping').val(array_record['ward'])
-        $('#edit_district_shipping').val(array_record['distric'])
-        $('#edit_city_shipping').val(array_record['city']) 
-       
+        $('#edit_address_shipping').val(response.data[0].shipping_address)
         $('#edit_reminiscent_company_name').val(response.data[0].shipping_reminiscent_name) 
         $('#edit_contact_person').val(response.data[0].shipping_contact_person)
         $('#edit_address_phone').val(response.data[0].shipping_contact_phone)
@@ -207,7 +193,7 @@ function update_address_shipping(id)
 {
     let id_customer = item.id ;
     let reminiscent_company_name = $('#edit_reminiscent_company_name').val()
-    let address_address = $('#edit_address_shipping').val() +", " + $('#edit_ward_shipping').val() +", " + $('#edit_district_shipping').val() +", " + $('#edit_city_shipping').val();
+    let address_address = $('#edit_address_shipping').val() 
     let contact_person = $('#edit_contact_person').val();
     let address_phone = $('edit_#address_phone').val();
     let address_default ='N';
@@ -234,7 +220,7 @@ function update_address_shipping(id)
 }
 function delete_address_shipping(id)
 {
-    $('#btn_delete_shipping').html(`<button onclick="delete_address_shipping1(${id})" class="btn-submit w-30 d-inline-block">Hoàn thành</button>`);
+    $('#btn_delete_shipping').html(`<button onclick="delete_address_shipping1(${id})" class="btn-submit w-35 d-inline-block">Hoàn thành</button>`);
     $('#modal_delete_address_send').show();
 }
 function delete_address_shipping1(id)
@@ -388,40 +374,34 @@ function list_address_delivery()
 }
 function add_address_delivery()
 {
-    let id_customer= item.id;
-    if( $('#address_shipping').val() == '' ||$('#ward_shipping').val() =='' ||
-        $('#district_shipping').val()=='' ||$('#city_shipping').val() =='' )
+    let reminiscent_company_name = $('#reminiscent_company_name').val()
+    let address_address = $('#address_shipping').val() 
+    let contact_person = $('#contact_person').val();
+    let address_phone = $('#address_phone').val();
+    let address_default ='N';
+    if($('#choose_default')[0].checked == true)
     {
-        alert('Vui lòng điền đẩy đủ thông tin');
-    }else{
-        let reminiscent_company_name = $('#reminiscent_company_name').val()
-        let address_address = $('#address_shipping').val() +", " + $('#ward_shipping').val() +", " + $('#district_shipping').val() +", " + $('#city_shipping').val();
-        let contact_person = $('#contact_person').val();
-        let address_phone = $('#address_phone').val();
-        let address_default ='N';
-        if($('#choose_default')[0].checked == true)
-        {
-            address_default = 'Y';
-        }
-    
-        $.ajax({
-            url: urlapi,
-            method: 'POST',
-            data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
-            type_address:'delivery' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
-            contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
-            },
-            dataType: 'json',
-            headers: headers,
-            success: function(response) {
-                alert(response.message);
-                list_address_delivery();
-                $('#add_address_shipping')[0].reset();
-                $('#modal_add_address_send').hide();
-    
-            }
-        });
+        address_default = 'Y';
     }
+
+    $.ajax({
+        url: urlapi,
+        method: 'POST',
+        data: { detect: 'customer_address_manager',type_manager:'create_customer_address', 
+        type_address:'delivery' , id_customer: id_customer , reminiscent_company_name:reminiscent_company_name,
+        contact_person:contact_person, address_phone:address_phone, address_address:address_address,address_default:address_default
+        },
+        dataType: 'json',
+        headers: headers,
+        success: function(response) {
+            alert(response.message);
+            list_address_delivery();
+            $('#add_address_shipping')[0].reset();
+            $('#modal_add_address_send').hide();
+
+        }
+    });
+    
     
 }
 function edit_address_delivery(id_shipping){
@@ -434,13 +414,7 @@ function edit_address_delivery(id_shipping){
         },
         dataType: 'json',
         headers: headers,
-        success: function(response) {
-        let address_shipping = response.data[0].delivery_address.split(",");;
-        let array_record={};
-        array_record['address']=address_shipping[0]
-        array_record['ward']=address_shipping[1]
-        array_record['distric']=address_shipping[2]
-        array_record['city']=address_shipping[3]    
+        success: function(response) { 
         if(response.data[0].delivery_default == 'Y')
         {
             let output =`
@@ -453,10 +427,7 @@ function edit_address_delivery(id_shipping){
             <label for="choose_default " class="form-lable-check ">Chọn làm địa chỉ mặc định</label>`;
             $('#btn_checked_default').html(output);
         }
-        $('#edit_address_shipping').val(array_record['address'])
-        $('#edit_ward_shipping').val(array_record['ward'])
-        $('#edit_district_shipping').val(array_record['distric'])
-        $('#edit_city_shipping').val(array_record['city']) 
+        $('#edit_address_shipping').val(response.data[0].delivery_address)
        
         $('#edit_reminiscent_company_name').val(response.data[0].delivery_company) 
         $('#edit_contact_person').val(response.data[0].delivery_deputy_person)
@@ -471,7 +442,7 @@ function update_address_delivery(id)
 {
     let id_customer = item.id ;
     let reminiscent_company_name = $('#edit_reminiscent_company_name').val()
-    let address_address = $('#edit_address_shipping').val() +", " + $('#edit_ward_shipping').val() +", " + $('#edit_district_shipping').val() +", " + $('#edit_city_shipping').val();
+    let address_address = $('#edit_address_shipping').val()
     let contact_person = $('#edit_contact_person').val();
     let address_phone = $('edit_#address_phone').val();
     let address_default ='N';
@@ -498,7 +469,7 @@ function update_address_delivery(id)
 }
 function delete_address_delivery(id)
 {
-    $('#btn_delete_shipping').html(`<button onclick="delete_address_delivery1(${id})" class="btn-submit w-30 d-inline-block">Hoàn thành</button>`);
+    $('#btn_delete_shipping').html(`<button onclick="delete_address_delivery1(${id})" class="btn-submit w-35 d-inline-block">Hoàn thành</button>`);
     $('#modal_delete_address_send').show();
 }
 function delete_address_delivery1(id)
