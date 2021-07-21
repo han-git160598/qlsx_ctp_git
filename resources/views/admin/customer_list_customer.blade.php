@@ -6,7 +6,7 @@
         <li class="item"><a href="customer_index.html">Dasboard</a></li>
         <li class="item active"><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
         <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
-        <li class="item "><a href="{{ URL::to('list-product-inventory')}}">Kho hàng</a></li>
+        <li class="item "><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>
         <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
 
         <li class="item"><a href="{{ URL::to('list-production')}}">Sản xuất</a></li>

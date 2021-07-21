@@ -95,8 +95,8 @@ Route::get('customer-detail',function(){
 });
 
 
-Route::get('list-product-inventory',function(){
-    return view('admin.customer_list_product_inventory');
+Route::get('list-product-storage',function(){
+    return view('admin.customer_list_storage');
 });
 
 

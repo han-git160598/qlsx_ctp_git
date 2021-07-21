@@ -79,7 +79,8 @@ function list_product_order()
         headers: headers,
         success: function(response) {
     	let output=``;
-    	let order_record_shipping = JSON.parse(response.data[0].order_record_shipping)
+    	console.log(response)
+    	let order_record_shipping = JSON.parse(response.data[0].order_record_delivery)
         response.data[0].order_item_product.forEach(function(item) {
 	        output+=`
 	        <div class="bg-white py-2 px-3 my-1">

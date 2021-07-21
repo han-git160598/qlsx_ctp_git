@@ -63,7 +63,7 @@ function order_detail()
                 item.order_item_product.forEach(function(item_product) {
               
                     output+=`
-                        <a onclick="detail_product(${item.id_product})" href class="item-title d-flex flex-start product-item py-2">
+                        <a onclick="detail_product(${item_product.id_product})"  class="item-title d-flex flex-start product-item py-2">
                             <span class="fw-600 fz-125rem thumb-nail w-10">
                                 <img src="${urlserver + item_product.product_img}" alt="">
                             </span>
@@ -98,7 +98,7 @@ function order_detail()
                 <div class="box-money w-100 border-bottom color-main">
                     <div class="d-flex justify-content-space-between py-2" id="total_money_final">
                         <span class="fw-400 d-inline-block t-right w-80">Tổng:</span>
-                        <strong class="d-inline-block t-right w-20">223.000 đ</strong>
+                        <strong class="d-inline-block t-right w-20">${item.order_total_cost}</strong>
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@ function order_detail()
 }
 function detail_product(id)
 {
-    
+
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -125,6 +125,7 @@ function detail_product(id)
         dataType: 'json',
         headers: headers,
         success: function(response) {
+     
             localStorage.setItem('detail_product', JSON.stringify(response.data[0]));
             window.location.href = urlserver+ 'detail-product';
         }

@@ -1,11 +1,11 @@
 @extends('layouts.dashboard_admin')
 @section('sidebar')
-<div id="sidebar-left">
+<div id="sidebar-left"> 
     <ul id="main-menu">
         <li class="item"><a href="customer_index.html">Dasboard</a></li>
         <li class="item "><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
         <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
-        <li class="item active "><a href="{{ URL::to('list-product-inventory')}}">Kho hàng</a></li>
+        <li class="item active "><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>
         <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
 
         <li class="item "><a href="{{ URL::to('list-production')}}">Sản xuất</a></li>
@@ -26,7 +26,7 @@
         <div class="tabs-container">
             <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
                 <!-- filter date -->
-                <ul class="filter-select-date nav nav-tabs w-30">
+                <ul class="filter-select-date nav nav-tabs w-35">
                     <li class="item active">
                         <a data-toggle="tab" href="#head-tab-1" aria-expanded="true">Thành phẩm</a>
                     </li>
@@ -60,14 +60,14 @@
                                     <a onclick="list_product_inventory('export')" data-toggle="tab" href="#tab-one-3" aria-expanded="false">Xuất kho</a>
                                 </li>
 
-                                <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
+                                <!-- <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
                                     <p>Chế độ xem</p>
                                     <div>
                                         <select name="filter_by_page" id="filter_by_page" class="py-1 px-3">
                                     <option value="1">Theo trang</option>
                                 </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </ul>
                             <div class="tab-content">
                                 <div id="tab-one-1" class="tab-pane active">
@@ -136,7 +136,9 @@
                                 <div id="tab-one-2" class="tab-pane">
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
+
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
+                                            <span data-tag="a" type="add_product_import" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu nhập</span>
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('import')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -191,6 +193,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
+                                            <span data-tag="a" type="add_product_export" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm Phiếu xuất</span>
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('export')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -262,20 +265,21 @@
                                     <a onclick="list_material_inventory('export')" data-toggle="tab" href="#tab-two-3" aria-expanded="false">Xuất NVL cho sản xuất</a>
                                 </li>
                                 <!-- filter to page -->
-                                <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
+                                <!-- <div style="display: flex; justify-content: space-between; position: absolute; top: .5rem; right: .5rem; width: 20%; align-items: center;">
                                     <p>Chế độ xem</p>
                                     <div>
                                         <select name="filter_by_page" id="filter_by_page" class="py-1 px-3">
                                     <option value="1">Theo trang</option>
                                 </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </ul>
                             <div class="tab-content">
                                 <div id="tab-two-1" class="tab-pane active">
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
+                                            
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('stock')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -337,6 +341,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
+                                            <span data-tag="a" type="add_material_import" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu nhập</span>
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('import')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -836,13 +841,226 @@
         </div>
     </div>
 
+    <!-- /////////////////////Cho Quyền quản lý kho hàng//////////////////////////// -->
 
+    <div class="modal" id="add_product_import">
+        <div class="modal-box w-50">
+            <div class="modal-title">
+                <h4>Thêm phiếu nhập kho</h4>
+                <span class="icon" data-tag="a">
+                    <img src="../public_admin/images/x-black.png" alt="">
+                </span>
+            </div>
+            <div class="modal-content">
+                <div class="form-info">
+                    <div class="form-info-content justify-content-center">
+                        <div class="form-info-right w-100">
 
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Lệnh sản xuất</label>
+                                <div class="form-info-input-content t-left">
+                                    <select name="unit" id="list_production" onchange="list_production($('#list_production').val())">
+                                        <option value="T">Chọn đơn vị</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-info-row" style="align-items: flex-start;">
+                                <label for="title" class="form-info-lable">Sản phẩm</label>
+                                <div class="form-info-input-content ">
+                                    <!-- product items -->
+                                    <div class="bg-F6 py-2 px-3" id="list_product_import_detail">
 
+                                       <!--  <div class="bg-white py-2 px-3 my-1">
+                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
+                                                <strong>NNhựa PE</strong>
+                                                <p class="mt-2">NVL 365</p>
+                                                <p class="mt-2">x5</p>
+                                            </div>
+                                            <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                                                <span>Kg</span>
+                                            </div>
+                                             <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                                                <span>Kg</span>
+                                            </div>
+                                             <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                                                <span>Kg</span>
+                                            </div>
+                                        </div> -->
+                                       
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label class="form-info-lable">Ghi chú</label>
+                                <div class="form-info-input-content t-left">
+                                    <textarea id="note_product_import" cols="10" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item-content t-right mb-3" id="btn_cancel_ship"> 
+                <button onclick="create_product_import()" id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Xác nhận</button></div>
+        </div>
+    </div>
+
+    <div class="modal" id="add_product_export">
+        <div class="modal-box w-50">
+            <div class="modal-title">
+                <h4>Thêm phiếu xuất kho</h4>
+                <span class="icon" data-tag="a">
+                    <img src="../public_admin/images/x-black.png" alt="">
+                </span>
+            </div>
+            <div class="modal-content">
+                <div class="form-info">
+                    <div class="form-info-content justify-content-center">
+                        <div class="form-info-right w-100">
+
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Mã vận chuyển</label>
+                                <div class="form-info-input-content t-left">
+                                    <select name="unit" id="list_ship" 
+                                    onchange="list_ship($('#list_ship').val())">
+                                        <option value="T">Chọn đơn vị</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-info-row" style="align-items: flex-start;">
+                                <label for="title" class="form-info-lable">Sản phẩm</label>
+                                <div class="form-info-input-content ">
+                                    <!-- product items -->
+                                    <div class="bg-F6 py-2 px-3" id="list_product_export_detail">
+
+                                       <!--  <div class="bg-white py-2 px-3 my-1">
+                                            <div class="py-2" style="border-bottom: 1px dashed #C4C4C4">
+                                                <strong>NNhựa PE</strong>
+                                                <p class="mt-2">NVL 365</p>
+                                                <p class="mt-2">x5</p>
+                                            </div>
+                                            <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Đơn vị sản phẩm:</span>
+                                                <span>Kg</span>
+                                            </div>
+                                             <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Đơn vị đóng gói:</span>
+                                                <span>Kg</span>
+                                            </div>
+                                             <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-075rem t-lable mr-3">Quy cách đóng:</span>
+                                                <span>Kg</span>
+                                            </div>
+                                        </div> -->
+                                       
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label class="form-info-lable">Ghi chú</label>
+                                <div class="form-info-input-content t-left">
+                                    <textarea id="note_product_export" cols="10" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item-content t-right mb-3" id="btn_cancel_ship"> 
+                <button onclick="create_product_export()" id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Xác nhận</button></div>
+        </div>
+    </div>
+
+    <div class="modal" id="add_material_import">
+        <div class="modal-box w-50">
+            <div class="modal-title">
+                <h4>Thêm phiếu nhập kho</h4>
+                <span class="icon" data-tag="a">
+                    <img src="../public_admin/images/x-black.png" alt="">
+                </span>
+            </div>
+            <div class="modal-content">
+                <div class="form-info">
+                    <div class="form-info-content justify-content-center">
+                        <div class="form-info-right w-100">
+                           
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">NVL</label>
+                                <div class="form-info-input-content t-left" id="list_material_div">
+                                    
+                                    <div class="bg-F6 py-2 px-3">
+                                        <select name="unit" id="list_material0" 
+                                            onchange="list_material($('#list_material0').val())">
+                                                <option value="T">Chọn đơn vị</option>
+                                        </select>
+                                        <div class="bg-white py-2 px-3 my-1">
+                                            <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-100rem t-lable mr-3">DVT :</span>
+                                                <span id="unit_title0"></span>
+                                            </div>
+                                             <div class="d-flex py-2 align-item-center">
+                                                <span class="fz-100rem t-lable mr-3">Số lượng:</span>
+                                                <span><input type="number" min="1" value="1" class="form-input w-40 py-1 px-2" id="current_quantity0"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable"></label>
+                                <div class="form-info-input-content t-left">
+                                    <span data-tag="a" class="t-green-main d-block t-right w-50 t-left" onclick="add_div_NVL()">+ Thêm NVL</span>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">
+                                    <input type="checkbox">
+                                </label>
+                                <div class="form-info-input-content t-left">
+                                    <label for="cancel_order">Nguyên vật liệu còn dư sau sản xuất</label>
+                                </div>
+                            </div>
+                            <div class="form-info-row">
+                                <label for="title" class="form-info-lable">Mã cung ứng</label>
+                                <div class="form-info-input-content t-left">
+                                    <select name="unit" id="list_supplier">
+                                        <option value="T">Chọn đơn vị</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-info-row">
+                                <label class="form-info-lable">Ghi chú</label>
+                                <div class="form-info-input-content t-left">
+                                    <textarea id="note_material_import" cols="10" rows="5"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item-content t-right mb-3" id="btn_cancel_ship"> 
+                <button onclick="create_material_import()" id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Xác nhận</button></div>
+        </div>
+    </div>
+
+   
 
 
 
 <script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
 <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
-<script src="{{ asset('public_admin/admin_js/inventory_manager.js')}}" type="text/javascript "></script>
+<script src="{{ asset('public_admin/admin_js/product_storage_manager.js')}}" type="text/javascript "></script>
+<script src="{{ asset('public_admin/admin_js/material_storage_manager.js')}}" type="text/javascript "></script>
 @endsection
