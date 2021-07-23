@@ -14,7 +14,7 @@
          <li class="item"><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
         <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
-        <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
+        <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
     </ul>
 </div>
 @endsection

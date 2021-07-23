@@ -14,7 +14,7 @@
         <li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item active"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
         <li class="item"><a href="custgomer_list_account.html">Tài khoản</a></li>
-        <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
+        <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
     </ul>
 </div>
 @endsection
@@ -45,7 +45,7 @@
 
             <div class="form-edit-row m-0 w-35">
                 <div class="search" style="position: relative;">
-                    <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
+                    <input type="text" id="search" onkeyup ="list_ship($('#stauts_ship').val(),$('#date_begin').val(),$('#date_end').val(),$('#search').val())"  placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                     <button class="input d-flex">
                         <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
                     </button>

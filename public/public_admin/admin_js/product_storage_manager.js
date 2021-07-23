@@ -6,8 +6,8 @@
 var info_type = 'stock';
 ////////////////////// LIST_PRODUCT /////////////////////////////////
  function product_stock(item){
+        $('#filter_date').hide()
        let output =`
-     
         <tr  data-id-customer="${item.id_storage}" type="info_order_history" class="click_doubble get_modal">
         <td>${item.product_code}</td>
         <td>${item.first_period_quantity}</td>
@@ -15,12 +15,12 @@ var info_type = 'stock';
         <td>${item.export_quantity}</td>
         <td>${item.last_period_quantity}</td>
         <td>${item.unit_title}</td>
-       </tr>`; 
+       </tr>`;
+
               
     return output;
  }
  function product_import(item){
-
        let output =`
        <tr ondblclick="detail_product_inventory(${item.id},'import')" data-id-customer="${item.id}">
         <td>${item.production_import_code}</td>
@@ -42,13 +42,40 @@ var info_type = 'stock';
        </tr>`;
     return output;
  }
-function list_product_inventory(info_type)
+function list_product_inventory(info_type,date_begin='',date_end='',filter='')
  {
+    if(date_begin =='' && date_end =='')
+    {
+        $('#filter_date').show()
+        let filter=`
+        <div class="form-edit-row m-0 mx-1">
+        </div>
+        <div class="form-edit-row m-0">
+            <input onchange="list_product_inventory('${info_type}',$('#date_begin').val(),$('#date_end').val())" id="date_begin" type="date" class="form-input py-1 px-2">
+        </div>
+        <div class="form-edit-row m-0 mx-1">
+            <p>Đến</p>
+        </div>
+        <div class="form-edit-row m-0 mx-1">
+            <input onchange="list_product_inventory('${info_type}',$('#date_begin').val(),$('#date_end').val())" id="date_end" type="date" class="form-input py-1 px-2">
+        </div>`
+        $('#filter_date').html(filter)
+    }
+    // if(filter=='')
+    // {
+    //     let search =`
+    //     <input type="text" onkeyup="list_product_inventory('${info_type}',$('#date_begin').val(),$('#date_end').val(),$('#search').val())" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2">
+    //     <button class="input d-flex">
+    //     <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
+    //     </button>`
+    //     $('#search_storage').html(search)
+    // }
+    
  	$.ajax({
         url: urlapi,
         method: 'POST',
         data: { detect: 'get_storeage_info',info_type:info_type, item_type: 'product'
-        ,detail:'Y'
+        ,detail:'Y',date_begin:date_begin, date_end:date_end, filter:filter
         },
         dataType: 'json',
         headers: headers,
@@ -259,7 +286,7 @@ function list_production(id_production ='')
     $.ajax({
         url: urlapi,
         method: 'POST',
-        data: { detect: 'list_production',id_production:id_production},
+        data: { detect: 'list_production',id_production:id_production,limit:200},
         dataType: 'json',
         headers: headers,
         success: function(response) {
@@ -352,7 +379,7 @@ function list_ship(id_shipping='')
     $.ajax({
         url: urlapi,
         method: 'POST',
-        data: { detect: 'list_ship',id_shipping:id_shipping
+        data: { detect: 'list_ship',id_shipping:id_shipping,limit:200
         },
         dataType: 'json',
         headers: headers,

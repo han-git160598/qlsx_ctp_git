@@ -42,7 +42,7 @@ function shipping_status1(status)
             shipping_status = 'HOÀN TẤT';
             break;
         case '3':
-            status_text = 'HỦY ĐƠN';
+            shipping_status = 'HỦY ĐƠN';
             break;
     }
     return shipping_status;

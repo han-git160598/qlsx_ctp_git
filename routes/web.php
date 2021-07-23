@@ -118,3 +118,7 @@ Route::get('product-detail',function(){
 Route::get('list-ship',function(){
     return view('admin.customer_list_ship');
 });
+
+Route::get('unit-setting',function(){
+    return view('admin.customer_setting');
+});

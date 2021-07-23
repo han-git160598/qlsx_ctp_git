@@ -9,20 +9,18 @@ function reset_date()
 	$('#date_end').val('')
 	list_ship($('#stauts_ship').val(),$('#date_begin').val(),$('#date_end').val())
 }
-function list_ship(shipping_status=1,date_begin='',date_end='')
+function list_ship(shipping_status=1,date_begin='',date_end='' ,filter='')
 {
 	$('#stauts_ship').val(shipping_status)
-  
 	$.ajax({
         url: urlapi,
         method: 'POST',
         data: { detect: 'list_ship',shipping_status:shipping_status
-        ,date_begin:date_begin,date_end:date_end
+        ,date_begin:date_begin,date_end:date_end,limit:200,filter:filter
         },
         dataType: 'json',
         headers: headers,
         success: function(response) {
-
         	let output=``;
 	        response.data.forEach(function(item) {
 	        	output+=`
@@ -79,7 +77,6 @@ function list_product_order()
         headers: headers,
         success: function(response) {
     	let output=``;
-    	console.log(response)
     	let order_record_shipping = JSON.parse(response.data[0].order_record_delivery)
         response.data[0].order_item_product.forEach(function(item) {
 	        output+=`
@@ -125,13 +122,6 @@ function list_product_order()
 }
 function create_ship()
 {
-	console.log({ detect:'ship_manager', type_manager:'create_ship'
-        ,id_order:$('#choose_mdh').val()
-		,shipping_time:$('#shipping_time').val()
-		,customer_code:$('#customer_code').text()
-		,shipping_note:$('#shipping_note').val()
-		,shipping_status:order_status1
-    	})
 	$.ajax({
         url: urlapi,
         method: 'POST',
@@ -147,6 +137,8 @@ function create_ship()
         success: function(response) {
 	        if(response.success=='true'){
 	        	alert(response.message)
+	        	$('#shipping_note').val('')
+	        	$('#shipping_time').val('')
 	        	$('#add_command').hide()
 	        	list_ship()
 	        }else{
@@ -157,8 +149,9 @@ function create_ship()
 }
 
 
-function edit_ship(id_shipping){
-
+function edit_ship(id_shipping)
+{
+	console.log(id_shipping)
 	$('#info_init').show()
 	$.ajax({
         url: urlapi,
@@ -167,10 +160,19 @@ function edit_ship(id_shipping){
         dataType: 'json',
         headers: headers,
         success: function(response) {
-        	console.log(response)
+    	console.log(response)
+    	if(response.data[0].order_detail[0]=='')
+    	{
+    		console.log(123)
+    		return;
+    	}
     	let output=``;
-    	let address_shipping1 = JSON.parse(response.data[0].order_detail[0].order_record_shipping)
     	let address_delivery1 = JSON.parse(response.data[0].order_detail[0].order_record_delivery)
+    	if(response.data[0].order_detail[0].order_record_shipping != '')
+    	{
+    		let address_shipping1 = JSON.parse(response.data[0].order_detail[0].order_record_shipping)
+    		$('#detail_shipping_address').text(address_shipping1.shipping_address)
+    	}
         response.data[0].order_detail[0].order_item_product.forEach(function(item) {
 	        output+=`
 	        <div class="bg-white py-2 px-3 my-1">
@@ -202,13 +204,6 @@ function edit_ship(id_shipping){
 		$('#detail_customer_code').text(response.data[0].customer_code)
 		$('#detail_company_name').text(address_delivery1.delivery_company)
 		$('#detail_delivery_address').text(address_delivery1.delivery_address)
-		if(address_shipping1 == '' || address_shipping1 == null)
-		{
-			
-		}else{
-			$('#detail_shipping_address').text(address_shipping1.shipping_address)
-		}
- 		
 
 		$('#detail_order_note').text(response.data[0].order_detail[0].order_note)
 		$('#detail_order_total_cost').text(response.data[0].order_detail[0].order_total_cost)

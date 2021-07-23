@@ -14,7 +14,7 @@
         <li class="item"><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
         <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
-        <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
+        <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
     </ul>
 </div>
 @endsection
@@ -39,10 +39,7 @@
                             <div class="form-edit-row my-3 t-left">
                                 <p>Lệnh sản xuất: <strong id="production_code"></strong></p>
                                 <p>Máy sản xuất: <strong id="machine_title"></strong></p>
-                                <select name="" id="week_title">
-                                    <option value="0">Chọn tuần</option>
-                                    <option value="1">Tuần 5</option>
-                                </select>
+                                <button class="btn btn-green btn-outline bg-white" id="week_title"></button>
                                 <span id="datetodate"></span>
                             </div>
                             <button class="btn btn-green btn-outline bg-white" style="position:absolute; top:0; right:0;">Xuất dữ liệu</button>

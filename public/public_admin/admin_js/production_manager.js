@@ -22,7 +22,7 @@ function list_category_machine()
                 count++;
                 if(item.id_category==id_category)
                 {
-                     output+=`
+                    output+=`
                     <li class="sub-item active">
                         <a onclick="list_production(${item.id_category})" data-toggle="tab" href="#tab-1" aria-expanded="true">${item.category_title}</a>
                     </li>
@@ -49,7 +49,7 @@ function list_production(id_category)
 	$.ajax({
         url: urlapi,
         method: 'POST',
-        data: { detect: 'list_production',id_machine_category:id_category},
+        data: { detect: 'list_production',id_machine_category:id_category,limit:200},
         dataType: 'json',
         headers: headers,
         success: function(response) {
@@ -90,7 +90,7 @@ function production_detail()
         dataType: 'json',
         headers: headers,
         success: function(response) {
-
+        $('#week_title').text(response.data[0].week_title)
         $('#production_code').text(response.data[0].production_code)
         $('#machine_title').text(response.data[0].machine_title)
         $('week_title').text(response.data[0].week_title)

@@ -14,7 +14,7 @@
         <li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
         <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
-        <li class="item"><a href="customer_setting.html">Cài đặt</a></li>
+        <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
     </ul>
 </div>
 @endsection
@@ -28,7 +28,7 @@
         <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
             <span data-tag="a" type="add_module" class="get_modal t-green-main d-block t-right w-20 t-left">+Thêm lệnh sản xuất</span>
             <!-- filter date -->
-            <div class="form-edit-row-flex align-item-center">
+           <!--  <div class="form-edit-row-flex align-item-center">
                 <div class="form-edit-row m-0">
                     <select name="" id="" class="">
                         <option value="0">Chọn tuần</option>
@@ -36,7 +36,7 @@
                     </select>
                     <span>Từ ngày 2017-03-06 đến ngày 2017-03-12</span>
                 </div>
-            </div>
+            </div> -->
             <!-- search -->
             <!-- <div class="form-edit-row m-0 w-35">
                 <div class="search" style="position: relative;">
