@@ -36,10 +36,10 @@
                         <a onclick="list_unit('P')" data-toggle="tab" href="#tab-1" aria-expanded="false">Đơn vị đóng gói</a>
                     </li>
                     <li class="sub-item">
-                        <a data-toggle="tab" href="#tab-3" aria-expanded="false">Bộ phận sản xuất</a>
+                        <a onclick="list_machine()" data-toggle="tab" href="#tab-3" aria-expanded="false">Bộ phận sản xuất</a>
                     </li>
                     <li class="sub-item">
-                        <a data-toggle="tab" href="#tab-4" aria-expanded="false">Nhóm sản phẩm</a>
+                        <a onclick="list_product_category()" data-toggle="tab" href="#tab-4" aria-expanded="false">Nhóm sản phẩm</a>
                     </li>
                     <li class="sub-item">
                         <a data-toggle="tab" href="#tab-5" aria-expanded="false">Cưỡng chế đăng xuất</a>
@@ -165,23 +165,8 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr data-id-customer="1" type="edit_machine" class="click_doubble get_modal">
-                                        <td>Máy màng</td>
-                                        <td>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue...</td>
-                                        <td>
-                                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-
-                                        </td>
-
-                                    </tr>
-                                    <tr data-id-customer="2" type="edit_machine" class="click_doubble get_modal">
-                                        <td>Máy in</td>
-                                        <td>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue...</td>
-                                        <td>
-                                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-                                        </td>
-                                    </tr>
+                                <tbody id="list_machine">
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -208,23 +193,8 @@
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr data-id-customer="1" type="edit_product" class="click_doubble get_modal">
-                                        <td>Bao bì</td>
-                                        <td>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue...</td>
-                                        <td>
-                                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-
-                                        </td>
-
-                                    </tr>
-                                    <tr data-id-customer="2" type="edit_machine" class="click_doubble get_modal">
-                                        <td>Ly</td>
-                                        <td>Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue...</td>
-                                        <td>
-                                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-                                        </td>
-                                    </tr>
+                                <tbody id="list_product_category">
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -285,7 +255,7 @@
                             <div class="form-info-row align-item-center">
                                 <label for="title" class="form-info-lable">Tên đầy đủ</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Kilogram" placeholder="Kilogram">
+                                    <input type="text" class="" id="unit_title">
                                 </div>
                             </div>
 
@@ -294,7 +264,7 @@
                                     <label class="fw-400 lh-12rem">Tên viết tắt</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Kg" placeholder="Kg">
+                                    <input type="text" class="" id="unit">
                                 </div>
                             </div>
                         </div>
@@ -321,7 +291,7 @@
                             <div class="form-info-row align-item-center">
                                 <label for="title" class="form-info-lable">Tên đầy đủ</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Kilogram" placeholder="Kilogram">
+                                    <input type="text" class="" id="edit_unit_title" >
                                 </div>
                             </div>
 
@@ -330,14 +300,14 @@
                                     <label class="fw-400 lh-12rem">Tên viết tắt</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Kg" placeholder="Kg">
+                                    <input type="text" class="" id="edit_unit_1" >
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                <div class="item-content t-right mg-t-175rem" id="btn_update_unit">
+                    <button  class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
                 </div>
             </div>
         </div>
@@ -358,7 +328,7 @@
                             <div class="form-info-row  align-item-center">
                                 <label for="title" class="form-info-lable">Nhóm sản phẩm</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="" placeholder="Nhóm sản phẩm">
+                                    <input type="text" id="category_name">
                                 </div>
                             </div>
 
@@ -367,54 +337,22 @@
                                     <label class="fw-400 lh-12rem">Mô tả</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue, laoreet magna quis, feugiat quam.  Vestibulum ut mauris congue, laoreet magna quis, feugiat quam. " placeholder="Kg">
+                                    <input type="text" id="category_description">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                    <button onclick="create_product_category()" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="modal" id="edit_product">
-        <div class="modal-box w-50" style=" margin-top: 50px;">
-            <div class="modal-title">
-                <h4>Chi tiết nhóm sản phẩm</h4>
-                <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
-                </span>
-            </div>
-            <div class="modal-content">
-                <div class="form-info">
-                    <div class="form-info-content">
-                        <div class="form-info-right w-100">
-                            <div class="form-info-row align-item-center">
-                                <label for="title" class="form-info-lable">Nhóm sản phẩm</label>
-                                <div class="form-info-input-content">
-                                    <input type="text" class="" value="Bao bì" placeholder="">
-                                </div>
-                            </div>
+    <!-- sài chung 1 modal edit -->
 
-                            <div class="form-info-row align-item-center">
-                                <div class="form-info-lable">
-                                    <label class="fw-400 lh-12rem">Mô tả</label>
-                                </div>
-                                <div class="form-info-input-content">
-                                    <input type="text" class="" value="Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue, laoreet magna quis, feugiat quam.  Vestibulum ut mauris congue, laoreet magna quis, feugiat quam. " placeholder="Kg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
     <!-- modal create / edit -->
     <div class="modal" id="add_machine">
         <div class="modal-box w-50" style=" margin-top: 50px;">
@@ -428,10 +366,19 @@
                 <div class="form-info">
                     <div class="form-info-content">
                         <div class="form-info-right w-100">
+
+                            <div class="form-info-row align-item-center">
+                                <label for="title" class="form-info-lable">Loại máy</label>
+                                <div class="form-info-input-content">
+                                    <select id="list_category_machine">
+                                        <option value="T">Chọn đơn vị</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-info-row  align-item-center">
                                 <label for="title" class="form-info-lable">Tên máy</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Máy màng" placeholder="">
+                                    <input type="text" id="machine_name" >
                                 </div>
                             </div>
 
@@ -440,14 +387,14 @@
                                     <label class="fw-400 lh-12rem">Mô tả</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue, laoreet magna quis, feugiat quam.  Vestibulum ut mauris congue, laoreet magna quis, feugiat quam. " placeholder="Kg">
+                                    <textarea cols="10" rows="5" id="machine_description"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="item-content t-right mg-t-175rem ">
-                    <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
+                    <button onclick="create_machine()" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
                 </div>
             </div>
         </div>
@@ -465,9 +412,17 @@
                     <div class="form-info-content">
                         <div class="form-info-right w-100">
                             <div class="form-info-row align-item-center">
+                                <label for="title" class="form-info-lable">Loại máy</label>
+                                <div class="form-info-input-content">
+                                    <select id="edit_list_category_machine" onchange="list_category_machine($('#edit_list_category_machine').val())">
+                                        <option value="T">Chọn đơn vị</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-info-row align-item-center">
                                 <label for="title" class="form-info-lable">Tên máy</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Máy màng" placeholder="">
+                                    <input type="text" id="edit_machine_name">
                                 </div>
                             </div>
 
@@ -476,13 +431,13 @@
                                     <label class="fw-400 lh-12rem">Mô tả</label>
                                 </div>
                                 <div class="form-info-input-content">
-                                    <input type="text" class="" value="Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue, laoreet magna quis, feugiat quam.  Vestibulum ut mauris congue, laoreet magna quis, feugiat quam. " placeholder="Kg">
+                                    <textarea cols="10" rows="5" id="edit_machine_description"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item-content t-right mg-t-175rem ">
+                <div class="item-content t-right mg-t-175rem" id="btn_update_machine">
                     <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Cập nhật</button>
                 </div>
             </div>
@@ -501,7 +456,7 @@
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
                     <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
-                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
+                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa item này?</p>
                 </div>
                 <div class="t-center mg-t-175rem" id="btn_delete">
                     <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>
