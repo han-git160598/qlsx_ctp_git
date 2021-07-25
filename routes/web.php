@@ -83,9 +83,9 @@ Route::get('login-admin',function(){
     return view('admin.login');
 });
 
-Route::get('admin',function(){
-    return view('admin.customer_index');
-});
+// Route::get('admin',function(){
+//     return view('admin.customer_index');
+// });
 
 Route::get('customer-list-customer',function(){
     return view('admin.customer_list_customer');
@@ -121,4 +121,52 @@ Route::get('list-ship',function(){
 
 Route::get('unit-setting',function(){
     return view('admin.customer_setting');
+});
+
+Route::get('my-info',function(){
+    return view('admin.my-info');
+});
+
+Route::get('my-reset-password',function(){
+    return view('admin.my-reset-password');
+});
+//////////////////////// PHIIIIIIIIIIIIIIIIIII ////////////////////////
+
+Route::get('/', function () {
+    return view('customer.index');
+});
+
+//--------------------------------ADMIN---------------------------------------
+// -----------------------------Admin Customer--------------------------------
+Route::get('admin', function () {
+    return view('admin.login');
+});
+
+Route::post('login/verify', 'LoginVerifyController@verify')->name('verify');
+// Route::post('login/verify', 'LoginVerifyController@verify')->name('login.verify');
+
+Route::get('admin/customer_index', function () {
+    return view('admin.customer_index');
+})->name('admin.customer_index');
+
+Route::get('admin/customer_list_order', function () {
+    return view('admin.customer_list_order');
+});
+Route::get('admin/customer_list_product_inventory', function () {
+    return view('admin.customer_list_product_inventory');
+});
+Route::get('admin/customer_list_inventory', function () {
+    return view('admin.customer_list_inventory');
+});
+
+Route::get('admin/customer_inventory_detail', function () {
+    return view('admin.customer_inventory_detail');
+});
+
+Route::get('admin/customer_list_vendor', function () {
+    return view('admin.customer_list_vendor');
+});
+
+Route::get('admin/customer_list_account', function () {
+    return view('admin.customer_list_account');
 });

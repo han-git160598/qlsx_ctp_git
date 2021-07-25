@@ -1,131 +1,133 @@
 @extends('layouts.dashboard_admin')
 
 @section('sidebar')
-<div id="sidebar-left">
+<div id="sidebar-left"> 
     <ul id="main-menu">
-        <li class="item"><a href="customer_index.html">Dasboard</a></li>
+        <li class="item "><a href="{{url('admin/customer_index')}}">Dasboard</a></li>
         <li class="item active"><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
-        <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
-        <li class="item "><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>
-        <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
+        <li class="item"><a href="{{url('admin/customer_list_order')}}">Đơn hàng</a></li>
+        <li class="item"><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>
+        <li class="item "><a href="{{url('admin/customer_list_inventory')}}">Kiểm kê kho</a></li>
 
-        <li class="item"><a href="{{ URL::to('list-production')}}">Sản xuất</a></li>
-        <li class="item"><a href="customer_list_vendor.html">Nhà cung ứng</a></li>
-         <li class="item"><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
+        <li class="item "><a href="{{URL::to('list-production')}}">Sản xuất</a></li>
+        <li class="item"><a href="{{url('admin/customer_list_vendor')}}">Nhà cung ứng</a></li>
+        <li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
-        <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
+        <li class="item "><a href="{{url('admin/customer_list_account')}}">Tài khoản</a></li>
         <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
     </ul>
 </div>
 @endsection
 @section('content')
 <!-- content -->
-<div id="content" class="w-100" style="float: none;">
-    <h1 class="heading">
-        Khách hàng
-    </h1>
-    <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
-        <span onclick="show_modal_create_customer()"  class="get_modal t-green-main d-block t-right w-20 t-left">+ Thêm khách hàng</span>
-        <!-- filter date -->
-        <div class="form-edit-row-flex align-item-center">
-            <div class="form-edit-row m-0 mx-3">
-                <p>Từ</p>
-            </div>
-            <div class="form-edit-row m-0">
+<div id="wp-content">
+    <div id="content" class="w-100" style="float: none;">
+        <h1 class="heading">
+            Khách hàng
+        </h1>
+        <div class="form-edit d-flex justify-content-space-between p-0 mb-3" style="height: 36px; align-items: flex-end;">
+            <span onclick="show_modal_create_customer()"  class="get_modal t-green-main d-block t-right w-20 t-left">+ Thêm khách hàng</span>
+            <!-- filter date -->
+            <div class="form-edit-row-flex align-item-center">
+                <div class="form-edit-row m-0 mx-3">
+                    <p>Từ</p>
+                </div>
+                <div class="form-edit-row m-0">
+                    <input 
+            onchange="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )"  
+            type="date" id="date_begin"  class="form-input py-1 px-2">
+                </div>
+                <div class="form-edit-row m-0 mx-3">
+                    <p>Đến</p>
+                </div>
+                <div class="form-edit-row m-0">
                 <input 
-        onchange="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )"  
-        type="date" id="date_begin"  class="form-input py-1 px-2">
+            onchange="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )" 
+                type="date" id="date_end"  class="form-input py-1 px-2">
+                </div>
             </div>
-            <div class="form-edit-row m-0 mx-3">
-                <p>Đến</p>
-            </div>
-            <div class="form-edit-row m-0">
-            <input 
-        onchange="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val() )" 
-            type="date" id="date_end"  class="form-input py-1 px-2">
+
+            <div class="form-edit-row m-0 w-35">
+                <div class="search" style="position: relative;">
+                    <input type="text" onkeyup="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val())" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
+                    <button class="input d-flex">
+                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
+                    </button>
+                </div>
             </div>
         </div>
+        <div class="box p-0">
+            <div style="height: 554px; overflow-y: scroll;">
+                <table class="table table-bordered">
+                    <thead style="background-color: #FFF6E5;">
+                        <tr>
+                            <th class="th-flex">Mã KH
+                                <span class="sort">
+                                <i class="fas fa-chevron-up arrow"></i>
+                                <i class="fas fa-chevron-down arrow"></i>
+                            </span>
+                            </th>
+                            <th class="th-flex">Họ và tên
+                                <span class="sort">
+                                <i class="fas fa-chevron-up arrow"></i>
+                                <i class="fas fa-chevron-down arrow"></i>
+                            </span>
+                            </th>
+                            <th class="th-flex">Tên công ty
+                                <span class="sort">
+                                <i class="fas fa-chevron-up arrow"></i>
+                                <i class="fas fa-chevron-down arrow"></i>
+                            </span>
+                            </th>
+                            <th class="th-flex">Số điện thoại
+                                <span class="sort">
+                                <i class="fas fa-chevron-up arrow"></i>
+                                <i class="fas fa-chevron-down arrow"></i>
+                            </span>
+                            </th>
+                            <th class="th-flex">Trạng thái
+                                <span class="sort">
+                                <i class="fas fa-chevron-up arrow"></i>
+                                <i class="fas fa-chevron-down arrow"></i>
+                            </span>
+                            </th>
+                            <th class="th-flex">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="list_customer">
+                       <!--  <tr data-id-customer="1">
+                            <td>KH1234567</td>
+                            <td>Nguyễn Văn A</td>
+                            <td>Công ty Cổ Phần ABCD - Chi nh... </td>
+                            <td>(+84) 944810055</td>
+                            <td>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                  </label>
+                            </td>
+                            <td class="t-center">
+                                <a href="customer_detail.html" class="t-green-main my-1">Sửa</a>
+                                <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
+                            </td>
 
-        <div class="form-edit-row m-0 w-35">
-            <div class="search" style="position: relative;">
-                <input type="text" onkeyup="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val())" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
-                <button class="input d-flex">
-                    <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
-                </button>
+                        </tr> -->
+                       
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </div>
-    <div class="box p-0">
-        <div style="height: 554px; overflow-y: scroll;">
-            <table class="table table-bordered">
-                <thead style="background-color: #FFF6E5;">
-                    <tr>
-                        <th class="th-flex">Mã KH
-                            <span class="sort">
-                            <i class="fas fa-chevron-up arrow"></i>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </span>
-                        </th>
-                        <th class="th-flex">Họ và tên
-                            <span class="sort">
-                            <i class="fas fa-chevron-up arrow"></i>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </span>
-                        </th>
-                        <th class="th-flex">Tên công ty
-                            <span class="sort">
-                            <i class="fas fa-chevron-up arrow"></i>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </span>
-                        </th>
-                        <th class="th-flex">Số điện thoại
-                            <span class="sort">
-                            <i class="fas fa-chevron-up arrow"></i>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </span>
-                        </th>
-                        <th class="th-flex">Trạng thái
-                            <span class="sort">
-                            <i class="fas fa-chevron-up arrow"></i>
-                            <i class="fas fa-chevron-down arrow"></i>
-                        </span>
-                        </th>
-                        <th class="th-flex">
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="list_customer">
-                   <!--  <tr data-id-customer="1">
-                        <td>KH1234567</td>
-                        <td>Nguyễn Văn A</td>
-                        <td>Công ty Cổ Phần ABCD - Chi nh... </td>
-                        <td>(+84) 944810055</td>
-                        <td>
-                            <label class="switch">
-                                <input type="checkbox">
-                                <span class="slider round"></span>
-                              </label>
-                        </td>
-                        <td class="t-center">
-                            <a href="customer_detail.html" class="t-green-main my-1">Sửa</a>
-                            <span data-tag="a" type="delete_module" class="get_modal t-green-main my-1 ml-4">Xoá</span>
-                        </td>
 
-                    </tr> -->
-                   
-                </tbody>
-            </table>
+            <ul class="pagination" id="cusotmer_pagination">
+               <!--  <li class="item prev"><i class="fas fa-chevron-left"></i></li>
+                <li class="item">1</li>
+                <li class="item">2</li>
+                <li class="item">3</li>
+                <li class="item">4</li>
+                <li class="item">5</li>
+                <li class="item next"><i class="fas fa-chevron-right"></i></li> -->
+            </ul>
         </div>
-
-        <ul class="pagination" id="cusotmer_pagination">
-           <!--  <li class="item prev"><i class="fas fa-chevron-left"></i></li>
-            <li class="item">1</li>
-            <li class="item">2</li>
-            <li class="item">3</li>
-            <li class="item">4</li>
-            <li class="item">5</li>
-            <li class="item next"><i class="fas fa-chevron-right"></i></li> -->
-        </ul>
     </div>
 </div>
 

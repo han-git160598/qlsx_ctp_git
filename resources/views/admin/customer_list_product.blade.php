@@ -1,26 +1,26 @@
 @extends('layouts.dashboard_admin')
 
 @section('sidebar')
-<div id="sidebar-left">
+<div id="sidebar-left"> 
     <ul id="main-menu">
-        <li class="item"><a href="customer_index.html">Dasboard</a></li>
+        <li class="item "><a href="{{url('admin/customer_index')}}">Dasboard</a></li>
         <li class="item "><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
-        <li class="item"><a href="customer_list_order.html">Đơn hàng</a></li>
+        <li class="item "><a href="{{url('admin/customer_list_order')}}">Đơn hàng</a></li>
         <li class="item"><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>
-        <li class="item"><a href="customer_list_inventory.html">Kiểm kê kho</a></li>
+        <li class="item "><a href="{{url('admin/customer_list_inventory')}}">Kiểm kê kho</a></li>
 
         <li class="item "><a href="{{URL::to('list-production')}}">Sản xuất</a></li>
-        <li class="item"><a href="customer_list_vendor.html">Nhà cung ứng</a></li>
+        <li class="item"><a href="{{url('admin/customer_list_vendor')}}">Nhà cung ứng</a></li>
         <li class="item active"><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
         <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
-        <li class="item"><a href="customer_list_account.html">Tài khoản</a></li>
+        <li class="item "><a href="{{url('admin/customer_list_account')}}">Tài khoản</a></li>
         <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
     </ul>
 </div>
 @endsection
 @section('content')
 
-
+<div id="wp-content">
     <div id="content" class="w-100" style="float: none;">
         <h1 class="heading mb-4">
             Sản phẩm
@@ -205,7 +205,7 @@
         </ul>
          </div>
     </div>
-  
+</div> 
 
 @endsection 
 @section('modal')
