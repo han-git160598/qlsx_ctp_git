@@ -36,7 +36,7 @@ $("#btn_login").click(function() {
                     alert(response.message)
                     
                 }else{
-                    localStorage.setItem('account_customer', JSON.stringify(response.data[0]));
+                    localStorage.setItem('customer_customer', JSON.stringify(response.data[0]));
                     window.location.href = urlserver+ 'customer-home';
                     
 

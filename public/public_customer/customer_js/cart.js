@@ -96,7 +96,7 @@ function remove_cart(id)
 }
 function default_delivery()
 {
-	var response = JSON.parse(localStorage.getItem('account_customer'));
+	var response = JSON.parse(localStorage.getItem('customer_customer'));
   	var output=``;
     let flag = 0;
 	$.ajax({
@@ -218,7 +218,7 @@ function add_address_delivery()
 function list_address_delivery_cart()
 {
 
-	var response = JSON.parse(localStorage.getItem('account_customer'));
+	var response = JSON.parse(localStorage.getItem('customer_customer'));
   	var output=``;
 	$.ajax({
         url: urlapi,
@@ -277,7 +277,7 @@ function show_from_address_delivery()
 	}
 }
 function change_address_delivery(id){
-    var customer = JSON.parse(localStorage.getItem('account_customer'));
+    var customer = JSON.parse(localStorage.getItem('customer_customer'));
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -328,7 +328,7 @@ function show_modal_address_shipping()
 function list_address_shipping_cart()
 {
 
-	var response = JSON.parse(localStorage.getItem('account_customer'));
+	var response = JSON.parse(localStorage.getItem('customer_customer'));
   	var output=``;
 	$.ajax({
         url: urlapi,
@@ -426,7 +426,7 @@ function remove_address_shipping()
     $('#btn_show_modal_address_shipping').show();
 }
 function change_address_shipping(id){
-    var customer = JSON.parse(localStorage.getItem('account_customer'));
+    var customer = JSON.parse(localStorage.getItem('customer_customer'));
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -478,7 +478,7 @@ function change_address_shipping(id){
 }
 function submit_choose_date_give_order()
 {
-    var item = JSON.parse(localStorage.getItem('account_customer'));
+    var item = JSON.parse(localStorage.getItem('customer_customer'));
     var choose_date = $('#choose_date').val();
     if(choose_date == '')
     {
@@ -499,7 +499,7 @@ function create_order(id)
     var r = confirm('Vui lòng kiểm tra đơn hàng trước kh đặt');
     if(r==true)
     {
-        var item = JSON.parse(localStorage.getItem('account_customer'));
+        var item = JSON.parse(localStorage.getItem('customer_customer'));
         arr_current_quantity =[];
         arr_id_product.forEach(function(item){
             arr_current_quantity.push($('#unit_title_product'+item).val());

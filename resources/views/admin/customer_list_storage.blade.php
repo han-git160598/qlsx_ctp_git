@@ -152,7 +152,8 @@
                                         <!-- panel content -->
 
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <span data-tag="a" type="add_product_import" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu nhập</span>
+                                            <span id="add_import_product" data-tag="a" type="add_product_import" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu nhập</span>
+
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('import')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -207,7 +208,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <span data-tag="a" type="add_product_export" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm Phiếu xuất</span>
+                                            <span id="add_export_product" data-tag="a" type="add_product_export" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm Phiếu xuất</span>
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_product('export')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -355,7 +356,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <span data-tag="a" type="add_material_import" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu nhập</span>
+                                            <span id="add_import_material" data-tag="a" type="add_material_import" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu nhập</span>
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('import')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -404,7 +405,7 @@
                                     <div class="panel-body" style="height: 554px; overflow-y: scroll;">
                                         <!-- panel content -->
                                         <div class="d-flex my-1" style=" justify-content: flex-end;">
-                                            <span data-tag="a" type="add_material_export" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu xuất</span>
+                                            <span id="add_export_material" data-tag="a" type="add_material_export" class="get_modal t-green-main d-block t-right w-20 t-left p-2">+ Thêm phiếu xuất</span>
                                             <button class="btn btn-green btn-outline bg-white" onclick="export_excel_material('export')">Xuất file excel</button>
                                         </div>
                                         <table class="table table-bordered">
@@ -1146,4 +1147,23 @@
 <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
 <script src="{{ asset('public_admin/admin_js/product_storage_manager.js')}}" type="text/javascript "></script>
 <script src="{{ asset('public_admin/admin_js/material_storage_manager.js')}}" type="text/javascript "></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var admin = JSON.parse(localStorage.getItem('account_customer'))
+    console.log(admin.id_type)
+    if(admin.id_type == 1 ||admin.id_type == 3 || admin.id_type == 4 )
+    {
+    $('#add_import_product').remove()
+    $('#add_export_product').remove()
+    $('#add_import_material').remove()
+    $('#add_export_material').remove()
+    }
+   
+})
+
+
+
+</script>
+
 @endsection

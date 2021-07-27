@@ -123,7 +123,7 @@ Route::get('unit-setting',function(){
     return view('admin.customer_setting');
 });
 
-Route::get('my-info',function(){
+Route::get('my-info-admin',function(){
     return view('admin.my-info');
 });
 

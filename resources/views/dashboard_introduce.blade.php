@@ -86,7 +86,7 @@
 
 <!-- 
     <script>
-        var item = JSON.parse(localStorage.getItem('account_customer'));
+        var item = JSON.parse(localStorage.getItem('customer_customer'));
         if(item ==null || item=='')
         {
             

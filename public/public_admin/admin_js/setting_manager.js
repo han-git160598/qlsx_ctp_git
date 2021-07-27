@@ -2,6 +2,7 @@ $(document).ready(function(){
 list_unit(unit_type='U')
 list_category()
 })
+var id_admin = JSON.parse(localStorage.getItem('account_customer'))
 function list_unit(unit_type='',id='')
 {
 	$('#btn_add_unit').attr('onClick', "create_unit('"+unit_type+"')");
@@ -70,7 +71,7 @@ function create_unit(unit_type) {
 		method: 'POST',
 		data: { detect: 'unit_manager',type_manager:'create_unit'
 		,unit_type:unit_type
-		,id_admin:1
+		,id_admin:id_admin.id
 		,unit_title:$('#unit_title').val()
 		,unit:$('#unit').val()
 		},
@@ -97,7 +98,7 @@ function update_unit(unit_type,id)
 		method: 'POST',
 		data: { detect: 'unit_manager',type_manager:'update_unit'
 		,unit_type:unit_type
-		,id_admin:1
+		,id_admin:id_admin.id
 		,unit_title:$('#edit_unit_title').val()
 		,unit:$('#edit_unit_1').val()
 		,id_unit:id
@@ -186,7 +187,7 @@ function update_machine(id)
 		,machine_title:$('#edit_machine_name').val()
 		,machine_description:$('#edit_machine_description').val()
 		,id_machine_category:$('#edit_list_category_machine').val()
-		,id_admin:1
+		,id_admin:id_admin.id
 		,id_machine:id
 		},
 		dataType: 'json',
@@ -241,7 +242,7 @@ function create_machine()
 		,machine_title:$('#machine_name').val()
 		,machine_description:$('#machine_description').val()
 		,id_machine_category:$('#list_category_machine').val()
-		,id_admin:1
+		,id_admin:id_admin.id
 		},
 		dataType: 'json',
 		headers: headers,
@@ -348,7 +349,7 @@ function create_product_category() {
 		url: urlapi,
 		method: 'POST',
 		data: { detect: 'product_category_manager',type_manager:'create_product_category'
-		,id_admin:1
+		,id_admin:id_admin.id
 		,category_description:$('#category_description').val()
 		,category_title:$('#category_name').val()
 		},
@@ -374,7 +375,7 @@ function update_product_category(id)
 		url: urlapi,
 		method: 'POST',
 		data: { detect: 'product_category_manager',type_manager:'update_product_category'
-		,id_admin:1
+		,id_admin:id_admin.id
 		,category_description:$('#edit_unit_1').val()
 		,category_title:$('#edit_unit_title').val()
 		,id_category:id

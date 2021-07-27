@@ -150,7 +150,7 @@
 
     <script>
     $( document ).ready(function() {
-        var username = JSON.parse(localStorage.getItem('account_customer'));
+        var username = JSON.parse(localStorage.getItem('customer_customer'));
         if(username == null || username =='')
         {
             window.location.href = urlserver;
@@ -191,7 +191,7 @@
 
 
     function customer_logout() {
-    localStorage.removeItem('account_customer');
+    localStorage.removeItem('customer_customer');
     window.location = urlserver;
     }
     

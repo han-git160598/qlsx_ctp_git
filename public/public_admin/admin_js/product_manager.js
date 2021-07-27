@@ -6,6 +6,7 @@ $(document).ready(function(){
 	list_material()
 	list_supplier(id_supplier = '')
 })
+var id_admin = JSON.parse(localStorage.getItem('account_customer'))
 current_quantity=0;
 var page = 1;
 var search = '';
@@ -135,7 +136,7 @@ function edit_product(id_product)
 		dataType: 'json',
 		headers: headers,
 		success: function(response) {
-		console.log(response)
+	
 		let item = response.data[0]
 		$('#edit_product').show()
 
@@ -172,7 +173,7 @@ function update_product(id)
     formData.append("id_unit", $('#list_unit').val());
     formData.append("id_packet", $('#list_unit_packet').val());
     formData.append("id_category", $('#product_category').val());
-    formData.append("id_admin",1);
+    formData.append("id_admin",id_admin.id);
     formData.append("id_product",id);
 
     $.ajax({
@@ -225,7 +226,7 @@ function list_unit(id_unit ='')
 	$.ajax({
 		url: urlapi,
 		method: 'POST',
-		data: { detect: 'product_unit_manager',type_manager:'list_unit'
+		data: { detect: 'unit_manager',type_manager:'list_unit'
 		,unit_type:'U'
 		},
 		dataType: 'json',
@@ -263,9 +264,9 @@ function list_unit_packet(id_packet='')
 			response.data.forEach(function(item){
 			if(id_packet==item.id_unit)
 			{
-				output+=`<option selected value="${item.id_unit}">${item.unit_title}</option>`;
+				output+=`<option selected value="${item.id}">${item.unit_title}</option>`;
 			}else{
-				output+=`<option value="${item.id_unit}">${item.unit_title}</option>`;
+				output+=`<option value="${item.id}">${item.unit_title}</option>`;
 			}
 			
 			})
@@ -277,7 +278,9 @@ function list_unit_packet(id_packet='')
 function create_product()
 {
 
+	console.log($('#list_unit_packet').val())
 	var fileToUpload = $('#attach').prop('files')[0];
+	
     var formData = new FormData();
     formData.append("detect", "product_manager");
     formData.append("type_manager", "create_product");
@@ -291,13 +294,18 @@ function create_product()
     formData.append("product_unit_packet", $('#nums_quantity_packet').val());
     formData.append("safety_stock", $('#nums_safe_warehouse').val());
     formData.append("id_category", $('#product_category').val());
-    formData.append("id_admin",1);
+    formData.append("id_admin", id_admin.id);
+    
+//     for (var value of formData.values()) {
+//    console.log(value);
+// }
     $.ajax({
         url: urlapi,
         method: 'POST',
         data: formData,
         dataType: 'JSON',
         contentType: false,
+        cache:false,
         processData: false,
         //headers: headers,
         success: function(response) {
@@ -399,7 +407,7 @@ function update_material(id)
 		,material_name:$('#edit_material_name').val(), id_supplier:$('#edit_list_supplier').val()
 		,id_unit:$('#edit_list_unit_material').val(),material_code:$('#edit_material_code').val()
 		,material_spec:$('#edit_material_spec').val(),safety_stock:$('#nums_edit_safe_warehouse_material').val()
-		,id_admin:1, id_material:id
+		,id_admin:id_admin.id, id_material:id
 		},
 		dataType: 'json',
 		headers: headers,
@@ -452,7 +460,7 @@ function create_material()
 		,material_name:$('#material_name').val(), id_supplier:$('#list_supplier').val()
 		,id_unit:$('#list_unit_material').val(),material_code:$('#material_code').val()
 		,material_spec:$('#material_spec').val(),safety_stock:$('#nums_safe_warehouse_material').val()
-		,id_admin:1
+		,id_admin:id_admin.id
 		},
 		dataType: 'json',
 		headers: headers,

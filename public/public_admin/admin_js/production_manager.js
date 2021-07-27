@@ -368,7 +368,7 @@ $('#save_product_material').click(function(){
     console.log(list_product_material)
 }) 
 
-
+var id_admin = JSON.parse(localStorage.getItem('account_customer'))
 function create_production()
 {
  
@@ -378,7 +378,7 @@ function create_production()
     let production_begin_date = $('#from_date').val()
     let production_end_date = $('#to_date').val()
     let production_note = $('#production_note').val()
-    let id_admin = 1
+    let id_admin1 = id_admin.id
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -386,7 +386,7 @@ function create_production()
         ,list_product_material:JSON.stringify(list_product_material)
         ,week_title:week_title,production_note:production_note
         ,production_begin_date:production_begin_date,production_end_date:production_end_date
-        ,id_admin:id_admin,id_machine:id_machine
+        ,id_admin:id_admin1,id_machine:id_machine
         },
         dataType: 'json',
         headers: headers,

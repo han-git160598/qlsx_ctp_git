@@ -50,7 +50,7 @@
                 <div class="dir-box" id="dir_box">
                     <span class="triangle"></span>
                     <div class="box-text">
-                        <a href="{{URL::to('my-info')}}">Tài khoản của tôi</a>
+                        <a href="{{URL::to('my-info-admin')}}">Tài khoản của tôi</a>
                         <a href="{{URL::to('my-reset-password')}}">Thay đổi mật khẩu</a>
                         <a onclick="logout()">Đăng xuất</a>
                     </div>
@@ -92,10 +92,48 @@
     <script src="{{asset('public_admin/admin_js/logout.js')}}" type="text/javascript"></script>
     @yield('ajax')
     <script type="text/javascript">
+         
         $(document).ready(function(){
             var account_admin = JSON.parse(localStorage.getItem('account_customer'))
             $('#account_name').text(account_admin.full_name)
+            permission(account_admin.id_type)
         })
+
+        function permission(id_type)
+        {
+            var output=``;
+            switch(id_type)
+            {
+                case '1':
+                output+=`
+               
+                    <li class="item "><a href="{{url('admin/customer_index')}}">Dasboard</a></li>
+                    <li class="item "><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>
+                    <li class="item"><a href="{{url('admin/customer_list_order')}}">Đơn hàng</a></li>
+                    <li class="item"><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>
+                    <li class="item "><a href="{{url('admin/customer_list_inventory')}}">Kiểm kê kho</a></li>
+
+                    <li class="item "><a href="{{URL::to('list-production')}}">Sản xuất</a></li>
+                    <li class="item"><a href="{{url('admin/customer_list_vendor')}}">Nhà cung ứng</a></li>
+                    <li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>
+                    <li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>
+                    <li class="item "><a href="{{url('admin/customer_list_account')}}">Tài khoản</a></li>
+                    <li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>
+                
+                `
+                break;
+                case '2':
+                output+=`<li class="item active"><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>`
+                break;
+                case '3':
+                 output+=`<li class="item active"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>`
+                break;
+                case '4':
+                output+=`<li class="item active"><a href="{{URL::to('list-production')}}">Sản xuất</a></li>`
+                break;
+            }
+            $('#main-menu').html(output);
+        }
 
     </script>
 </body>
