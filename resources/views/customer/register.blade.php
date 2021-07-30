@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('public_customer/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -91,15 +91,11 @@
                                     <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
                                     <span>2. Tạo mật khẩu</span>
                                 </li>
-                                <!-- <li class="progressbar-item" data-step="3">
-                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
-                                    <span>3. Thông tin cá nhân</span>
-                                </li> -->
-                                <li class="progressbar-item" data-step="3">
-                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
-                                    <span>4. Thêm địa chỉ</span>
-                                </li>
                                 <li class="progressbar-item" data-step="4">
+                                    <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
+                                    <span>4. Thông tin cá nhân</span>
+                                </li>
+                                <li class="progressbar-item" data-step="5">
                                     <span class="icon"><img src="{{ asset('public_customer/images/Radiobutton.png')}}"  alt=""></span>
                                     <span>5. Hoàn thành</span>
                                 </li>
@@ -112,8 +108,6 @@
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Xác nhận mã OTP</h4>
                                             <p class="short-desc fw-400 fz-125rem t-center mg-t-2rem" id="phone_OTP">Nhập mã OTP đã gửi đến ********89</p>
-                                            <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
-
                                         </div>
                                         <form method="get" class="digit-group mg-t-2rem" data-group-name="digits" data-autosubmit="false" autocomplete="off">
                                             <input type="text" id="digit-1" name="digit-1" data-next="digit-2" />
@@ -123,14 +117,16 @@
                                             <input type="text" id="digit-5" name="digit-5" data-next="digit-6" data-previous="digit-4" />
                                             <input type="text" id="digit-6" name="digit-6" data-previous="digit-5" />
 
-
                                         </form>
                                         <small class="error-text t-center mt-3">Vui lòng nhập mã OTP</small>
 
                                         <div class="item-content mg-t-2rem">
                                             <p class="fw-400 fz-1rem t-center d-block"><a href="#" class="t-green-main fw-400 fz-1rem t-center mg-b-05rem">Gửi lại mã OTP</a> 59s</p>
 
-                                            <button type="submit" class="btn-submit mg-t-2rem" data-step="2" id="submit_step_1">Tiếp theo</button>
+                                            <button type="submit" class="btn-submit mg-t-2rem" onclick="step1()">Tiếp theo</button>
+
+                                            <button hidden="" type="submit" class="btn-submit mg-t-2rem" data-step="2" id="submit_step_1">
+                                            </button>
                                             <span type="step_start" data-tag="a" class="d-block t-green-main fw-600 fz-1rem t-center mg-t-2rem">Quay lại</span>
                                         </div>
 
@@ -142,6 +138,13 @@
                             <div class="box-content justify-content-center">
                                 <div class="box-right">
                                     <div class="box-item w-100">
+                                        <div class="warning-retangle">                                     
+                                            <span class="warning-text">
+                                                <small id="lowercase" class="note">Ít nhất một kí tự viết thường</small><br>
+                                                <small id="uppercase" class="note">Ít nhất một kí tự viết hoa</small><br>
+                                                <small id="length" class="note">8-16 kí tự</small>
+                                            </span>
+                                        </div>
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thông tin cá nhân</h4>
                                             <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
@@ -150,18 +153,20 @@
                                         <form action="" method="post" class="box-request mg-t-1rem" id="set_pass">
                                             <div>
                                                 <input type="password" name="password" id="password" class="mg-t-2rem" placeholder="Mật khẩu">
-                                                <span><img src="{{ asset('public_customer/images/eye.png')}}" alt=""></span>
+                                                <span onclick="hidden_password1('password')"><img src="{{ asset('public_customer/images/eye.png')}}" alt=""></span>
                                             </div>
                                             <div>
                                                 <input type="password" name="password_confirm" id="password_confirm" class="mg-t-2rem" placeholder="Nhập lại mật khẩu">
-                                                <span><img src="{{ asset('public_customer/images/eye.png')}}" alt=""></span>
+                                                <span onclick="hidden_password1('password_confirm')"><img src="{{ asset('public_customer/images/eye.png')}}" alt=""></span>
                                             </div>
                                             <small class="error-text mt-3 t-center">Vui lòng nhập mật khẩu</small>
                                         </form>
 
-
                                         <div class="item-content mg-t-2rem">
-                                            <button type="submit" class="btn-submit mg-t-2rem" id="submit_step_2" data-step="3">Tiếp theo</button>
+                                            <button type="submit" class="btn-submit mg-t-2rem" onclick="step2()">Tiếp theo</button>
+
+                                            <button hidden="" type="submit" class="btn-submit mg-t-2rem" id="submit_step_2" data-step="4"></button>
+
                                             <span type="step_1" data-step="2" data-tag="a" class="d-block t-green-main fw-600 fz-1rem t-center mg-t-2rem">Quay lại</span>
                                         </div>
 
@@ -169,116 +174,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="step-3 form-create-info d-none">
-                            <div class="box-content justify-content-center">
-                                <div class="box-right">
-                                    d-none
-                                    <div class="box-item w-100">
-                                        <div class="item-title">
-                                            <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thông tin cá nhân</h4>
-                                            <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span>
-
-                                        </div>
-                                        <form action="" method="post" class="box-request mg-t-2rem" id="form_info">
-                                            <div class="box-left">
-                                                <div class="request-item avatar">
-                                                    <input type="file" name="avatar" id="avatar">
-                                                    <span class="avatar"><img src="{{ asset('public_customer/images/account-reg.png')}}" alt=""></span>
-                                                    <span class="fw-400 lh-12rem">Dụng lượng file tối đa 1 MB
-                                                        Định dạng:.JPEG, .PNG</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="box-right">
-                                                <div class="request-item is_business">
-                                                    <input type="checkbox" name="is_business" id="is_business" placeholder="Mật khẩu">
-                                                    <label for="is_business" class="fw-400 lh-12rem">Bạn là doanh nghiệp?</label>
-                                                </div>
-                                                <div class="request-item fill">
-                                                    <div class="input-title">
-                                                        <label for="name_business" class="fw-400 lh-12rem">Tên công ty</label>
-                                                    </div>
-                                                    <div class="input-content">
-                                                        <input type="text" name="name_business" id="name_business" placeholder="Nhập tên công ty">
-                                                        <small class="error-text mt-2 t-center">Vui lòng nhập tên công ty</small>
-                                                    </div>
-                                                </div>
-                                                <div class="request-item fill">
-                                                    <div class="input-title">
-                                                        <label for="name_user" class="fw-400 lh-12rem">Họ và tên</label>
-                                                    </div>
-                                                    <div class="input-content">
-                                                        <input type="text" name="name_user" id="name_user" placeholder="Nhập họ và tên">
-                                                        <small class="error-text mt-2 t-center">Vui lòng nhập họ và tên</small>
-                                                    </div>
-                                                </div>
-                                                <div class="request-item fill">
-                                                    <div class="input-title">
-                                                        <label for="email_user" class="fw-400 lh-12rem">Email</label>
-                                                    </div>
-                                                    <div class="input-content">
-                                                        <input type="text" name="email_user" id="email_user" placeholder="Nhập địa chỉ email">
-                                                    </div>
-                                                </div>
-                                                <div class="request-item fill radio-box">
-                                                    <div class="input-title">
-                                                        <label class="fw-400 lh-12rem">Giới tính</label>
-                                                    </div>
-
-                                                    <div class="fill-box input-content">
-                                                        <input type="radio" id="male" name="gender" value="male" checked>
-                                                        <label for="male">Nam</label>
-                                                        <input type="radio" id="female" name="gender" value="female">
-                                                        <label for="female">Nữ</label>
-                                                        <input type="radio" id="other" name="gender" value="other">
-                                                        <label for="other">Khác</label>
-                                                    </div>
-
-                                                </div>
-                                                <div class="request-item fill">
-                                                    <div class="input-title">
-                                                        <label class="fw-400 lh-12rem">Ngày sinh</label>
-                                                    </div>
-                                                    <div class="fill-box input-content">
-                                                        <select name="day" id="day">
-                                                            <option value="0">Ngày</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                        </select>
-                                                        <select name="month" id="month">
-                                                            <option value="0">Tháng</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                        </select>
-                                                        <select name="year" id="year">
-                                                            <option value="0">Năm</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-
-                                        <div class="item-content mg-t-2rem">
-                                            <span type="step_2" data-step="3" data-tag="a" class="d-block t-green-main fw-600 fz-1rem t-center p-3">Quay lại</span>
-                                            <button type="submit" id="submit_step_3" class="btn-submit w-20" data-step="4">Tiếp theo</button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="step-4 d-none">
+                        <!-- <div class="step-3 d-none">
                             <div class="box-content justify-content-center">
                                 <div class="box-right">
                                     <div class="box-item w-100">
                                         <div class="item-title">
                                             <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thêm địa chỉ</h4>
-                                            <!-- <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span> -->
+                                           
                                         </div>
                                         <form action="" method="post" class="box-request mg-t-2rem" id="form_address">
                                             <div>
@@ -323,7 +225,74 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+                        <div class="step-4 form-create-info d-none">
+                            <div class="box-content justify-content-center">
+                                <div class="box-right">
+                               
+                                    <div class="box-item w-100">
+                                        <div class="item-title">
+                                            <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thông tin cá nhân</h4>
+                                            <span class="icon"><a href="#"><img src="{{ asset('public_customer/images/help-line.png')}}" alt=""></a></span>
+
+                                        </div>
+                                        <form action="" method="post" class="box-request mg-t-2rem" id="form_info">
+                                        
+                                            <div class="box-right">
+                                                <div class="request-item is_business">
+                                                    <input type="checkbox" name="is_business" id="is_business" placeholder="Mật khẩu">
+                                                    <label for="is_business" class="fw-400 lh-12rem">Bạn là doanh nghiệp?</label>
+                                                </div>
+                                                <div class="request-item fill">
+                                                    <div class="input-title">
+                                                        <label for="name_business" class="fw-400 lh-12rem">Tên công ty</label>
+                                                    </div>
+                                                    <div class="input-content">
+                                                        <input type="text" name="name_business" id="name_business" placeholder="Nhập tên công ty">
+                                                        <small class="error-text mt-2 t-center">Vui lòng nhập tên công ty</small>
+                                                    </div>
+                                                </div>
+                                                <div class="request-item fill">
+                                                    <div class="input-title">
+                                                        <label for="name_user" class="fw-400 lh-12rem">Họ và tên</label>
+                                                    </div>
+                                                    <div class="input-content">
+                                                        <input type="text" name="name_user" id="name_user" placeholder="Nhập họ và tên">
+                                                        <small class="error-text mt-2 t-center">Vui lòng nhập họ và tên</small>
+                                                    </div>
+                                                </div>
+                                                <div class="request-item fill">
+                                                    <div class="input-title">
+                                                        <label for="email_user" class="fw-400 lh-12rem">Email</label>
+                                                    </div>
+                                                    <div class="input-content">
+                                                        <input type="text" name="email_user" id="email_user" placeholder="Nhập địa chỉ email">
+                                                    </div>
+                                                </div>
+                                                <div class="request-item fill">
+                                                    <div class="input-title">
+                                                        <label for="email_user" class="fw-400 lh-12rem">Địa chỉ</label>
+                                                    </div>
+                                                    <div class="input-content">
+                                                        <input type="text" name="address_user" id="address_user" placeholder="Nhập địa chỉ">
+                                                    </div>
+                                                </div>
+                                            
+                                            </div>
+                                        </form>
+
+                                        <div class="item-content mg-t-2rem">
+                                             <button type="submit" class="btn-submit w-20" onClick="step3()">Tiếp theo</button>
+                                              <button type="submit" hidden="" id="submit_step_4" class="btn-submit w-20" data-step="5"></button>
+                                            <span type="step_2" data-step="3" data-tag="a" class="d-block t-green-main fw-600 fz-1rem t-center p-3">Quay lại</span>
+                                           
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        
                         <div class="step-5 d-none">
                             <div class="box-content justify-content-center">
                                 <div class="box-right">
@@ -349,6 +318,31 @@
             </div>
         </div>
     </div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+<!-- 
+<script src="{{ asset('backend/js/jquery-3.5.0.min.js') }}"></script> -->
+<script src="{{ asset('backend/js/main/admin_local.js') }}"></script>
+
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyCl6SaLPPxCC6WnxYIMEVtHNfBaU2alJwU",
+        authDomain: "qlsx-ctp.firebaseapp.com",
+        projectId: "qlsx-ctp",
+        storageBucket: "qlsx-ctp.appspot.com",
+        messagingSenderId: "465533015056",
+        appId: "1:465533015056:web:d3c734c63c0df4a315e695",
+        measurementId: "G-11XP0QJ94C"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
+
+
 
     <!-- END FOOTER -->
     <!-- <script src="{{ asset('public_customer/js/jquery-2.2.4.min.js')}} " type="text/javascript "></script> -->

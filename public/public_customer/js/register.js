@@ -116,7 +116,7 @@ $(document).ready(function() {
             progressbar_point(this);
             // step 5
             if ($('.step-5').hasClass('d-none') == false) {
-                var sec = 3;
+                var sec = 5;
                 setInterval(function() {
                     sec--;
                     $('#sec').text(sec + ' giây');
@@ -125,7 +125,7 @@ $(document).ready(function() {
                         $('.step-otp').toggleClass('d-none');
                         $('.step-1').toggleClass('d-none');
                         $('.step-5').toggleClass('d-none');
-                        window.location.href = 'customer-home.html';
+                        window.location.href = urlserver + 'customer-home';
                     }
                 }, 1000);
             }
