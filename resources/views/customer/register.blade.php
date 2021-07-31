@@ -4,11 +4,11 @@
 <head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('public_customer/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public_customer/css/bootstrap/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_admin/css/bootstrap/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_admin/css/bootstrap/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public_customer/reset.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public_customer/global.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('public_customer/css/font-awesome/css/all.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('public_admin/css/font-awesome/css/all.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public_customer/style.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public_customer/responsive.css')}}" rel="stylesheet" type="text/css" />
 
@@ -348,9 +348,9 @@
     <!-- <script src="{{ asset('public_customer/js/jquery-2.2.4.min.js')}} " type="text/javascript "></script> -->
     <script src="{{ asset('public_customer/js/jquery.js ')}}" type="text/javascript "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js "></script>
-    <script src="{{ asset('public_customer/js/bootstrap/bootstrap.min.js')}} " type="text/javascript "></script>
-    <script src="{{ asset('public_customer/carousel/owl-carousel/owl.carousel.min.js')}} "></script>
-    <script src="{{ asset('public_customer/js/plugins/ckeditor/ckeditor.js')}} " type="text/javascript "></script>
+    <script src="{{ asset('public_admin/js/bootstrap/bootstrap.min.js')}} " type="text/javascript "></script>
+    <script src="{{ asset('public_admin/carousel/owl-carousel/owl.carousel.min.js')}} "></script>
+    <script src="{{ asset('public_admin/js/plugins/ckeditor/ckeditor.js')}} " type="text/javascript "></script>
 
     <script src="{{ asset('public_customer/js/main.js')}} " type="text/javascript "></script>
     <script src="{{ asset('public_customer/js/otp.js')}} " type="text/javascript "></script>
