@@ -87,7 +87,7 @@
 
     <script src="{{asset('public_admin/js/progress_bar.js')}}" type="text/javascript "></script>
     <script src="{{asset('public_admin/js/view_img.js')}}" type="text/javascript "></script>
-    <script src="../public_customer/url_global.js " type="text/javascript "></script>
+    <script src="{{asset('public_customer/url_global.js')}}" type="text/javascript "></script>
 
     <script src="{{asset('public_admin/admin_js/logout.js')}}" type="text/javascript"></script>
     @yield('ajax')
@@ -96,8 +96,53 @@
         $(document).ready(function(){
             var account_admin = JSON.parse(localStorage.getItem('account_customer'))
             $('#account_name').text(account_admin.full_name)
-            permission(account_admin.id_type)
+            list_module(account_admin)
         })
+
+        function list_module(params) {
+            var output=``;
+            params.role_permission.forEach(function(item) {
+                switch(item.permission)
+                {
+                    case 'module_dashboar':
+                        output+=`<li class="item "><a href="{{url('admin/customer_index')}}">Dasboard</a></li>`
+                    break;
+                    case 'module_customer':
+                        output+=` <li class="item "><a href="{{ URL::to('customer-list-customer')}}">Khách hàng</a></li>`
+                    break;
+                    case 'module_order':
+                        output+=`<li class="item"><a href="{{url('admin/customer_list_order')}}">Đơn hàng</a></li>`
+                    break;
+                    case 'module_storage':
+                        output+=`<li class="item"><a href="{{ URL::to('list-product-storage')}}">Kho hàng</a></li>`
+                    break;
+                    case 'module_production':
+                        output+=`<li class="item "><a href="{{URL::to('list-production')}}">Sản xuất</a></li>`
+                    break;
+                    case 'module_supplier':
+                        output+=`<li class="item"><a href="{{url('admin/customer_list_vendor')}}">Nhà cung ứng</a></li>`
+                    break;
+                    case 'module_product':
+                        output+=`<li class="item "><a href="{{URL::to('list-product')}}">Sản phẩm</a></li>`
+                    break;
+                    case 'module_shipping':
+                        output+=`<li class="item"><a href="{{URL::to('list-ship')}}">Vận chuyển</a></li>`
+                    break;
+                    case 'module_account':
+                        output+=`<li class="item "><a href="{{url('admin/customer_list_account')}}">Tài khoản</a></li>`
+                    break;
+                    case 'module_setting':
+                        output+=`<li class="item "><a href="{{URL::To('unit-setting')}}">Cài đặt</a></li>`
+                    break;
+                    case 'module_inventory':
+                        output+=`<li class="item "><a href="{{url('admin/customer_list_inventory')}}">Kiểm kê kho</a></li>`
+                    break;
+
+                }
+
+            })
+            $('#main-menu').html(output);
+        }
 
         function permission(id_type)
         {

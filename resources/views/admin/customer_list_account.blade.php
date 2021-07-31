@@ -271,7 +271,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="form-info-row align-item-center">
+                            <!-- {{-- <div class="form-info-row align-item-center">
                                 <div class="form-info-lable">
                                     <label for="is_business" class="">Gửi thông báo</label>
                                 </div>
@@ -281,7 +281,7 @@
                                         id="is_business">
                                     <label for="is_business">Gửi thông báo đến số điện thoại của người dùng mới</label>
                                 </div>
-                            </div> --}}
+                            </div> --}} -->
                             <div class="form-info-row">
                                 <div class="form-info-lable">
                                     <label for="type_account" class="fw-400 lh-12rem">Vai trò</label>
@@ -290,7 +290,7 @@
                                     <select name="type_account" class="">
                                         <option value="0">Chọn vai trò</option>
                                     </select>
-                                    {{-- <ul id="list_role_checked">
+                                    <!-- {{-- <ul id="list_role_checked">
                                         <li class="item rounder">
                                             <span>Dashboard</span>
                                             <i class="fas fa-times-circle icon"></i>
@@ -310,17 +310,17 @@
 
                                             <i class="fas fa-times-circle icon"></i>
                                         </li>
-                                    </ul> --}}
+                                    </ul> --}} -->
                                     <span data-tag="a" class="t-green-main d-block t-right t-left mt-2">Thêm quyền hạn</span>
                                     <ul id="add_role">
-                                        {{-- <li class="item bg-F6">
+                                        <!-- {{-- <li class="item bg-F6">
                                             <div class="form-info-row">
                                                 <div class="form-info-input-content t-left">
                                                     <input type="checkbox" class="d-inline-block w-10" checked>
                                                     <label>Khách hàng</label>
                                                 </div>
                                             </div>
-                                        </li> --}}
+                                        </li> --}} -->
                                     </ul>
                                 </div>
                             </div>
@@ -349,7 +349,7 @@
                             <div class="form-info-row align-item-center">
                                 <label  class="form-info-lable">Tên đăng nhập</label>
                                 <div class="form-info-input-content">
-                                    <input type="text" name="username" class="" value="" placeholder="Nhập tên đăng nhập">
+                                    <input type="text" name="username" class="" readonly value="" placeholder="Nhập tên đăng nhập">
                                 </div>
                             </div>
 

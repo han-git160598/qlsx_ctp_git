@@ -11,16 +11,17 @@
     }
 }
 
-#add_role {
+#add_role,
+#edit_role {
     width: 100%;
     height: auto;
     padding: .5rem 1rem;
     background-color: #F6F6F6;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     .item {
-        width: 30%;
+        width: 100%;
         margin: .25rem .25rem;
         padding: 0 .25rem;
     }

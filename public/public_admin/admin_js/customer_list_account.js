@@ -138,9 +138,6 @@ function get_account_by_id(detect, type_manager, id_vendor) {
     // "supplier_email": "qtc@gmail.com",
     // "supplier_phone": "0336819000",
     // "supplier_address": "Bình Thạnh"
-    console.log(detect);
-    console.log(type_manager);
-    console.log(id_vendor);
     $.ajax({
         url: urlapi,
         method: 'POST',
@@ -213,7 +210,7 @@ function add_account() {
             'email': email,
             'role_permission': role_permission,
         }
-        console.log(role_permission);
+  
         api_bool(api_data, 'admin/customer_list_account');
     })
 }
@@ -300,7 +297,7 @@ function click_edit_account(detect) {
             'role_permission': role_permission,
             'id_user': id_user
         }
-        console.log(api_data);
+        
         api_bool(api_data, 'admin/customer_list_account');
     });
 }
@@ -330,7 +327,7 @@ function update_status_account(detect) {
 function update_password(detect) {
     $('span[type="change_pass"]').click(function() {
         var id = $(this).parent().parent().attr('data-id-account');
-        console.log(id);
+  
         $('#btn_change_pass').click(function() {
             let pass_old = $('#pw-old').val();
             let pass_new = $('#pw-new').val();
@@ -359,7 +356,7 @@ function hidden_pass() {
     $('.hidden_pass').click(function() {
 
         var pwd = $(this).parent().children('input');
-        console.log(pwd);
+     
         if (pwd.attr("type") == "password") {
             pwd.attr("type", "text");
         } else {
@@ -379,6 +376,7 @@ function get_list_permission(page, role = "") {
         dataType: 'json',
         headers: headers,
         success: function(response) {
+            console.log(response)
             if (response.success == 'false') {
                 alert(response.message)
             } else {
@@ -392,7 +390,6 @@ function get_list_permission(page, role = "") {
                         <td>${item.description}</td>
                     </tr>
                     `;
-
                     output_add += `
                                     <li class="item bg-F6">
                                         <div class="form-info-row">
@@ -405,8 +402,9 @@ function get_list_permission(page, role = "") {
                     `;
 
                     role_arr = role.split(',');
-
-                    if (role_arr.length > 1) {
+ 
+                    
+                        
                         if (role_arr.includes(item.id)) {
                             output_edit += `
                                         <li class="item bg-F6">
@@ -430,12 +428,12 @@ function get_list_permission(page, role = "") {
                                         </li>
                                         `;
                         }
-                    }
+                    
 
                 });
                 $('#list_permission').html(output);
-                $('#add_role').append(output_add);
-                $('#edit_role').append(output_edit);
+                $('#add_role').html(output_add);
+                $('#edit_role').html(output_edit);
             }
         }
     });
@@ -482,8 +480,8 @@ function get_list_type(page, type = "") {
 
                 });
                 $('#list_type').html(output);
-                $('.modal#add_module select[name="type_account"]').append(output_add);
-                $('.modal#edit_module select[name="type_account"]').append(output_edit);
+                $('.modal#add_module select[name="type_account"]').html(output_add);
+                $('.modal#edit_module select[name="type_account"]').html(output_edit);
             }
         }
     });
