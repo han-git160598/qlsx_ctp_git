@@ -51,7 +51,7 @@
                 <div class="search" style="position: relative;">
                     <input type="text" onkeyup="cusotmer_pagination(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val())" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                     <button class="input d-flex">
-                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
+                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="{{asset('public_admin/images/search_black.png')}}" alt=""></span>
                     </button>
                 </div>
             </div>
@@ -138,7 +138,7 @@
             <div class="modal-title">
                 <h4>Thêm khách hàng</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -221,12 +221,12 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}} " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa tài khoản này?</p>
                 </div>
                 <div class="t-center mg-t-175rem" id="btn_delete_customer">

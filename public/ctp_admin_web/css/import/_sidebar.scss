@@ -1,0 +1,46 @@
+#sidebar-left {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 16.1%;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
+    z-index: 10;
+}
+
+#sidebar-left-hidden {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 16.1%;
+}
+
+#main-menu {
+    height: 100vh;
+}
+
+#main-menu,
+.item {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+
+#main-menu .item {
+    padding: 1.5rem 2rem;
+    a {
+        font-size: 1.25rem;
+    }
+    &:hover {
+        background-color: $active_item_menu;
+        border-left: 4px solid $blue;
+        a {
+            font-weight: 600;
+        }
+    }
+    &.active {
+        background-color: $active_item_menu;
+        border-left: 4px solid $blue;
+        a {
+            font-weight: 600;
+        }
+    }
+}

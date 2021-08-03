@@ -53,7 +53,7 @@
                     <div class="search" style="position: relative;" id="search_storage">
                         <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                         <button class="input d-flex">
-                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
+                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="{{asset('public_admin/images/search_black.png')}}" alt=""></span>
                         </button>
                     </div>
                 </div>
@@ -480,7 +480,7 @@
             <div class="modal-title">
                 <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>  
             <div class="modal-content">
@@ -570,7 +570,7 @@
             <div class="modal-title">
                 <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -643,7 +643,7 @@
             <div class="modal-title">
                 <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -709,7 +709,7 @@
             <div class="modal-title">
                 <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -774,7 +774,7 @@
             <div class="modal-title">
                 <h4>Thông tin chi tiết</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -805,9 +805,9 @@
                                 <label for="title" class="form-info-lable">Số lượng</label>
                                 <div class="form-info-input-content t-left">
                                     <div class="amount ">
-                                        <button class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <button class="minus"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                         <input type="text" class="t-center" value="13.456">
-                                        <button class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button class="plus"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                                     </div>
                                 </div>
                             </div>
@@ -842,12 +842,12 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}}" alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
                 </div>
                 <div class="t-center mg-t-175rem">
@@ -864,7 +864,7 @@
             <div class="modal-title">
                 <h4>Thêm phiếu nhập kho</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -932,7 +932,7 @@
             <div class="modal-title">
                 <h4>Thêm phiếu xuất kho</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -1001,7 +1001,7 @@
             <div class="modal-title">
                 <h4>Thêm phiếu nhập kho</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -1077,7 +1077,7 @@
             <div class="modal-title">
                 <h4>Thêm phiếu xuất kho</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">

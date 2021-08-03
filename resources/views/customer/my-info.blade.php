@@ -390,7 +390,7 @@
                 </div>
             </div>
             <!-- contact box -->
-            <div id="contact-box">
+            <!-- <div id="contact-box">
                 <span class="box-contact-shadow "></span>
                 <span class="box-contact-close"></span>
                 <div class="box-contact ">
@@ -422,7 +422,9 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+            
         </div>
     </div>
 

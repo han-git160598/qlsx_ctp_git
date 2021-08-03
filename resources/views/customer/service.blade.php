@@ -11,24 +11,7 @@
                         <p class="short-desc fw-400 fz-125rem t-center">Chúng tôi cung cấp đến các doanh nghiệp nhỏ, vừa và lớn các sản phẩm làm từ nhựa chất lượng và an toàn</p>
                     </div>
                     <div class="box-content">
-                        <div class="box-item">
-                            <div class="item-title">
-                                <div class="icon"><img src="{{ asset('public_customer/images/bagplastic.png')}}" alt=""></div>
-                                <h4 class="t-center fz-125rem fw-600">Túi nhựa</h4>
-                            </div>
-                            <div class="item-content">
-                                <p class="fw-400">Nhóm sản túi nhựa của chúng tôi khẳng định vị thế trên thị trường bằng kiểu dáng, màu sắc và chất lượng ổn định. Đặc biệt đảm bảo các tiêu chuẩn về an toàn thực phẩm.</p>
-                            </div>
-                        </div>
-                        <div class="box-item">
-                            <div class="item-title">
-                                <div class="icon"><img src="{{ asset('public_customer/images/bagplastic.png')}}" alt=""></div>
-                                <h4 class="t-center fz-125rem fw-600">Túi nhựa</h4>
-                            </div>
-                            <div class="item-content">
-                                <p class="fw-400">Nhóm sản túi nhựa của chúng tôi khẳng định vị thế trên thị trường bằng kiểu dáng, màu sắc và chất lượng ổn định. Đặc biệt đảm bảo các tiêu chuẩn về an toàn thực phẩm.</p>
-                            </div>
-                        </div>
+                        
                         <div class="box-item">
                             <div class="item-title">
                                 <div class="icon"><img src="{{ asset('public_customer/images/bagplastic.png')}}" alt=""></div>

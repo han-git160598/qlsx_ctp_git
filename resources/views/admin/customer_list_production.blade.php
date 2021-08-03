@@ -42,7 +42,7 @@
                 <div class="search" style="position: relative;">
                     <input type="text" name="search" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                     <button class="input d-flex">
-                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
+                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="{{asset('public_admin/images/search_black.png')}}" alt=""></span>
                     </button>
                 </div>
             </div> -->
@@ -249,7 +249,7 @@
             <div class="modal-title">
                 <h4>Thêm lệnh sản xuất</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -353,7 +353,7 @@
             <div class="modal-title">
                 <h4>Thêm lệnh sản xuất</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -411,9 +411,9 @@
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Số lượng</label>
                                     <div class="amount" style="height: 2.2rem;">
-                                        <button onclick="decrease('product')" class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <button onclick="decrease('product')" class="minus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                         <input type="number" id="nums_product" min="1" value="1" class="form-input">
-                                        <button onclick="increase('product')" class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button onclick="increase('product')" class="plus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                                     </div>
                                 </div>
                                 <div class="form-edit-row t-left">
@@ -434,9 +434,9 @@
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Số lượng</label>
                                     <div class="amount" style="height: 2.2rem;">
-                                        <button onclick="decrease('material')" class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <button onclick="decrease('material')" class="minus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                         <input type="number" id="nums_material" min="1" value="1" class="form-input">
-                                        <button onclick="increase('material')" class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button onclick="increase('material')" class="plus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                                     </div>
                                 </div>
                                 <div class="form-edit-row t-left">
@@ -467,7 +467,7 @@
             <div class="modal-title">
                 <h4>Thêm lệnh sản xuất</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -525,9 +525,9 @@
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Số lượng</label>
                                     <div class="amount" style="height: 2.2rem;">
-                                        <button class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <button class="minus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                         <input type="text" value="1" class="form-input">
-                                        <button class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button class="plus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                                     </div>
                                 </div>
                                 <div class="form-edit-row t-left">
@@ -548,9 +548,9 @@
                                 <div class="form-edit-row ">
                                     <label for="machine_name" class="form-lable">Số lượng</label>
                                     <div class="amount" style="height: 2.2rem;">
-                                        <button class="minus" style="width: 2.1rem;"><img src="../public_admin/images/minus.png" alt=""></button>
+                                        <button class="minus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                         <input type="text" value="1" class="form-input">
-                                        <button class="plus" style="width: 2.1rem;"><img src="../public_admin/images/plus.png" alt=""></button>
+                                        <button class="plus" style="width: 2.1rem;"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                                     </div>
                                 </div>
                                 <div class="form-edit-row t-left">
@@ -580,12 +580,12 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}} " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
                 </div>
                 <div class="t-center mg-t-175rem">

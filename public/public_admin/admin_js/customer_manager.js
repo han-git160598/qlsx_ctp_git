@@ -8,6 +8,10 @@ var date_begin ='';
 var date_end ='';
 function cusotmer_pagination(page, search , date_begin , date_end)
 {	
+	if(date_begin !='' && date_end=='')
+	{
+		date_end = date_begin
+	}
 	if(page > 0)
 	{
 	$.ajax({

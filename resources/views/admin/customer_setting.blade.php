@@ -207,13 +207,13 @@
                             <div id="force">
                                 <div class="box-force">
                                     <div class="thumb">
-                                        <img class="force-admin" src="../public_admin/images/force_admin.svg" alt="">
+                                        <img class="force-admin" src="{{asset('public_admin/images/force_admin.svg')}}" alt="">
                                     </div>
                                     <span data-tag="a" type="force_admin" class="get_modal btn btn-green">Thoát nhân viên</span>
                                 </div>
                                 <div class="box-force">
                                     <div class="thumb">
-                                        <img src="../public_admin/images/force_customer.svg" alt="">
+                                        <img src="{{asset('public_admin/images/force_customer.svg')}}" alt="">
                                     </div>
                                     <span data-tag="a" type="force_customer" class="get_modal btn btn-green">Thoát khách hàng</span>
                                 </div>
@@ -247,7 +247,7 @@
             <div class="modal-title">
                 <h4>Đơn vị</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -283,7 +283,7 @@
             <div class="modal-title">
                 <h4>Đơn vị</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -320,7 +320,7 @@
             <div class="modal-title">
                 <h4>Thêm nhóm sản phẩm</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -361,7 +361,7 @@
             <div class="modal-title">
                 <h4>Chi tiết máy sản xuất</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -406,7 +406,7 @@
             <div class="modal-title">
                 <h4>Chi tiết máy sản xuất</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -452,12 +452,12 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}} " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa item này?</p>
                 </div>
                 <div class="t-center mg-t-175rem" id="btn_delete">
@@ -471,12 +471,12 @@
             <div class="modal-title">
                 <h4>Cưỡng chế tài khoản nhân viên</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning_force.svg " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning_force.svg')}}" alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Cưỡng chế tài tất cả tài khoản nhân viên?</p>
                 </div>
                 <div class="t-center mg-t-175rem">
@@ -490,12 +490,12 @@
             <div class="modal-title">
                 <h4>Cưỡng chế tài khoản khách hàng</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning_force.svg " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning_force.svg')}} " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Cưỡng chế tất cả tài khoản khách hàng?</p>
                 </div>
                 <div class="t-center mg-t-175rem">

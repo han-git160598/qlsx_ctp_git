@@ -137,10 +137,9 @@
                     case 'module_inventory':
                         output+=`<li class="item "><a href="{{url('admin/customer_list_inventory')}}">Kiểm kê kho</a></li>`
                     break;
-
                 }
-
             })
+            output+=`<li class="item "><a href="{{ URL::to('admin-setting')}}">Tùy chỉnh</a></li>`;
             $('#main-menu').html(output);
         }
 

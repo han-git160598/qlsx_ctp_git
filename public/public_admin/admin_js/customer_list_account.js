@@ -9,6 +9,8 @@ $(document).ready(function() {
     get_list_permission(page);
     get_list_type(page);
     hidden_pass();
+
+
 });
 
 // ===========================================================

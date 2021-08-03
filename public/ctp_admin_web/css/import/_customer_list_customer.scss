@@ -1,0 +1,61 @@
+.filter-select-date {
+    height: 100%;
+    background-color: #FFF;
+    display: flex;
+    padding: 0.25rem;
+    justify-content: space-between;
+    .item {
+        padding: 0.35rem 1.25rem;
+        color: $label;
+        box-sizing: border-box;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        &:hover {
+            color: $blue;
+            background-color: $active_item_menu;
+            cursor: pointer;
+        }
+    }
+}
+
+.sort {
+    position: relative;
+    display: inline-block;
+    @include wh(1rem, auto);
+    .fas {
+        position: relative;
+        right: -10px;
+        padding: 0;
+        @include widthIcon(.5rem);
+    }
+    .fa-chevron-up:before,
+    .fa-chevron-down:before {
+        position: absolute;
+        font-size: 0.5rem;
+        cursor: pointer;
+    }
+    .fa-chevron-up:before {
+        top: 8px;
+        right: 0;
+    }
+    .fa-chevron-down:before {
+        top: 2px;
+        right: 0;
+    }
+    .arrow:hover {
+        // width: 100%;
+        transform: scale(1.25);
+    }
+}
+
+tbody tr td {
+    max-width: 240px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content .box {
+    position: relative;
+}

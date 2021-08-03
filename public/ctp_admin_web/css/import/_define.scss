@@ -1,0 +1,20 @@
+$mainColor:#333333;
+$topHeader:#FFFFFF;
+$hoverTxMenu:#FDF100;
+$tx:#F6F6F6;
+$txBlack:#000000;
+$bgIconContact:#6CBE1B;
+$blue:#15A4DD;
+$botContent: #E5E5E5;
+$active_item_menu: #E8F6FC;
+$label: #818181;
+$header_table_customer: #FFF6E5;
+@mixin widthIcon($a) {
+    width: $a;
+    height: $a;
+}
+
+@mixin wh($a, $b) {
+    width: $a;
+    height: $b;
+}

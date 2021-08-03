@@ -11,26 +11,7 @@
                     </div>
 
                     <div class="box-content">
-                        <div class="box-item">
-                            <div class="item-title">
-                                <div class="icon"><img src="{{ asset('public_customer/images/icon-health.png')}}" alt=""></div>
-                                <h4 class="t-center fz-125rem fw-600">An toàn sức khỏe</h4>
-                            </div>
-                            <div class="item-content">
-                                <p class="fw-400">Sử dụng mực in không chì từ Nhật bản. Sử dụng 100% nhựa nguyên sinh. Tất cả các sản phẩm đều được kiểm nghiệm an toàn vệ sinh thực phẩm.</p>
-                            </div>
-                        </div>
-
-
-                        <div class="box-item">
-                            <div class="item-title">
-                                <div class="icon"><img src="{{ asset('public_customer/images/icon-health.png')}}" alt=""></div>
-                                <h4 class="t-center fz-125rem fw-600">An toàn sức khỏe</h4>
-                            </div>
-                            <div class="item-content">
-                                <p class="fw-400">Sử dụng mực in không chì từ Nhật bản. Sử dụng 100% nhựa nguyên sinh. Tất cả các sản phẩm đều được kiểm nghiệm an toàn vệ sinh thực phẩm.</p>
-                            </div>
-                        </div>
+                        
 
                         <div class="box-item">
                             <div class="item-title">

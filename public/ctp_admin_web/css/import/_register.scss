@@ -1,0 +1,230 @@
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: #6CBE1B;
+    color: #F6F6F6;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+    outline: none;
+    border: none;
+}
+
+// fomart input
+.fill {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    align-items: center;
+    .input-title {
+        flex: 20%;
+        label {
+            margin-right: 1.75rem;
+            text-align: right;
+        }
+    }
+    .input-content {
+        width: 67%;
+        input {
+            // width: 100%;
+            margin: 0!important;
+        }
+    }
+    .fill-box {
+        display: flex;
+        justify-content: flex-start;
+        input[type=radio] {
+            @include widthIcon(24px);
+        }
+        select {
+            // @include wh(32%, 48px);
+            width: 33%;
+            border: 1px solid #C4C4C4;
+            outline: none;
+            color: #AEABAB;
+            margin-right: 0.5rem;
+            // padding: 0.5rem 0.75rem!important;
+            font-size: 1rem;
+        }
+        label {
+            padding: 3px 0px 0px 3px;
+            margin-right: 1.05rem;
+        }
+    }
+}
+
+.register {
+    .short-desc {
+        margin-top: 1rem;
+    }
+    .bot-content {
+        .wp-content {
+            .box-content {
+                .box-left {
+                    width: 56.92%;
+                }
+                .box-right {
+                    width: 38.05%;
+                    .box-item {
+                        padding: 3.5rem 2.5rem;
+                        .item-title {
+                            position: relative;
+                            span.icon {
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                @include widthIcon(24px);
+                            }
+                        }
+                        form {
+                            &.box-request {
+                                text-align: center;
+                                div {
+                                    position: relative;
+                                    span {
+                                        position: absolute;
+                                        top: 0.95rem;
+                                        right: 1rem;
+                                        @include widthIcon(24px)
+                                    }
+                                }
+                                input {
+                                    &[type=submit] {
+                                        display: block;
+                                        width: 100%;
+                                        background-color: #6CBE1B;
+                                        color: #F6F6F6;
+                                        font-weight: 600;
+                                        font-size: 1.25rem;
+                                        padding-top: 0.75rem;
+                                        padding-bottom: 0.75rem;
+                                    }
+                                }
+                            }
+                            &.digit-group {
+                                @import url('https://fonts.googleapis.com/css?family=Raleway:200');
+                                display: flex;
+                                justify-content: center;
+                                input {
+                                    width: 38px;
+                                    height: 56px;
+                                    background-color: lighten($topHeader, 5%);
+                                    border: none;
+                                    line-height: 50px;
+                                    text-align: center;
+                                    font-size: 1.125rem;
+                                    font-weight: 600;
+                                    text-align: center;
+                                    color: $txBlack;
+                                    margin: 0 2px;
+                                    border: 1px solid #EBEBEB;
+                                    margin-left: 4px;
+                                    margin-right: 4px;
+                                }
+                                .splitter {
+                                    padding: 0.9375rem 0.8125rem;
+                                    color: white;
+                                    font-size: 24px;
+                                }
+                            }
+                        }
+                        .item-content {
+                            a:hover {
+                                text-decoration: underline;
+                                color: $bgIconContact;
+                            }
+                        }
+                    }
+                }
+                &.form-create-password {
+                    justify-content: center;
+                }
+            }
+            .form-create-info {
+                //
+                .box-content {
+                    .box-right {
+                        width: 64.34%;
+                        .box-item {
+                            form.box-request {
+                                position: relative;
+                                display: flex;
+                                justify-content: space-between;
+                                .box-left {
+                                    flex: 36%;
+                                    border-right: 1px solid #C4C4C4;
+                                    .request-item {
+                                        &.avatar {
+                                            position: relative;
+                                            display: block;
+                                            width: 100%;
+                                            height: 311px;
+                                            top: 1rem;
+                                            left: 0;
+                                            text-align: center;
+                                            input#avatar {
+                                                position: absolute;
+                                                top: 1.625rem;
+                                                left: 3.6875rem;
+                                                display: inline-block;
+                                                @include widthIcon(120px);
+                                                z-index: 111;
+                                                border-radius: 50%;
+                                                opacity: 0;
+                                                cursor: pointer;
+                                            }
+                                            span {
+                                                &.avatar {
+                                                    position: absolute;
+                                                    top: 1.625rem;
+                                                    left: 3.6875rem;
+                                                    @include widthIcon(120px);
+                                                    z-index: 110;
+                                                }
+                                                position: relative;
+                                                top: 10.95rem;
+                                                left: -0.85%;
+                                            }
+                                        }
+                                        // 
+                                    }
+                                }
+                                .box-right {
+                                    flex: 64%;
+                                    .request-item {
+                                        margin-bottom: 1rem;
+                                        &.is_business {
+                                            position: relative;
+                                            top: 0;
+                                            left: 2.5rem;
+                                            width: 100%;
+                                            height: 1rem;
+                                            input#is_business {
+                                                position: absolute;
+                                                top: 0;
+                                                left: 0;
+                                                margin: 0;
+                                                width: 16px;
+                                            }
+                                            label[for=is_business] {
+                                                position: absolute;
+                                                top: -4px;
+                                                left: 1.5rem;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .item-content {
+                                display: flex;
+                                justify-content: flex-end;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

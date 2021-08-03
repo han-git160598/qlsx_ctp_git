@@ -2,7 +2,7 @@ const urlapi = "https://ctp.nongtrangviet.com/api/";
 
 
 //const urlserver = "https://ctp.nongtrangviet.com/";
-const urlserver = "http://192.168.1.9/QTCTEK.com/qlsx_ctp_git/public/";
+const urlserver = "http://127.0.0.1:8000/";
 const headers = "";
 function order_status(status)
 {

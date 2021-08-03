@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('customer.index');
-});
+// Route::get('/', function () {
+//     return view('customer.index');
+// });
 //--------------------------------CUSTOMER---------------------------------------
 Route::get('register',function(){
     return view('customer.register');
@@ -53,27 +54,27 @@ Route::get('my-announce',function(){
     return view('customer.my-announce');
 });
 /// slide
-Route::get('about-us',function(){
+// Route::get('about-us',function(){
 
-    return view('customer.about-us');
-});
+//     return view('customer.about-us');
+// });
 
-Route::get('process',function(){
+// Route::get('process',function(){
 
-    return view('customer.process');
-});
-Route::get('product',function(){
+//     return view('customer.process');
+// });
+// Route::get('product',function(){
 
-    return view('customer.product');
-});
-Route::get('service',function(){
+//     return view('customer.product');
+// });
+// Route::get('service',function(){
 
-    return view('customer.service');
-});
-Route::get('contact',function(){
+//     return view('customer.service');
+// });
+// Route::get('contact',function(){
 
-    return view('customer.contact');
-});
+//     return view('customer.contact');
+// });
 
 
 //--------------------------------ADMIN---------------------------------------
@@ -132,9 +133,6 @@ Route::get('my-reset-password',function(){
 });
 //////////////////////// PHIIIIIIIIIIIIIIIIIII ////////////////////////
 
-Route::get('/', function () {
-    return view('customer.index');
-});
 
 //--------------------------------ADMIN---------------------------------------
 // -----------------------------Admin Customer--------------------------------
@@ -169,4 +167,107 @@ Route::get('admin/customer_list_vendor', function () {
 
 Route::get('admin/customer_list_account', function () {
     return view('admin.customer_list_account');
+});
+
+/////////////////////////////////////////// HOME PAGE ///////////////////////////////////////////////
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //tra ve gia tri
+});
+
+
+
+Route::get('/',function() {
+        return view('home_page.home.home');
+    });
+Route::group(['prefix' => 'home'], function () {
+    Route::get('/',function() {
+        return view('home_page.home.home');
+    });
+    Route::get('about-us',function () {
+        return view('home_page.home.home_about_us');
+    });
+    Route::get('process',function () {
+        return view('home_page.home.home_process');
+    });
+    Route::get('product',function () {
+        return view('home_page.home.home_product');
+    });
+    Route::get('service',function () {
+        return view('home_page.home.home_service');
+    });
+    Route::get('contact',function () {
+        return view('home_page.home.home_contact');
+    });
+});
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('login',function () {
+        return view('home_page.customer.customer_login');
+    });
+    Route::get('register',function () {
+        return view('home_page.customer.customer_register');
+    });
+
+    Route::post('check_login', 'loginController@login');
+    Route::get('check_logout', 'loginController@logout');
+    
+    Route::get('home',function () {
+        return view('home_page.customer.customer_home');
+    });
+    Route::get('cart',function () {
+        return view('home_page.customer.customer_cart');
+    });
+    Route::get('order',function () {
+        return view('home_page.customer.customer_order');
+    });
+    Route::get('profile',function () {
+        return view('home_page.customer.customer_profile');
+    });
+    Route::get('notify',function () {
+        return view('home_page.customer.customer_notify');
+    });
+
+});
+    
+
+
+Route::group(['prefix' => 'admin-setting'], function () {
+
+    Route::get('/',function () {
+        return view('home_page.admin.admin_home');
+    });
+
+    Route::get('/about',function () {
+        return view('home_page.admin.admin_about');
+    });
+
+     Route::get('/product',function () {
+        return view('home_page.admin.admin_product');
+    });
+
+      Route::get('/process',function () {
+        return view('home_page.admin.admin_process');
+    });
+
+       Route::get('/service',function () {
+        return view('home_page.admin.admin_service');
+    });
+       
+        Route::get('/contact',function () {
+        return view('home_page.admin.admin_contact');
+    });
+
+});
+
+
+
+
+
+
+Route::group(['prefix' => 'page'], function () {
+    Route::post('login', 'loginController@login');
+    Route::get('logout', 'loginController@logout');
+    Route::post('send-otp', 'loginController@send_otp');
 });

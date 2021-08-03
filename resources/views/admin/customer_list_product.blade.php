@@ -44,7 +44,7 @@
                 <div class="search" style="position: relative;">
                     <input type="text" name="search" onkeyup="list_product(1,$('#search').val(),$('#date_begin').val(),$('#date_end').val())" id="search" placeholder="Tìm kiếm..." class="form-input py-1 px-2" value="">
                     <button class="input d-flex">
-                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="../public_admin/images/search_black.png" alt=""></span>
+                        <span class="icon" style="position: absolute;top: .5rem; right: .75rem;"><img src="{{asset('public_admin/images/search_black.png')}}" alt=""></span>
                     </button>
                 </div>
             </div>
@@ -217,7 +217,7 @@
             <div class="modal-title">
                 <h4>Chi tiết nguyên vật liệu</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -242,9 +242,9 @@
                         <div class="form-box-flex">
                             <label class="form-lable">An toàn kho</label>
                             <div class="amount">
-                                <button onclick="decrease('edit_safe_warehouse_material')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <button onclick="decrease('edit_safe_warehouse_material')" class="minus"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                 <input type="number" id="nums_edit_safe_warehouse_material" value="1">
-                                <button onclick="increase('edit_safe_warehouse_material')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                <button onclick="increase('edit_safe_warehouse_material')" class="plus"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                             </div>
                         </div>
                         <div class="form-box-flex">
@@ -272,7 +272,7 @@
             <div class="modal-title">
                 <h4>Thêm nguyên vật liệu</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
@@ -297,9 +297,9 @@
                         <div class="form-box-flex">
                             <label class="form-lable">An toàn kho</label>
                             <div class="amount">
-                                <button onclick="decrease('safe_warehouse_material')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <button onclick="decrease('safe_warehouse_material')" class="minus"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                 <input type="number" id="nums_safe_warehouse_material" value="1">
-                                <button onclick="increase('safe_warehouse_material')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                <button onclick="increase('safe_warehouse_material')" class="plus"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                             </div>
                         </div>
                         <div class="form-box-flex">
@@ -328,7 +328,7 @@
             <div class="modal-title">
                 <h4>Thêm sản phẩm</h4>
                 <span class="icon" data-tag="a">
-                            <img src="../public_admin/images/x-black.png" alt="">
+                            <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                         </span>
             </div>
             <div class="modal-content">
@@ -359,7 +359,7 @@
                                 <span data-target="add_module" data-id="0" class="form-file-img"></span>
 
                                 <span data-target="add_module" data-id="0" data-tag="a" type="cancel_thumb_nails" class="form-file-view-img-close">
-                                    <img src="../public_admin/images/x_thumb_nail.png" alt="">
+                                    <img src="{{asset('public_admin/images/x_thumb_nail.png')}}" alt="">
                                 </span>
                                 <strong data-target="add_module" data-id="0" class="form-file-img-title">Tải hình của bạn lên đây</strong>
                                 <span data-target="add_module" data-id="0" class="form-file-view-img">
@@ -372,17 +372,17 @@
                         <div class="form-box-flex">
                             <label class="form-lable">An toàn kho</label>
                             <div class="amount">
-                                <button onclick="decrease('safe_warehouse')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <button onclick="decrease('safe_warehouse')" class="minus"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                 <input type="number" id="nums_safe_warehouse" value="1">
-                                <button onclick="increase('safe_warehouse')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                <button onclick="increase('safe_warehouse')" class="plus"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                             </div>
                         </div>
                         <div class="form-box-flex">
                             <label class="form-lable">Số lượng đóng gói</label>
                             <div class="amount">
-                                <button onclick="decrease('quantity_packet')" class="minus"><img src="../public_admin/images/minus.png" alt=""></button>
+                                <button onclick="decrease('quantity_packet')" class="minus"><img src="{{asset('public_admin/images/minus.png')}}" alt=""></button>
                                 <input type="number" id="nums_quantity_packet" value="1">
-                                <button onclick="increase('quantity_packet')" class="plus"><img src="../public_admin/images/plus.png" alt=""></button>
+                                <button onclick="increase('quantity_packet')" class="plus"><img src="{{asset('public_admin/images/plus.png')}}" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -420,12 +420,12 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="../public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
-                    <span class="d-inline-block tick-success "><img src="../public_admin/images/warning-del.png " alt=" "></span>
+                    <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}} " alt=" "></span>
                     <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa ?</p>
                 </div>
                 <div class="t-center mg-t-175rem" id="btn_delete_material">

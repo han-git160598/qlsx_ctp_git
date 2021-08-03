@@ -181,7 +181,7 @@
                 </div>
             </div>
             <!-- contact box -->
-            <div class="d-none" id="contact-box">
+            <!-- <div class="d-none" id="contact-box">
                 <span class="box-contact-shadow "></span>
                 <span class="box-contact-close d-none "></span>
                 <div class="box-contact ">
@@ -213,7 +213,10 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+            
         </div>
     </div>
 <script src="{{ asset('public_customer/js/jquery.js')}} " type="text/javascript "></script>
