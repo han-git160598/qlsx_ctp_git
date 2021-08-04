@@ -11,16 +11,23 @@ $(document).ready(function() {
     var vendor_email;
     var vendor_address;
 
+    var filter = "";
+    $('input[name="search"]').keyup(function() {
+        date_begin = $('input[name="date_begin"]').val();
+        date_end = $('input[name="date_end"]').val();
+        filter = $('input[name="search"]').val();
+        get_list_vendor(detect, type_manager, page, filter);
+    })
     var id_admin;
     // call add vendor
     click_add_vendor(detect);
 });
 
-function get_list_vendor(detect, type_manager, page) {
+function get_list_vendor(detect, type_manager, page, filter = "") {
     $.ajax({
         url: urlapi,
         method: 'POST',
-        data: { detect: detect, type_manager: type_manager, page: page },
+        data: { detect: detect, type_manager: type_manager, page: page, filter: filter },
         dataType: 'json',
         headers: headers,
         success: function(response) {
@@ -109,7 +116,7 @@ function add_vendor(detect, type_manager, data) {
         'supplier_email': data.vendor_email,
         'id_admin': data.id_admin
     }
-    api_bool(api_data, 'admin/customer_list_vendor');
+    api_bool(api_data, '/admin/customer_list_vendor');
 };
 
 function edit_vendor(detect, type_manager, data) {
@@ -131,7 +138,7 @@ function edit_vendor(detect, type_manager, data) {
         'supplier_email': data.vendor_email,
         'id_admin': data.id_admin
     }
-    api_bool(api_data, 'admin/customer_list_vendor');
+    api_bool(api_data, '/admin/customer_list_vendor');
 }
 
 function delete_vendor(detect, type_manager, data) {
@@ -148,7 +155,7 @@ function delete_vendor(detect, type_manager, data) {
         'id_supplier': data.id_vendor,
         'id_admin': data.id_admin
     }
-    api_bool(api_data, 'admin/customer_list_vendor');
+    api_bool(api_data, '/admin/customer_list_vendor');
 }
 
 // get_vendor_by_id

@@ -30,7 +30,7 @@ function list_customer_product()
                                     <div class="box-item px-0 py-0">
                                     <a href onclick="detail_product(${item.id_product})">
                                         <div class="thumb-nail">
-                                            <img src="${urlserver + item.product_img}" alt="">
+                                            <img src="${urlimg_img + item.product_img}" alt="">
                                         </div>
                                         <div class="item-content px-1rem mg-t-1rem">
                                             <h4 class="t-left fw-600 t-cap fz-15rem lh-15rem"> ${item.product_name}</h4>
@@ -95,7 +95,7 @@ function arr_customer_order()
                             <div class="box-item px-0 py-0">
                                 <a onclick="order_detail(${item.id_order})">
                                 <div class="thumb-nail">
-                                    <img src="../public_customer/images/invoice_dashboard.png" alt="">
+                                    <img src="${urlserver +'public_customer/images/invoice_dashboard.png'}" alt="">
                                 </div>
                                 <div class="item-content px-1rem mg-t-1rem">
                                     <span class="fw-400 fz-1rem t-right">Giao vào ${item.order_date_delivery}</span>
@@ -145,7 +145,7 @@ function all_customer_product()
                     output  +=` <div class="box-item px-0 py-0">
                                  <a href onclick="detail_product(${item.id_product})">
                                     <div class="thumb-nail">
-                                        <img src="${urlserver + item.product_img}" alt="">
+                                        <img src="${urlimg_img + item.product_img}" alt="">
                                     </div>
                                     <div class="item-content px-1rem mg-t-1rem">
                                         <h4 class="t-left fw-600 t-cap fz-15rem lh-15rem"> ${item.product_name}</h4>

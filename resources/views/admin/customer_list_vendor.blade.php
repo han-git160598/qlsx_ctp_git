@@ -235,7 +235,7 @@
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
                     <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}}" alt=" "></span>
-                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
+                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa mục này?</p>
                 </div>
                 <div class="t-center mg-t-175rem">
                     <button id="submit_delete" data-id="" class="btn-submit w-20 d-inline-block fz-1rem">Xoá</button>

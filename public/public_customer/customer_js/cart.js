@@ -13,21 +13,20 @@ function show_cart()
 	response.forEach(function(item){
 		current_quantity= item.current_quantity;
 		 arr_id_product.push(item.id_product);
-
 	 output +=`  
 	 <div class="box-item w-100 p-2 my-1">
         <div class="box-product" style="position: relative;">
             <div class="d-flex product-item">
                 <span class="thumb-nail w-20 p-2">
-                     <img src="${urlserver + item.product_img}" alt="">
+                     <img src="${urlimg_img + item.product_img}" alt="">
                 </span>
                 <div class="mg-l-2rem w-100">
                     <p class="fw-600 fz-15rem  my-3">${item.product_name}</p>
                     <p class="fw-400 fz-15rem my-3">${item.product_code}</p>
                     <div class="amount w-30">
-                        <button class="minus" onClick="min_cart(${item.id_product})"><img src="../public_customer/images/minus.png" alt=""></button>
+                        <button class="minus" onClick="min_cart(${item.id_product})"><img src="${urlserver +'public_customer/images/minus.png'}" alt=""></button>
                         <input type="number" min="1" value="${item.current_quantity}" id="unit_title_product${item.id_product}">
-                        <button class="plus" onClick="max_cart(${item.id_product})"><img src="../public_customer/images/plus.png" alt=""></button>
+                        <button class="plus" onClick="max_cart(${item.id_product})"><img src="${urlserver +'public_customer/images/plus.png'}" alt=""></button>
                     </div>
                     <div class="my-2" style="border-bottom: 1px dashed #C4C4C4"></div>
                     <div class="d-flex py-2 align-item-center">
@@ -43,7 +42,7 @@ function show_cart()
                         <span>${item.product_unit_packet} ${item.product_unit_title}/${item.product_packet_title}</span>
                     </div>
                 </div>
-                <span onclick="remove_cart(${item.id_product})" class="icon" style="position: absolute; top: 0;right: 0;"><img src="../public_customer/images/x-black.png" alt=""></span>
+                <span onclick="remove_cart(${item.id_product})" class="icon" style="position: absolute; top: 0;right: 0;"><img src="${urlserver +'public_customer/images/x-black.png'}" alt=""></span>
             </div>
         </div>
     </div>  
@@ -123,15 +122,15 @@ function default_delivery()
                         <p class="fw-600 fz-125rem" id="company_delivery">${item.delivery_company}</p>
                         <div class="item-content">
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem" id="customer_delivery">${item.delivery_deputy_person}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem" id="phone_delivery">${item.delivery_deputy_phone}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem" id="address_delivery">${item.delivery_address}</span>
                             </p>
                         </div>
@@ -152,15 +151,15 @@ function default_delivery()
                         <p class="fw-600 fz-125rem" id="company_delivery">${item.delivery_company}</p>
                         <div class="item-content">
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem" id="customer_delivery">${item.delivery_deputy_person}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem" id="phone_delivery">${item.delivery_deputy_phone}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem" id="address_delivery">${item.delivery_address}</span>
                             </p>
                         </div>
@@ -299,15 +298,15 @@ function change_address_delivery(id){
                 <p class="fw-600 fz-125rem" id="company_delivery">${item.delivery_company}</p>
                 <div class="item-content">
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem" id="customer_delivery">${item.delivery_deputy_person}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem" id="phone_delivery">${item.delivery_deputy_phone}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem" id="address_delivery">${item.delivery_address}</span>
                     </p>
                 </div>
@@ -450,15 +449,15 @@ function change_address_shipping(id){
                 <p class="fw-600 fz-125rem" id="company_shipping">${item.shipping_reminiscent_name}</p>
                 <div class="item-content">
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem" id="customer_shipping">${item.shipping_contact_person} </span>
                     </p>
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem" id="phone_shipping">${item.shipping_contact_phone}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem" id="address_shipping">${item.shipping_address}</span>
                     </p>
                 </div>
@@ -530,6 +529,7 @@ function create_order(id)
             success: function(response) {
                 if(response.success=='true')
                 {
+                    localStorage.removeItem('cart');
                     alert(response.message);
                     let output=`
                     <span type="choose_date_give_order" onClick="btn_abc()" data-tag="a" class="get_modal btn btn-green  w-70">Tiến hành đặt hàng</span>            

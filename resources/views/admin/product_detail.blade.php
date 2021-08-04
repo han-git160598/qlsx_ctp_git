@@ -247,13 +247,13 @@
             <div class="modal-title">
                 <h4>Xóa thông tin</h4>
                 <span class="icon" data-tag="a">
-                    <img src="{{asset('public_admin/images/x-black.png" alt="">
+                    <img src="{{asset('public_admin/images/x-black.png')}}" alt="">
                 </span>
             </div>
             <div class="modal-content">
                 <div class="mg-t-2rem t-center">
                     <span class="d-inline-block tick-success "><img src="{{asset('public_admin/images/warning-del.png')}} " alt=" "></span>
-                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa hình ảnh này?</p>
+                    <p class="t-center mg-t-2rem fz-125rem">Bạn có chắc muốn xóa sản phẩm này?</p>
                 </div>
                 <div class="t-center mg-t-175rem" id="btn_delete_product">
                     <button id="add_file" class="btn-submit w-20 d-inline-block fz-1rem">Hoàn thành</button>

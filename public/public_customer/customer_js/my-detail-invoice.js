@@ -30,22 +30,22 @@ function order_detail()
             <div class="box-item mg-b-1rem px-3 py-5 w-100">
                 <div class="item-title d-flex mg-b-15rem">
                     <p class="fw-600 fz-125rem">Địa chỉ nhận hàng</p>
-                    <span data-tag="a" type="modal_edit_address_receive" class="get_modal fw-400 fz-1rem t-green-main">Sửa</span>
+                    <span onclick="show_edit_address()" data-tag="a" type="modal_edit_address_receive" class="get_modal fw-400 fz-1rem t-green-main">Sửa</span>
                 </div>
                 <div class="item-title d-flex">
                     <p class="fw-600 fz-125rem"> ${order_record_delivery.delivery_company}</p>
                 </div>
                 <div class="item-content">
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem">${order_record_delivery.delivery_deputy_person}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem"> ${order_record_delivery.delivery_deputy_phone}</span>
                     </p>
                     <p>
-                        <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                        <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                         <span class="fw-600 fz-1rem"> ${order_record_delivery.delivery_address}</span>
                     </p>
                 </div>
@@ -65,7 +65,7 @@ function order_detail()
                     output+=`
                         <a onclick="detail_product(${item_product.id_product})"  class="item-title d-flex flex-start product-item py-2">
                             <span class="fw-600 fz-125rem thumb-nail w-10">
-                                <img src="${urlserver + item_product.product_img}" alt="">
+                                <img src="${urlimg_img + item_product.product_img}" alt="">
                             </span>
                             <span class="fw-600 fz-125rem mg-l-125rem t-left">${item_product.product_name}
 
@@ -130,4 +130,8 @@ function detail_product(id)
             window.location.href = urlserver+ 'detail-product';
         }
     });
+}
+function show_edit_address()
+{
+    $('#choose_address_give_order').show()
 }

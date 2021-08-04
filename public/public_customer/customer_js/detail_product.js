@@ -14,7 +14,7 @@ function show_detail_product()
 	$('#product_packet_title').text(item.product_packet_title);
 	$('#product_material').text(item.product_unit_packet + item.product_unit_title +'/'+item.product_packet_title);
 	$('#product_description').text(item.product_description);
- 	$("#product_img").attr("src", urlserver + item.product_img);	
+ 	$("#product_img").attr("src", urlimg_img + item.product_img);	
  	current_quantity = item.current_quantity;
 }
 function min_cart()

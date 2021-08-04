@@ -1,6 +1,6 @@
 const urlapi = "https://ctp.nongtrangviet.com/api/";
 
-
+const urlimg_img="https://ctp.nongtrangviet.com/"
 //const urlserver = "https://ctp.nongtrangviet.com/";
 const urlserver = "http://127.0.0.1:8000/";
 const headers = "";
@@ -68,6 +68,7 @@ function increase(key)
     $('#nums_'+key).val(current_quantity1);
 }
 var item = JSON.parse(localStorage.getItem('customer_customer'));
+
 function JSONToCSVConvertor(JSONData, ReportTitle, ShowLabel) {
   //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
   var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;

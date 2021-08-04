@@ -69,15 +69,15 @@ function list_address_shipping()
                     </div>
                     <div class="item-content">
                         <p>
-                            <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                            <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                             <span class="fw-600 fz-1rem">${item.shipping_contact_person}</span>
                         </p>
                         <p>
-                            <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                            <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                             <span class="fw-600 fz-1rem">${item.shipping_contact_phone}</span>
                         </p>
                         <p>
-                            <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                            <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                             <span class="fw-600 fz-1rem">${item.shipping_address}</span>
                         </p>
                         <span data-tag="a" type="modal_delete_address_send" onclick="delete_address_shipping(${item.id_shipping})" class="get_modal btn btn-green">Xóa</span>
@@ -98,15 +98,15 @@ function list_address_shipping()
                         </div>
                         <div class="item-content">
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem">${item.shipping_contact_person}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem">${item.shipping_contact_phone}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem">${item.shipping_address}</span>
                             </p>
                             <span data-tag="a" type="modal_delete_address_send" onclick="delete_address_shipping(${item.id_shipping})" class="get_modal btn btn-green">Xóa</span>
@@ -115,7 +115,7 @@ function list_address_shipping()
                 </div>`;
             }
             })
-
+        $('#text_address').text('Địa chỉ gửi')
         $('#list_address_shipping').html(output);
         $('#btn_add_address').html(` <button  onclick="add_address_shipping()" class="btn-submit w-30 ">Hoàn thành</button>`);
         }
@@ -319,15 +319,15 @@ function list_address_delivery()
                     </div>
                     <div class="item-content">
                         <p>
-                            <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                            <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                             <span class="fw-600 fz-1rem">${item.delivery_deputy_phone}</span>
                         </p>
                         <p>
-                            <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                            <span class="icon"><img src="${urlserver +'public_customer/images/detail_phone_black.png'}" alt=""></span>
                             <span class="fw-600 fz-1rem">${item.delivery_deputy_person}</span>
                         </p>
                         <p>
-                            <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                            <span class="icon"><img src="${urlserver +'public_customer/images/detail_location_black.png'}" alt=""></span>
                             <span class="fw-600 fz-1rem">${item.delivery_address}</span>
                         </p>
                         <span data-tag="a" type="modal_delete_address_send" onclick="delete_address_delivery(${item.id_delivery})" class="get_modal btn btn-green">Xóa</span>
@@ -348,15 +348,15 @@ function list_address_delivery()
                         </div>
                         <div class="item-content">
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_account_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver +'public_customer/images/detail_account_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem">${item.delivery_deputy_phone}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_phone_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver + 'public_customer/images/detail_phone_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem">${item.delivery_deputy_person}</span>
                             </p>
                             <p>
-                                <span class="icon"><img src="../public_customer/images/detail_location_black.png" alt=""></span>
+                                <span class="icon"><img src="${urlserver + 'public_customer/images/detail_location_black.png'}" alt=""></span>
                                 <span class="fw-600 fz-1rem">${item.delivery_address}</span>
                             </p>
                             <span data-tag="a" type="modal_delete_address_send" onclick="delete_address_delivery(${item.id_delivery})" class="get_modal btn btn-green">Xóa</span>
@@ -365,7 +365,7 @@ function list_address_delivery()
                 </div>`;
             }
             })
-
+        $('#text_address').text('Địa chỉ nhận')
         $('#list_address_shipping').html(output);
         $('#btn_add_address').html(` <button  onclick="add_address_delivery()" class="btn-submit w-30 ">Hoàn thành</button>`);
         }
@@ -374,6 +374,7 @@ function list_address_delivery()
 }
 function add_address_delivery()
 {
+    var id_customer=item.id
     let reminiscent_company_name = $('#reminiscent_company_name').val()
     let address_address = $('#address_shipping').val() 
     let contact_person = $('#contact_person').val();

@@ -131,7 +131,7 @@
                         <!-- My address send -->
                         <div class="rcontent d-none" id="my_address_send">
                             <div class="item-title mg-b-05rem py-05rem px-1rem d-flex justify-content-space-between">
-                                <h4 class="t-left fw-600 t-cap fz-15rem lh-2rem">Địa chỉ gửi</h4>
+                                <h4 class="t-left fw-600 t-cap fz-15rem lh-2rem" id="text_address">Địa chỉ gửi</h4>
                                 <span data-tag="a" type="modal_add_address_send" class="get_modal fw-400 fw-125rem t-green-main">+ Thêm địa chỉ</span>
                             </div>
                             <div id="list_address_shipping">
