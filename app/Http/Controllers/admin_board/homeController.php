@@ -37,7 +37,6 @@ class homeController extends Controller
             "home_title"=>"Nhập tiêu đề",
             "home_img"=> "Nhập hình ảnh",
             "id_account"=>"Nhập id quản lý ",
-            "home_priority"=>"Nhập số thứ tự"
         ],$arr);
 
         if($check["success"]=="false")
@@ -47,7 +46,7 @@ class homeController extends Controller
         $data=[
              "home_title"=>$request->home_title,
              "id_account"=>$request->id_account,
-             "home_priority"=>$request->home_priority,
+             "home_priority"=>$request->home_priority!=null?$request->home_priority:1,
         ];
         $img=$local->save_img($request->file('home_img'),'images/web_home/');
         if($img!="false")

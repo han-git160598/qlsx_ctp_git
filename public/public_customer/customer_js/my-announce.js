@@ -17,7 +17,7 @@ function list_announce()
             response.data.forEach(function(item) {
                 output +=`
                 <div class="box-item d-flex mg-b-1rem px-3 py-5 w-100">
-                    <div class="icon mg-r-15rem"><img src="../public_customer/images/icon-invoice.png" alt=""></div>
+                    <div class="icon mg-r-15rem"><img src="${urlserver + 'public_customer/images/icon-invoice.png'}" alt=""></div>
                     <div>
                         <div class="item-title d-flex">
                             <p class="fw-600 fz-125rem">Chấp nhận yêu cầu hủy đơn</p>

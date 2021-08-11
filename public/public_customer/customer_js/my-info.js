@@ -116,6 +116,7 @@ function list_address_shipping()
             }
             })
         $('#text_address').text('Địa chỉ gửi')
+        $('#title_address').text('Địa chỉ gửi')
         $('#list_address_shipping').html(output);
         $('#btn_add_address').html(` <button  onclick="add_address_shipping()" class="btn-submit w-30 ">Hoàn thành</button>`);
         }
@@ -366,6 +367,7 @@ function list_address_delivery()
             }
             })
         $('#text_address').text('Địa chỉ nhận')
+        $('#title_address').text('Địa chỉ nhận')
         $('#list_address_shipping').html(output);
         $('#btn_add_address').html(` <button  onclick="add_address_delivery()" class="btn-submit w-30 ">Hoàn thành</button>`);
         }

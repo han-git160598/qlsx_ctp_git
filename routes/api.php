@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\App;
 */
 
 Route::group([
-    'middleware' => 'api'
+    'middleware' => ['api', 'cors']
 ], function ($router) {
 
     Route::post('/', function (Request $request) {

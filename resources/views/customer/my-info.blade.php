@@ -226,7 +226,7 @@
                                 <div class="box-content justify-content-center">
                                     <div class="box-item w-100">
                                         <div class="item-title">
-                                            <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem">Thêm địa chỉ gửi</h4>
+                                            <h4 class="t-left fw-600 t-cap fz-2rem lh-2rem" id="title_address">Thêm địa chỉ gửi</h4>
                                             <span class="icon"><img src="{{ asset('public_customer/images/x-black.png')}}" alt=""></span>
                                         </div>
                                         <form action="" method="post" class="form-edit" id="add_address_shipping">

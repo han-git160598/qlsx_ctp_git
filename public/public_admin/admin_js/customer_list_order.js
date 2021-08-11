@@ -296,9 +296,9 @@ function get_order_detail_by_id(order_id) {
                     // customer_code
                     $(".modal#info_processing div[data-name='customer_code']>div>p").text(item.customer_code);
                     // company
-                    $(".modal#info_processing div[data-name='company']>div>p").text(order_record_delivery.company);
+                    $(".modal#info_processing div[data-name='company']>div>p").text(order_record_delivery.delivery_company);
                     // address
-                    $(".modal#info_processing div[data-name='address']>div>p").text(order_record_delivery.address);
+                    $(".modal#info_processing div[data-name='address']>div>p").text(order_record_delivery.delivery_address);
                     // order_status
                     $(".modal#info_processing div[data-name='order_status']>div>p").text(status_text);
                     // $(".modal#info_processing div[data-name='order_status']>div #timelog_status").hide();

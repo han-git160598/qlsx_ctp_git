@@ -116,7 +116,7 @@ function add_vendor(detect, type_manager, data) {
         'supplier_email': data.vendor_email,
         'id_admin': data.id_admin
     }
-    api_bool(api_data, '/admin/customer_list_vendor');
+    api_bool(api_data, 'admin/customer_list_vendor');
 };
 
 function edit_vendor(detect, type_manager, data) {
@@ -138,7 +138,7 @@ function edit_vendor(detect, type_manager, data) {
         'supplier_email': data.vendor_email,
         'id_admin': data.id_admin
     }
-    api_bool(api_data, '/admin/customer_list_vendor');
+    api_bool(api_data, 'admin/customer_list_vendor');
 }
 
 function delete_vendor(detect, type_manager, data) {
@@ -155,7 +155,7 @@ function delete_vendor(detect, type_manager, data) {
         'id_supplier': data.id_vendor,
         'id_admin': data.id_admin
     }
-    api_bool(api_data, '/admin/customer_list_vendor');
+    api_bool(api_data, 'admin/customer_list_vendor');
 }
 
 // get_vendor_by_id
