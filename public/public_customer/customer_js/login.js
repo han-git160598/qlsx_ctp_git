@@ -34,10 +34,15 @@ $("#btn_login").click(function() {
                 if(response.success == 'false')
                 {
                     alert(response.message)
-                    
                 }else{
-                    localStorage.setItem('customer_customer', JSON.stringify(response.data[0]));
-                    window.location.href = urlserver+ 'customer-home';
+                    if(response.data[0].login_type=='customer')
+                    {
+                        localStorage.setItem('customer_customer', JSON.stringify(response.data[0]));
+                        window.location.href = urlserver+ 'customer-home';
+                    }else{
+                        alert('Tài khoản không tồn tại !')
+                    }
+                    
                     
 
                 }

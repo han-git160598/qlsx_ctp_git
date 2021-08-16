@@ -36,7 +36,15 @@ function list_ship(shipping_status=1,date_begin='',date_end='' ,filter='')
 			                +${item.total_product}
 			            </span>
 			        </td>
-			        <td>${item.shipping_time}</td>
+			        <td>${item.shipping_time}</td> `;
+					if(shipping_status == '1')
+					{
+						output+=`
+						<td class="t-center py-1">
+							<button onclick="completed_ship(${item.id_shipping})" class="btn btn-green btn-outline py-1 px-4">Hoàn tất</button>
+						</td>`;
+					}
+				output+=`
 			    </tr>
 				`;
 	        })
@@ -239,6 +247,31 @@ function edit_ship(id_shipping)
 		}
 	})
 
+}
+function completed_ship(id_shipping)
+{
+	var r = confirm('Xác nhận hoàn tất lệnh vận chuyển ')
+	if(r == true)
+	{
+		$.ajax({
+			url: urlapi,
+			method: 'POST',
+			data: { detect: 'ship_manager',type_manager:'update_ship'
+			,id_shipping:id_shipping,shipping_status:'2'
+			},
+			dataType: 'json',
+			headers: headers,
+			success: function(response) {
+				if(response.success =='true'){
+					alert(response.message)
+					list_ship(shipping_status=1,date_begin='',date_end='')
+				}else{
+					alert(response.message)
+				}
+			}
+		})
+	}
+	
 }
 function cancel_ship(id_shipping)
 {

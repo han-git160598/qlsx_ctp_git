@@ -29,15 +29,29 @@ $("#btn_login").click(function() {
             dataType: 'json',
             headers: headers,
             success: function(response) {
+           
                 if (response.success == 'false') {
                     alert(response.message)
 
-                } else {
-                    localStorage.setItem('account_customer', JSON.stringify(response.data[0]));
-                    let account_customer = JSON.parse(localStorage.getItem('account_customer'));
-                    if (account_customer.id_type == '1') {
-                        window.location.href = urlserver + 'admin/customer_index';
+                } else {    
+                    if(response.data[0].login_type== 'employee')
+                    {
+                        localStorage.setItem('account_customer', JSON.stringify(response.data[0]));
+                        let account_customer = JSON.parse(localStorage.getItem('account_customer'));
+                        if (account_customer.id_type == '3') {
+                            window.location.href = urlserver + 'list-ship';
+                        }else if(account_customer.id_type == '2')
+                        {
+                            window.location.href = urlserver + 'list-product-storage';
+                        }else if(account_customer.id_type == '4'){
+                            window.location.href = urlserver + 'list-production';
+                        }else {
+                            window.location.href = urlserver + 'admin/customer_index';
+                        }   
+                    }else{
+                        alert('Tài khoản không tồn tại !');
                     }
+                    
                 }
 
             }

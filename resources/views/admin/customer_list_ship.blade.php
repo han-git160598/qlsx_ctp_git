@@ -101,7 +101,7 @@
                                 <i class="fas fa-chevron-down arrow"></i>
                             </span>
                                         </th>
-                                        <th>Mã sản phẩm
+                                        <th>Mã sản phẩm1
                                             <span class="sort">
                                 <i class="fas fa-chevron-up arrow"></i>
                                 <i class="fas fa-chevron-down arrow"></i>
@@ -112,6 +112,9 @@
                                 <i class="fas fa-chevron-up arrow"></i>
                                 <i class="fas fa-chevron-down arrow"></i>
                             </span>
+                                        </th>
+                                        <th>
+                                            
                                         </th>
 
                                     </tr>
@@ -562,7 +565,7 @@
                     </div>
                     <div class="form-edit-row">
                         <label class="form-lable">Ghi chú</label>
-                        <textarea name="" id="shipping_note" cols="30" class="form-input" rows="5">Pellentesque interdum sed libero sit amet risus pulvinar. Vestibulum ut mauris congue.</textarea>
+                        <textarea name="" id="shipping_note" cols="30" class="form-input" rows="5"></textarea>
                     </div>
 
                 </div>

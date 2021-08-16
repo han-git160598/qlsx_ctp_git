@@ -254,7 +254,7 @@
                             output  +=`
                             <tr data-id-slide="${item.id}" type="edit_module" class="click_doubble get_modal">
                                 <td class="stt">${count}</td>
-                                <td class="thumb-nails"><img src="${urlimg + item.slide_img}" alt=""></td>
+                                <td class="thumb-nails"><img src="${urlimg_img + item.slide_img}" alt=""></td>
                                 <td id="slide_title">${item.slide_title}</td>
                                 <td><span data-tag="a" type="delete_module" class="get_modal t-green-main d-block t-right my-1">Xoá</span></td>
                             </tr>
@@ -415,7 +415,7 @@
                             alert(response.message);
                         } else {
                             alert(response.message);
-                            window.location.href = urlserver + '/admin/customer_index';
+                            window.location.href = urlserver + 'admin/customer_index';
                         }
                     }
                 });
@@ -472,7 +472,7 @@
                                 alert(response.message);
                             } else {
                                 alert(response.message);
-                                window.location.href = urlserver + '/admin/customer_index';
+                                window.location.href = urlserver + 'admin/customer_index';
                             }
                         }
                     });
@@ -492,7 +492,7 @@
                             alert(response.message)
                         } else {
                             alert('Xoá slide thành công');
-                            window.location.href = urlserver + '/admin/customer_index';
+                            window.location.href = urlserver + 'admin/customer_index';
                         }
                     }
                 });

@@ -99,7 +99,7 @@
          $(document).ready(function(){
             var account_admin = JSON.parse(localStorage.getItem('account_customer'))
             $('#account_name').text(account_admin.full_name)
-            list_module(account_admin)
+           // list_module(account_admin)
         })
     </script>
 

@@ -405,7 +405,7 @@ function get_list_permission(page, role = "") {
 
                     role_arr = role.split(',');
  
-                    
+                     
                         
                         if (role_arr.includes(item.id)) {
                             output_edit += `
